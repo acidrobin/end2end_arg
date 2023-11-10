@@ -46,7 +46,7 @@ def load_hf_model(
 
 model, tokenizer = load_hf_model(
     #"TheBloke/Llama-2-70B-GPTQ",
-    "meta-llama/Llama-2-13b-hf",
+    "meta-llama/Llama-2-7b-hf",
     mode=16,
     gradient_checkpointing=False,
     device_map='auto')
@@ -257,7 +257,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=1,
     #bf16=False,  # Use BF16 if available
     learning_rate=2e-4,
-    num_train_epochs=3,
+    num_train_epochs=1,
     optim="paged_adamw_8bit", #"adamw_torch" if not mode = 4,8
     gradient_checkpointing=False,
     # logging strategies
