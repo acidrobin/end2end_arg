@@ -17,9 +17,8 @@ tokenizer = LlamaTokenizer.from_pretrained(
 
 
 #train_dataset = get_preprocessed_samsum(tokenizer, 'validation')
-train_dataset = get_preprocessed_debatabase(tokenizer, "validation")
+train_dataset = get_preprocessed_debatabase(tokenizer, "train")
 
-import pdb; pdb.set_trace()
 
 model = LlamaForCausalLM.from_pretrained(
     model_id,  device_map='auto', torch_dtype=torch.float16,

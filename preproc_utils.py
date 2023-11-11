@@ -41,7 +41,7 @@ def get_preprocessed_samsum(tokenizer, split):
 
 def get_preprocessed_debatabase(tokenizer, split):
 
-    idebate_df = pd.read_csv("debatabase_data/end_to_end.csv")
+    idebate_df = pd.read_csv(f"debatabase_data/end_to_end_{split}.csv")
 
     dataset = datasets.Dataset.from_pandas(idebate_df)
 
