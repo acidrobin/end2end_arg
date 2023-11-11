@@ -4,8 +4,8 @@ from transformers import TrainerCallback
 from contextlib import nullcontext
 
 from transformers import LlamaForCausalLM, LlamaTokenizer
-from preproc_utils import get_preprocessed_dataset
-from configs.datasets import samsum_dataset
+from preproc_utils import get_preprocessed_samsum, get_preprocessed_debatabase
+# from configs.datasets import samsum_dataset
 
 model_id = 'meta-llama/Llama-2-7b-hf'
 
@@ -15,14 +15,17 @@ tokenizer = LlamaTokenizer.from_pretrained(
     # use_auth_token=hf_auth
 )
 
-model = LlamaForCausalLM.from_pretrained(
-    model_id, load_in_8bit=True, device_map='auto', torch_dtype=torch.float16,
-    use_auth_token=hf_auth
-)
 
-train_dataset = get_preprocessed_dataset(tokenizer, samsum_dataset, 'val')
+#train_dataset = get_preprocessed_samsum(tokenizer, 'validation')
+train_dataset = get_preprocessed_debatabase(tokenizer, "validation")
 
 import pdb; pdb.set_trace()
+
+model = LlamaForCausalLM.from_pretrained(
+    model_id,  device_map='auto', torch_dtype=torch.float16,
+    # use_auth_token=hf_auth
+)
+
 
 eval_prompt = """
 Summarize this dialog:
@@ -51,7 +54,7 @@ model_input = tokenizer(eval_prompt, return_tensors="pt").to("cuda")
 
 model.eval()
 with torch.no_grad():
-    print(tokenizer.decode(model.generate(**model_input, max_new_tokens=100)[0], skip_special_tokens=True))
+    print(tokenizer.decode(model.generate(**model_input, max_new_tokens=400)[0], skip_special_tokens=True))
 
 model.train()
 
@@ -152,4 +155,4 @@ model.save_pretrained(output_dir)
 
 model.eval()
 with torch.no_grad():
-    print(tokenizer.decode(model.generate(**model_input, max_new_tokens=100)[0], skip_special_tokens=True))
+    print(tokenizer.decode(model.generate(**model_input, max_new_tokens=400)[0], skip_special_tokens=True))
