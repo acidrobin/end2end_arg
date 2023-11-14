@@ -67,11 +67,32 @@ def get_preprocessed_debatabase(tokenizer, split):
         sample = {
             "input_ids": prompt + summary,
             "attention_mask" : [1] * (len(prompt) + len(summary)),
-            "labels": [-100] * len(prompt) + summary,
-            "summaries": summary            }
+            "labels": [-100] * len(prompt) + summary}
+
+
+    
+
+
+        sample = {"input_ids": sample["input_ids"][:4000],
+        "attention_mask": sample["input_ids"][:4000],
+        "labels": sample["labels"][:4000]
+        
+        }
+
+
 
         return sample
 
+
+
+
     dataset = dataset.map(tokenize_add_label, remove_columns=list(dataset.features))
+    # lengths = [len(i) for i in dataset["input_ids"]]
+    # import matplotlib.pyplot as plt
+    # plt.hist(lengths, bins=200)
+    # plt.show()
+    # plt.savefig("hist")
+    # import pdb; pdb.set_trace()
+
     #input max length = 6647
     return(dataset)
