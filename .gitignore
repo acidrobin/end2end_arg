@@ -5,3 +5,5 @@ pretrained_model
 slurm_output
 logs
 tmp.sh
+client_secrets.json
+slurm*
