@@ -83,7 +83,7 @@ def leaf_stance_f1(gold, predicted):
 
 
 def parse_text_to_networkx(text):
-    node_re = r"\s*(.+)\s*\(\s*(\S+)\s*(.+)\s*\)\s*(.+)"
+    node_re = r"\s*(.+?)\s*\(\s*(\S+)\s*(.+?)\s*\)\s*(.+)"
 
     text_lines = text.split("\n")
     G = nx.DiGraph(rankdir="TB")
@@ -110,21 +110,34 @@ def parse_text_to_networkx(text):
     return G
 
 if __name__ == "__main__":
-    networkx_graph = parse_text_to_networkx(
 
-        """Comment 1 (attacks main topic): It is worse to actively participate in a death then to simply allow an individual to die
+    import pandas as pd
+    train_df = pd.read_csv("debatabase_data/end_to_end_test_multilevel.csv")
+    summaries = list(train_df.summaries)
 
-Comment 2 (attacks main topic): The act of killing can wreak immense psychological damage upon rational individuals
+    for summ in summaries:
+        networkx_graph = parse_text_to_networkx(summ) 
+        print(networkx_graph)
+        if len(networkx_graph) > 7:
+            print(summ)
+            import pdb; pdb.set_trace()
+            show_graph(networkx_graph, show_perspectives=True)
 
-Comment 3 (attacks main topic): We should not will a world where killing is acceptable in to existencele in to existence
+#     networkx_graph = parse_text_to_networkx(
 
-Comment 4 (supports main topic): A utilitarian approach will result in a decision that saves the largest number of lives possible.
+#         """Comment 1 (attacks main topic): It is worse to actively participate in a death then to simply allow an individual to die
 
-Comment 5 (supports main topic): The human right to life compels us to save as many as possible
+# Comment 2 (attacks main topic): The act of killing can wreak immense psychological damage upon rational individuals
 
-Comment 6 (attacks Comment 1): Consequences do in fact matter more."""
-    )
-    show_graph(networkx_graph, show_perspectives=True)
-    print(networkx_graph)
+# Comment 3 (attacks main topic): We should not will a world where killing is acceptable in to existencele in to existence
+
+# Comment 4 (supports main topic): A utilitarian approach will result in a decision that saves the largest number of lives possible.
+
+# Comment 5 (supports main topic): The human right to life compels us to save as many as possible
+
+# Comment 6 (attacks Comment 1): Consequences do in fact matter more."""
+#     )
+#     show_graph(networkx_graph, show_perspectives=True)
+#     print(networkx_graph)
 
     
