@@ -8,6 +8,13 @@ from transformers import LlamaForCausalLM, LlamaTokenizer
 from preproc_utils import get_preprocessed_samsum, get_preprocessed_debatabase
 # from configs.datasets import samsum_dataset
 
+from datasets import load_metric
+
+meteor = load_metric('meteor')
+rouge = load_metric('rouge')
+
+
+
 print("cuda available?", torch.cuda.is_available())
 
 model_id = 'meta-llama/Llama-2-7b-hf'
@@ -20,8 +27,34 @@ tokenizer = LlamaTokenizer.from_pretrained(
 tokenizer.pad_token = "[PAD]"
 
 
+
+def compute_metrics(prediction):
+    labels_ids = prediction.label_ids
+    pred_ids = prediction.predictions
+
+    pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
+    labels_ids[labels_ids == -100] = tokenizer.pad_token_id
+    label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
+
+    meteor_output = meteor.compute(predictions=pred_str, references=label_str)
+    rouge_output = rouge.compute(
+        predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
+
+    return {
+        'meteor_score': round(meteor_output['meteor'], 4),
+        'rouge2_precision': round(rouge_output.precision, 4),
+        'rouge2_recall': round(rouge_output.recall, 4),
+        'rouge2_f_measure': round(rouge_output.fmeasure, 4)
+    }
+
+
+
+
+
+
 # samsum_dataset = get_preprocessed_samsum(tokenizer, 'validation')
 train_dataset = get_preprocessed_debatabase(tokenizer, "train")
+val_dataset = get_preprocessed_debatabase(tokenizer, "val")
 
 model = LlamaForCausalLM.from_pretrained(
     model_id,  device_map='auto', torch_dtype=torch.float16,
@@ -29,7 +62,6 @@ model = LlamaForCausalLM.from_pretrained(
 )
 model.resize_token_embeddings(len(tokenizer))
 
-import pdb; pdb.set_trace()
 eval_prompt = """
 Create an Argument Graph from these comments:
 Comment 1: Underground nuclear waste storage means that nuclear waste is stored at least 300m underground. [I1]The harm of a leak 300m underground is significantly limited, if the area has been chosen correctly then there should be no water sources nearby to contaminate. If this is the case, then a leak’s harm would be limited to the layers of sediment nearby which would be unaffected by radiation. By comparison a leak outside might lead to animals nearby suffering from contamination. Further nuclear waste might reach water sources should there be a leak above ground, if it is raining heavily when the leak happens for example. Further, the other options available, such as above ground storage present a potentially greater danger, should something go wrong. This is because it is much easier for nuclear waste to leak radiation into the air. This is problematic because even a hint of radiation may well cause people to panic owing to the damaging and heavily publicised consequences of previous nuclear safety crises. As such, underground storage is safer both directly and indirectly.[1] As well as this, underground storage also prevents nuclear waste or nuclear radiation from reaching other states and as such, results in greater safety across borders.[2] Further, storing all nuclear waste underground means that countries can concentrate their research and training efforts on responding to subterranean containment failures. Focus and specialisation of this type is much more likely to avert a serious release of nuclear material from an underground facility than the broad and general approach that will be fostered by diverse and distinct above-ground storage solutions. [1] “Europe eyes underground nuclear waste repositories.” Infowars Ireland. 20/02/2010 http://info-wars.org/2010/02/20/europe-eyes-underground-nuclear-waste-repositories/[2] “EU Debates Permanent Storage For Nuclear Waste.” 04/11/2010 AboutMyPlanet. http://www.aboutmyplanet.com/environment/eu-debates-permanent-storage-for-nuclear-waste/ [I1]I am not sure how to replace this section. “Leakage” of radioactive material into the air is a minimal danger. The contributor may be referring to the ejection of irradiated dust and other particulates that has occurred when nuclear power stations have suffered explosive containment failures, but this is not comparable to the types of containment failures that might happen in facilities used to store spent nuclear fuel rods and medical waste. One of the more substantial risks presented by underground storage is release of nuclear material into a water source. 
@@ -132,6 +164,7 @@ training_args = TrainingArguments(
     output_dir=output_dir,
     overwrite_output_dir=True,
     bf16=True,  # Use BF16 if available
+    evaluation_strategy="epoch",
     # logging strategies
     logging_dir=f"{output_dir}/logs",
     logging_strategy="steps",
@@ -149,6 +182,8 @@ trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    compute_metrics=compute_metrics,
     data_collator=data_collator,
     callbacks=[profiler_callback] if enable_profiler else [],
 )
