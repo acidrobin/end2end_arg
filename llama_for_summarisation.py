@@ -1,5 +1,6 @@
 import torch
-from transformers import default_data_collator, Trainer, TrainingArguments
+from transformers import Trainer, TrainingArguments
+from transformers.data.data_collator import DataCollatorForTokenClassification
 from transformers import TrainerCallback
 from contextlib import nullcontext
 
@@ -16,18 +17,19 @@ tokenizer = LlamaTokenizer.from_pretrained(
     model_id,
     # use_auth_token=hf_auth
 )
+tokenizer.pad_token = "[PAD]"
 
 
-#train_dataset = get_preprocessed_samsum(tokenizer, 'validation')
+# samsum_dataset = get_preprocessed_samsum(tokenizer, 'validation')
 train_dataset = get_preprocessed_debatabase(tokenizer, "train")
-
 
 model = LlamaForCausalLM.from_pretrained(
     model_id,  device_map='auto', torch_dtype=torch.float16,
     # use_auth_token=hf_auth
 )
+model.resize_token_embeddings(len(tokenizer))
 
-
+import pdb; pdb.set_trace()
 eval_prompt = """
 Create an Argument Graph from these comments:
 Comment 1: Underground nuclear waste storage means that nuclear waste is stored at least 300m underground. [I1]The harm of a leak 300m underground is significantly limited, if the area has been chosen correctly then there should be no water sources nearby to contaminate. If this is the case, then a leak’s harm would be limited to the layers of sediment nearby which would be unaffected by radiation. By comparison a leak outside might lead to animals nearby suffering from contamination. Further nuclear waste might reach water sources should there be a leak above ground, if it is raining heavily when the leak happens for example. Further, the other options available, such as above ground storage present a potentially greater danger, should something go wrong. This is because it is much easier for nuclear waste to leak radiation into the air. This is problematic because even a hint of radiation may well cause people to panic owing to the damaging and heavily publicised consequences of previous nuclear safety crises. As such, underground storage is safer both directly and indirectly.[1] As well as this, underground storage also prevents nuclear waste or nuclear radiation from reaching other states and as such, results in greater safety across borders.[2] Further, storing all nuclear waste underground means that countries can concentrate their research and training efforts on responding to subterranean containment failures. Focus and specialisation of this type is much more likely to avert a serious release of nuclear material from an underground facility than the broad and general approach that will be fostered by diverse and distinct above-ground storage solutions. [1] “Europe eyes underground nuclear waste repositories.” Infowars Ireland. 20/02/2010 http://info-wars.org/2010/02/20/europe-eyes-underground-nuclear-waste-repositories/[2] “EU Debates Permanent Storage For Nuclear Waste.” 04/11/2010 AboutMyPlanet. http://www.aboutmyplanet.com/environment/eu-debates-permanent-storage-for-nuclear-waste/ [I1]I am not sure how to replace this section. “Leakage” of radioactive material into the air is a minimal danger. The contributor may be referring to the ejection of irradiated dust and other particulates that has occurred when nuclear power stations have suffered explosive containment failures, but this is not comparable to the types of containment failures that might happen in facilities used to store spent nuclear fuel rods and medical waste. One of the more substantial risks presented by underground storage is release of nuclear material into a water source. 
@@ -66,7 +68,16 @@ def create_peft_config(model):
         r=8,
         lora_alpha=32,
         lora_dropout=0.05,
-        target_modules=["q_proj", "v_proj"]
+        target_modules=[
+    "q_proj",
+    "up_proj",
+    "o_proj",
+    "k_proj",
+    "down_proj",
+    "gate_proj",
+    "v_proj"
+  ]
+
     )
 
     # prepare int-8 model for training
@@ -84,10 +95,10 @@ output_dir = "tmp/llama-output"
 
 config = {
     'lora_config': lora_config,
-    'learning_rate': 1e-4,
-    'num_train_epochs': 1,
+    'learning_rate': 1e-3, #1e-4
+    'num_train_epochs': 40,
     'gradient_accumulation_steps': 2,
-    'per_device_train_batch_size': 2,
+    'per_device_train_batch_size': 1,
     'gradient_checkpointing': False,
 }
 
@@ -132,16 +143,18 @@ training_args = TrainingArguments(
 )
 
 # Create Trainer instance
+data_collator = DataCollatorForTokenClassification(tokenizer)
+
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
-    data_collator=default_data_collator,
+    data_collator=data_collator,
     callbacks=[profiler_callback] if enable_profiler else [],
 )
 
 # Start training
-trainer.train()
+trainer.train(resume_from_checkpoint=False)
 
 model.save_pretrained(output_dir)
 
