@@ -5,6 +5,12 @@ import os.path as op
 import numpy as np
 np.random.seed(42)
 
+from nltk import sent_tokenize
+
+def first_sent_summarize(comment):
+    return sent_tokenize(comment)[0]
+
+
 def convert_comments_to_string(thread):
     topic = thread.iloc[0]["title"]
 
@@ -20,6 +26,14 @@ def convert_comments_to_string(thread):
 
     return comments_as_string
 
+
+def get_parent_label(thread, parent_id):
+    if parent_id.startswith("t"):
+        return "main topic"
+    else:
+        label_num = thread.index[thread["comment_id"] == parent_id].item() +1
+        return f"Comment {label_num}"
+
 def convert_summaries_to_string(thread):
     topic = thread.iloc[0]["title"]
 
@@ -31,7 +45,10 @@ def convert_summaries_to_string(thread):
 
     comment_summaries = list(thread["summary"])
 
-    numbered_summaries = [f"{number} ({stance}): {summary}" for number, stance, summary in list(zip(comment_numbers, comment_stance, comment_summaries))]
+    parent_labels = [get_parent_label(thread, p) for p in list(thread["parent_id"])]
+
+    numbered_summaries = [f"{number} ({stance}s {p_lab}): {summary}" for number, stance, p_lab, summary in 
+                                    list(zip(comment_numbers, comment_stance, parent_labels, comment_summaries))]
     
     summaries_as_string = ("\n\n".join(numbered_summaries))
 
@@ -43,6 +60,11 @@ def is_valid(sequence, parents_list):
     """Parents_list: [(comment_id, parent_id)]  """
     return all([sequence.index(comment_id) > sequence.index(parent_id) 
                 for comment_id, parent_id in parents_list])
+
+
+def parents_valid(sequence, parents_list):
+    """Parents_list: [(comment_id, parent_id)]  """
+    return all([p in sequence for c, p in parents_list if c in sequence])
 
 
 def generate_end_to_end():
@@ -69,17 +91,22 @@ def generate_end_to_end():
 
     for name in thread_names:
 
+        np.random.seed(np.random.choice(100,1))
+
         thread_csv = pd.read_csv(op.join("debatabase_data","threads",name))
+
+
+        thread_csv["first_sent"] = thread_csv.comment.map(first_sent_summarize)
+        thread_csv.loc[thread_csv.summary == "no summary", "summary"] = thread_csv.first_sent
+
+
         #Comments are shuffled so that the llm cannot learn the simple pattern in the
         #comments (alternating attack and support)
-        print(thread_csv)
         parents_csv = thread_csv[thread_csv["parent_id"].str.startswith("p")]
 
         parents_list = list(zip(list(parents_csv.comment_id), list(parents_csv.parent_id)))
+        ids_list = list(thread_csv.comment_id)
 
-        random_state = np.random.choice(list(range(100)))
-        csv_shuffled = thread_csv.sample(frac=1, random_state=random_state)
-        ids_list = list(csv_shuffled.comment_id)
         np.random.shuffle(ids_list)
         while not is_valid(ids_list, parents_list):
             # csv_shuffled = csv_shuffled.sample(frac=1, random_state=random_state)
@@ -87,12 +114,11 @@ def generate_end_to_end():
 
 
         #randomly delete all but six comments
-        np.delete(my_list,np.random.choice(range(len(my_list)),max(len(my_list)-4,0),replace=False))
+        short_list = np.delete(ids_list,np.random.choice(range(len(ids_list)),max(len(ids_list)-6,0),replace=False))
+        while not parents_valid(short_list, parents_list):
+            short_list = np.delete(ids_list,np.random.choice(range(len(ids_list)),max(len(ids_list)-6,0),replace=False))
 
-
-
-        # csv_shuffled = thread_csv.sample(frac=1, random_state=42
-        new = csv_shuffled[csv_shuffled["comment_id"].str.startswith("p")]
+        new = thread_csv.set_index("comment_id").loc[short_list].reset_index()
         
 
         comments_as_string = convert_comments_to_string(new)
@@ -123,9 +149,9 @@ def generate_end_to_end():
     summaries_df_test = pd.DataFrame({"comments": cs_test,
                                     "summaries": ss_test})
     
-    summaries_df_train.to_csv("debatabase_data/end_to_end_train.csv")
-    summaries_df_val.to_csv("debatabase_data/end_to_end_val.csv")
-    summaries_df_test.to_csv("debatabase_data/end_to_end_test.csv")
+    summaries_df_train.to_csv("debatabase_data/end_to_end_train_multilevel.csv")
+    summaries_df_val.to_csv("debatabase_data/end_to_end_val_multilevel.csv")
+    summaries_df_test.to_csv("debatabase_data/end_to_end_test_multilevel.csv")
 
 
 generate_end_to_end()
