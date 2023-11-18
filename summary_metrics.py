@@ -11,7 +11,7 @@ from arglu.plot_argument_graphs import show_graph
 import networkx as nx
 
 # from arglu.file_type_utils import read_textgraph, write_textgraph
-# from arglu.graph_processing import make_arg_dicts_from_graph, make_graph_from_arg_dicts, get_perspectives_dict
+from arglu.graph_processing import make_arg_dicts_from_graph, make_graph_from_arg_dicts, get_perspectives_dict
 # from arglu.mutable_tree import MutableTree
 # from arglu.node import Node
 # from arglu.plot_argument_graphs import show_graph
@@ -30,6 +30,7 @@ def get_leaves(networkx_graph):
     leaves = [node for node in networkx_graph.nodes() 
             if networkx_graph.out_degree(node) == 1 and 
                networkx_graph.in_degree(node) == 0 ]
+
     leaf_texts = [networkx_graph.nodes()[leaf]["text"] for leaf in leaves]
     return list(sorted(leaf_texts))
 
@@ -39,34 +40,37 @@ def get_leaf_perspectives(leaf_list, networkx_graph):
     nodes, relations = make_arg_dicts_from_graph(networkx_graph)
     text2node = {t: n for n, t in nodes.items()}
     perspective_dict = get_perspectives_dict(nodes, relations)
+    print(perspective_dict)
+    import pdb; pdb.set_trace()
     text2perspective = {t: perspective_dict[n] for t, n in text2node.items()}
 
     return [text2perspective[t] for t in leaf_list]
 
-def get_gold_and_pred_perspectives(gold_graph, predicted_graph):
-
-    predicted_leaves = get_leaves(predicted_graph)
-    gold_leaves = get_leaves(gold_graph)
-
-    assert normalize_list_data(gold_leaves) == normalize_list_data(predicted_leaves)
-
-    pred_perspectives = get_leaf_perspectives(predicted_leaves, predicted_graph)
-    gold_perspectives = get_leaf_perspectives(gold_leaves, gold_graph)
-
-    persp_map = {"red":0, "green":1}
-
-    pred_perspectives = [p for p in map(persp_map.get, pred_perspectives)]
-    gold_perspectives = [p for p in map(persp_map.get, gold_perspectives)]
-
-    assert len(gold_perspectives) == len(pred_perspectives)
-
-    return gold_perspectives, pred_perspectives
 
 
-def leaf_stance_accuracy(gold, predicted):
+def get_gold_and_pred_perspectives(gold_graph, pred_graph):
+    
+    gold_persp_dict= get_perspectives_dict(*make_arg_dicts_from_graph(gold_graph))
+    pred_persp_dict = get_perspectives_dict(*make_arg_dicts_from_graph(pred_graph))
+    gold_persp_dict.pop("main topic")
+    pred_persp_dict.pop("main topic")
+    gold_keys = list(gold_persp_dict)
+    
+    gold_perspectives = [gold_persp_dict[k] for k in gold_keys]
+    pred_perspectives = [pred_persp_dict.get(k, "black") for k in gold_keys]
+
+    persp_map = {"red":0, "green":1, "black":2}
+
+    pred_perspectives = [persp_map[p] for p in pred_perspectives]
+    gold_perspectives = [persp_map[p] for p in gold_perspectives]
+
+    return(gold_perspectives, pred_perspectives)
+
+
+def node_stance_accuracy(gold, predicted):
     
     gold_perspectives, pred_perspectives = get_gold_and_pred_perspectives(gold_graph=gold, 
-                                                            predicted_graph=predicted)
+                                                            pred_graph=predicted)
 
     n_correct = sum(np.array(gold_perspectives) == np.array(pred_perspectives))
     n_total = len(gold_perspectives)
@@ -74,10 +78,10 @@ def leaf_stance_accuracy(gold, predicted):
     return(n_correct / n_total)
 
 
-def leaf_stance_f1(gold, predicted):
+def node_stance_f1(gold, predicted):
     
     gold_perspectives, pred_perspectives = get_gold_and_pred_perspectives(gold_graph=gold, 
-                                                            predicted_graph=predicted)
+                                                            pred_graph=predicted)
 
     return f1_score(y_true=gold_perspectives, y_pred=pred_perspectives)
 
@@ -114,30 +118,17 @@ if __name__ == "__main__":
     import pandas as pd
     train_df = pd.read_csv("debatabase_data/end_to_end_test_multilevel.csv")
     summaries = list(train_df.summaries)
-
-    for summ in summaries:
+    
+    for i, summ in enumerate(summaries[:-1]):
         networkx_graph = parse_text_to_networkx(summ) 
+        networkx_graph_2 = parse_text_to_networkx(summaries[i+1])
         print(networkx_graph)
         if len(networkx_graph) > 7:
             print(summ)
-            import pdb; pdb.set_trace()
             show_graph(networkx_graph, show_perspectives=True)
 
-#     networkx_graph = parse_text_to_networkx(
+        nodes, relations = make_arg_dicts_from_graph(networkx_graph)
+        print(node_stance_f1(networkx_graph, networkx_graph_2))
+        print(node_stance_accuracy(networkx_graph, networkx_graph_2))
+        
 
-#         """Comment 1 (attacks main topic): It is worse to actively participate in a death then to simply allow an individual to die
-
-# Comment 2 (attacks main topic): The act of killing can wreak immense psychological damage upon rational individuals
-
-# Comment 3 (attacks main topic): We should not will a world where killing is acceptable in to existencele in to existence
-
-# Comment 4 (supports main topic): A utilitarian approach will result in a decision that saves the largest number of lives possible.
-
-# Comment 5 (supports main topic): The human right to life compels us to save as many as possible
-
-# Comment 6 (attacks Comment 1): Consequences do in fact matter more."""
-#     )
-#     show_graph(networkx_graph, show_perspectives=True)
-#     print(networkx_graph)
-
-    
