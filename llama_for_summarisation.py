@@ -51,6 +51,9 @@ def compute_metrics(prediction):
     rouge_output = rouge.compute(
          predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
 
+    print(pred_str[0])
+
+
     return {
         'meteor_score': round(meteor_output['meteor'], 4),
         'rouge2_precision': round(rouge_output.precision, 4),
@@ -66,7 +69,7 @@ def compute_metrics(prediction):
 # samsum_dataset = get_preprocessed_samsum(tokenizer, 'validation')
 train_dataset = get_preprocessed_debatabase(tokenizer, "train")
 val_dataset = get_preprocessed_debatabase(tokenizer, "val")
-val_dataset = val_dataset.select(range(2))
+# val_dataset = val_dataset.select(range(2))
 
 
 model = LlamaForCausalLM.from_pretrained(
@@ -178,7 +181,9 @@ training_args = Seq2SeqTrainingArguments(
     output_dir=output_dir,
     overwrite_output_dir=True,
     bf16=True,  # Use BF16 if available
-    evaluation_strategy="epoch",
+    #evaluation_strategy="epoch",
+    evaluation_strategy="steps",
+    eval_steps=1,
     predict_with_generate=True,
     generation_config= transformers.GenerationConfig(max_new_tokens=400),
     # logging strategies
