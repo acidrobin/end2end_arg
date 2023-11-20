@@ -1,5 +1,7 @@
 import torch
-from transformers import Trainer, TrainingArguments
+import transformers
+from transformers import Trainer, Seq2SeqTrainer, TrainingArguments, Seq2SeqTrainingArguments
+from trl import SFTTrainer
 from transformers.data.data_collator import DataCollatorForTokenClassification
 from transformers import TrainerCallback
 from contextlib import nullcontext
@@ -29,6 +31,8 @@ tokenizer.pad_token = "[PAD]"
 
 
 def compute_metrics(prediction):
+    import pdb; pdb.set_trace()
+
     labels_ids = prediction.label_ids
     pred_ids = prediction.predictions
 
@@ -161,15 +165,18 @@ else:
     profiler = nullcontext()
 
 # Define training args
-training_args = TrainingArguments(
+training_args = Seq2SeqTrainingArguments(
     output_dir=output_dir,
     overwrite_output_dir=True,
     bf16=True,  # Use BF16 if available
-    evaluation_strategy="epoch",
+    evaluation_strategy="steps",
+    eval_steps=1,
+    predict_with_generate=True,
+    generation_config= transformers.GenerationConfig(max_new_tokens=400),
     # logging strategies
     logging_dir=f"{output_dir}/logs",
     logging_strategy="steps",
-    logging_steps=10,
+    logging_steps=1,
     save_strategy="no",
     optim="adamw_torch_fused",
     max_steps=total_steps if enable_profiler else -1,
@@ -179,8 +186,9 @@ training_args = TrainingArguments(
 # Create Trainer instance
 data_collator = DataCollatorForTokenClassification(tokenizer)
 
-trainer = Trainer(
+trainer = Seq2SeqTrainer(
     model=model,
+    tokenizer=tokenizer,
     args=training_args,
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
