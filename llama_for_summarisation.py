@@ -31,7 +31,14 @@ tokenizer.pad_token = "[PAD]"
 
 
 def compute_metrics(prediction):
-    import pdb; pdb.set_trace()
+
+#    val_dataloader = torch.utils.data.DataLoader(val_dataset, collate_fn=data_collator, batch_size=1)
+
+    # for batch in val_dataloader:
+    #     input_ids = batch[]
+
+
+#    import pdb; pdb.set_trace()
 
     labels_ids = prediction.label_ids
     pred_ids = prediction.predictions
@@ -42,7 +49,7 @@ def compute_metrics(prediction):
 
     meteor_output = meteor.compute(predictions=pred_str, references=label_str)
     rouge_output = rouge.compute(
-        predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
+         predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
 
     return {
         'meteor_score': round(meteor_output['meteor'], 4),
@@ -59,6 +66,8 @@ def compute_metrics(prediction):
 # samsum_dataset = get_preprocessed_samsum(tokenizer, 'validation')
 train_dataset = get_preprocessed_debatabase(tokenizer, "train")
 val_dataset = get_preprocessed_debatabase(tokenizer, "val")
+val_dataset = val_dataset.select(range(2))
+
 
 model = LlamaForCausalLM.from_pretrained(
     model_id,  device_map='auto', torch_dtype=torch.float16,
@@ -169,8 +178,7 @@ training_args = Seq2SeqTrainingArguments(
     output_dir=output_dir,
     overwrite_output_dir=True,
     bf16=True,  # Use BF16 if available
-    evaluation_strategy="steps",
-    eval_steps=1,
+    evaluation_strategy="epoch",
     predict_with_generate=True,
     generation_config= transformers.GenerationConfig(max_new_tokens=400),
     # logging strategies
@@ -180,11 +188,13 @@ training_args = Seq2SeqTrainingArguments(
     save_strategy="no",
     optim="adamw_torch_fused",
     max_steps=total_steps if enable_profiler else -1,
+    metric_for_best_model="rouge2_f_measure",
+    greater_is_better=True,
     **{k: v for k, v in config.items() if k != 'lora_config'}
 )
 
 # Create Trainer instance
-data_collator = DataCollatorForTokenClassification(tokenizer)
+# data_collator = DataCollatorForTokenClassification(tokenizer)
 
 trainer = Seq2SeqTrainer(
     model=model,
@@ -193,7 +203,7 @@ trainer = Seq2SeqTrainer(
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
     compute_metrics=compute_metrics,
-    data_collator=data_collator,
+    # data_collator=data_collator,
     callbacks=[profiler_callback] if enable_profiler else [],
 )
 

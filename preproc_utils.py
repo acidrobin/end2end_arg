@@ -73,10 +73,9 @@ def get_preprocessed_debatabase(tokenizer, split):
     
         #CHANGE THIS
 
-        sample = {"input_ids": sample["input_ids"][:400],
-        "attention_mask": sample["input_ids"][:400],
-        "labels": sample["labels"][:400]
-        
+        sample = {"input_ids": sample["input_ids"],
+        "attention_mask": sample["attention_mask"],
+        "labels": sample["labels"]
         }
 
 
