@@ -15,8 +15,6 @@ from datasets import load_metric
 meteor = load_metric('meteor')
 rouge = load_metric('rouge')
 
-
-
 print("cuda available?", torch.cuda.is_available())
 
 model_id = 'meta-llama/Llama-2-7b-hf'
@@ -54,6 +52,11 @@ def compute_metrics(prediction):
          predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
 
     print(pred_str[0])
+
+    del(labels_ids)
+    del(pred_ids)
+    del(label_str)
+    del(pred_str)
 
 
     return {
