@@ -38,10 +38,12 @@ def compute_metrics(prediction):
     #     input_ids = batch[]
 
 
-#    import pdb; pdb.set_trace()
-
     labels_ids = prediction.label_ids
     pred_ids = prediction.predictions
+
+
+    pred_ids[pred_ids == -100] = tokenizer.pad_token_id
+
 
     pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
     labels_ids[labels_ids == -100] = tokenizer.pad_token_id
@@ -69,7 +71,7 @@ def compute_metrics(prediction):
 # samsum_dataset = get_preprocessed_samsum(tokenizer, 'validation')
 train_dataset = get_preprocessed_debatabase(tokenizer, "train")
 val_dataset = get_preprocessed_debatabase(tokenizer, "val")
-# val_dataset = val_dataset.select(range(2))
+#val_dataset = val_dataset.select(range(2))
 
 
 model = LlamaForCausalLM.from_pretrained(
@@ -181,9 +183,9 @@ training_args = Seq2SeqTrainingArguments(
     output_dir=output_dir,
     overwrite_output_dir=True,
     bf16=True,  # Use BF16 if available
-    #evaluation_strategy="epoch",
-    evaluation_strategy="steps",
-    eval_steps=1,
+    evaluation_strategy="epoch",
+  #  evaluation_strategy="steps",
+   # eval_steps=1,
     predict_with_generate=True,
     generation_config= transformers.GenerationConfig(max_new_tokens=400),
     # logging strategies
