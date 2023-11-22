@@ -29,7 +29,7 @@ def convert_summaries_to_string(thread):
 
     comment_summaries = list(thread["summary"])
 
-    numbered_summaries = [f"{number} ({stance}): {summary}" for number, stance, summary in list(zip(comment_numbers, comment_stance, comment_summaries))]
+    numbered_summaries = [f"{number} ({stance}s main topic): {summary}" for number, stance, summary in list(zip(comment_numbers, comment_stance, comment_summaries))]
     
     summaries_as_string = ("\n\n".join(numbered_summaries))
 
