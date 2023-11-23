@@ -8,8 +8,9 @@ from contextlib import nullcontext
 
 from transformers import LlamaForCausalLM, LlamaTokenizer
 from preproc_utils import get_preprocessed_samsum, get_preprocessed_debatabase
-# from configs.datasets import samsum_dataset
 
+
+from summary_metrics import parse_text_to_networkx, node_stance_accuracy, node_stance_f1
 from datasets import load_metric
 
 meteor = load_metric('meteor')
@@ -51,6 +52,14 @@ def compute_metrics(prediction):
     rouge_output = rouge.compute(
          predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
 
+
+    gold_graph = parse_text_to_networkx(label_str)
+    pred_graph = parse_text_to_networkx(pred_str)
+
+    node_acc = node_stance_accuracy(gold=gold_graph, predicted=pred_graph)
+    node_f1 = node_stance_f1(gold=gold_graph, predicted=pred_graph)
+
+
     print(pred_str[0])
 
     del(labels_ids)
@@ -63,7 +72,9 @@ def compute_metrics(prediction):
         'meteor_score': round(meteor_output['meteor'], 4),
         'rouge2_precision': round(rouge_output.precision, 4),
         'rouge2_recall': round(rouge_output.recall, 4),
-        'rouge2_f_measure': round(rouge_output.fmeasure, 4)
+        'rouge2_f_measure': round(rouge_output.fmeasure, 4),
+        'node stance f1': round(node_f1, 4),
+        'node stance acc': round(node_acc, 4)
     }
 
 
@@ -148,7 +159,7 @@ output_dir = "tmp/llama-output"
 
 config = {
     'lora_config': lora_config,
-    'learning_rate': 1e-3, #1e-4
+    'learning_rate': 1e-4,
     'num_train_epochs': 40,
     'gradient_accumulation_steps': 2,
     'per_device_train_batch_size': 1,
@@ -193,13 +204,13 @@ training_args = Seq2SeqTrainingArguments(
     generation_config= transformers.GenerationConfig(max_new_tokens=400),
     # logging strategies
     logging_dir=f"{output_dir}/logs",
-    logging_strategy="steps",
-    logging_steps=1,
+    logging_strategy="epoch",
     save_strategy="no",
     optim="adamw_torch_fused",
     max_steps=total_steps if enable_profiler else -1,
     metric_for_best_model="rouge2_f_measure",
     greater_is_better=True,
+    load_best_model_at_end=True,
     **{k: v for k, v in config.items() if k != 'lora_config'}
 )
 
