@@ -28,6 +28,17 @@ tokenizer = LlamaTokenizer.from_pretrained(
 tokenizer.pad_token = "[PAD]"
 
 
+def compute_node_stance_acc_f1(label_str, pred_str):
+    node_accs = []
+    node_f1s = []
+    for lab, pred in list(zip(label_str, pred_str)):
+
+        gold_graph = parse_text_to_networkx(lab)
+        pred_graph = parse_text_to_networkx(pred)
+        node_accs.append(node_stance_accuracy(gold=gold_graph, predicted=pred_graph))
+        node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
+
+    return np.mean(node_accs), np.mean(node_f1s)
 
 def compute_metrics(prediction):
 
@@ -52,12 +63,7 @@ def compute_metrics(prediction):
     rouge_output = rouge.compute(
          predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
 
-
-    gold_graph = parse_text_to_networkx(label_str)
-    pred_graph = parse_text_to_networkx(pred_str)
-
-    node_acc = node_stance_accuracy(gold=gold_graph, predicted=pred_graph)
-    node_f1 = node_stance_f1(gold=gold_graph, predicted=pred_graph)
+    node_acc, node_f1 = compute_node_stance_acc_f1(label_str, pred_str)
 
 
     print(pred_str[0])
@@ -205,7 +211,7 @@ training_args = Seq2SeqTrainingArguments(
     # logging strategies
     logging_dir=f"{output_dir}/logs",
     logging_strategy="epoch",
-    save_strategy="no",
+    save_strategy="epoch",
     optim="adamw_torch_fused",
     max_steps=total_steps if enable_profiler else -1,
     metric_for_best_model="rouge2_f_measure",
