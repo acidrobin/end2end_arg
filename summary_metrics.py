@@ -87,7 +87,7 @@ def node_stance_f1(gold, predicted):
 
 
 def parse_text_to_networkx(text):
-    node_re = r"\s*(.+?)\s*\(\s*(\S+)\s*(.+?)\s*\)\s*(.+)"
+    node_re = r"\s*([Cc]omment .+?)\s*\(\s*(\S+)\s*(.+?)\s*\)\s*(.+)"
 
     text_lines = text.split("\n")
     G = nx.DiGraph(rankdir="TB")
@@ -113,6 +113,8 @@ def parse_text_to_networkx(text):
 
     return G
 
+
+
 if __name__ == "__main__":
 
     import pandas as pd
@@ -131,4 +133,3 @@ if __name__ == "__main__":
         print(node_stance_f1(networkx_graph, networkx_graph_2))
         print(node_stance_accuracy(networkx_graph, networkx_graph_2))
         
-

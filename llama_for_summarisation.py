@@ -35,6 +35,7 @@ def compute_node_stance_acc_f1(label_str, pred_str):
 
         gold_graph = parse_text_to_networkx(lab)
         pred_graph = parse_text_to_networkx(pred)
+        import pdb; pdb.set_trace()
         node_accs.append(node_stance_accuracy(gold=gold_graph, predicted=pred_graph))
         node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
 
@@ -91,7 +92,7 @@ def compute_metrics(prediction):
 # samsum_dataset = get_preprocessed_samsum(tokenizer, 'validation')
 train_dataset = get_preprocessed_debatabase(tokenizer, "train")
 val_dataset = get_preprocessed_debatabase(tokenizer, "val")
-#val_dataset = val_dataset.select(range(2))
+val_dataset = val_dataset.select(range(2))
 
 
 model = LlamaForCausalLM.from_pretrained(
