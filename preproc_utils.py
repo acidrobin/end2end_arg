@@ -39,6 +39,29 @@ def get_preprocessed_samsum(tokenizer, split):
     return(dataset)
 
 
+def get_preprocessed_debatabase_sft(split):
+
+    idebate_df = pd.read_csv(f"debatabase_data/end_to_end_{split}.csv")
+
+    dataset = datasets.Dataset.from_pandas(idebate_df)
+
+    # ss_dset = datasets.load_dataset("samsum", split=split)
+
+
+    prompt = (
+        f"<s>[INST]Create an Argument Graph from these comments:\n{{comments}}\n---\nArgument Graph:[/INST]\n {{summaries}}</s>"
+    )
+
+    def apply_prompt_template(sample):
+        return {
+            "text": prompt.format(comments=sample["comments"], summaries=sample["summaries"]),
+        }
+
+    dataset = dataset.map(apply_prompt_template, remove_columns=list(dataset.features))
+    return dataset
+
+
+
 def get_preprocessed_debatabase(tokenizer, split):
 
     idebate_df = pd.read_csv(f"debatabase_data/end_to_end_{split}.csv")
@@ -59,6 +82,7 @@ def get_preprocessed_debatabase(tokenizer, split):
         }
 
     dataset = dataset.map(apply_prompt_template, remove_columns=list(dataset.features))
+    import pdb; pdb.set_trace()
 
     def tokenize_add_label(sample):
         prompt = tokenizer.encode(tokenizer.bos_token + sample["prompt"], add_special_tokens=False)
