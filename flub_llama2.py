@@ -42,7 +42,7 @@ peft_config = LoraConfig(
     r=64,
     bias='none',
     task_type='CAUSAL_LM',
-    target_modules=["v_proj"]
+    target_modules=["q_proj","v_proj"]
 )
 
 
@@ -71,11 +71,11 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=20,
+    num_train_epochs=0.1,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
-    evaluation_strategy='steps',
+    #evaluation_strategy='epoch',
     optim='paged_adamw_32bit',
     save_steps=10000,
     logging_steps=10,
@@ -98,11 +98,14 @@ trainer = SFTTrainer(
     eval_dataset=val_dataset,
     peft_config=peft_config,
     dataset_text_field='text',
-    max_seq_length=1000,
+    max_seq_length=6000,
     tokenizer=tokenizer,
     args=training_arguments,
     packing=False,
 )
+
+import pdb; pdb.set_trace()
+
 
 trainer.train()
 trainer.model.save_pretrained('llama-2-7b-nmt')
