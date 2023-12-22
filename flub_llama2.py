@@ -1,22 +1,26 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
 
 from datasets import Dataset
 from peft import LoraConfig, PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback
 from trl import SFTTrainer
 import torch
 
 from preproc_utils import get_preprocessed_debatabase_sft
 
-# ## Dataset
-
-# In[ ]:
+from summarization_metrics import compute_metrics
 
 
+class EvalCallback(TrainerCallback):
+    def __init__(self):
+        pass
+
+    def on_epoch_begin(self, *args, **kwargs):
+
+        import pdb; pdb.set_trace()
+        print("my callback!!")
+
+
+eval_callback = EvalCallback()
 
 train_dataset = get_preprocessed_debatabase_sft("train")
 
@@ -102,9 +106,8 @@ trainer = SFTTrainer(
     tokenizer=tokenizer,
     args=training_arguments,
     packing=False,
+    callbacks=[eval_callback]
 )
-
-import pdb; pdb.set_trace()
 
 
 trainer.train()

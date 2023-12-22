@@ -82,7 +82,6 @@ def get_preprocessed_debatabase(tokenizer, split):
         }
 
     dataset = dataset.map(apply_prompt_template, remove_columns=list(dataset.features))
-    import pdb; pdb.set_trace()
 
     def tokenize_add_label(sample):
         prompt = tokenizer.encode(tokenizer.bos_token + sample["prompt"], add_special_tokens=False)
