@@ -69,9 +69,11 @@ train_dataset = get_preprocessed_debatabase_sft("train")
 
 val_dataset = get_preprocessed_debatabase_sft("val")
 
+train_dataset = train_dataset.select(range(2))
+val_dataset = val_dataset.select(range(2))
 
-train_dataset = train_dataset[:3]
-val_dataset = val_dataset[:3]
+# train_dataset = train_dataset[:3]
+# val_dataset = val_dataset[:3]
 
 # ## Training
 
