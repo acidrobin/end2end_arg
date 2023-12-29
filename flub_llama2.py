@@ -6,11 +6,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from trl import SFTTrainer
 import torch
 from math import inf
+import pandas as pd
 
 from preproc_utils import get_preprocessed_debatabase_sft
 
 
-def compute_metrics(predictions, references)
+def compute_metrics(predictions, references):
 
     meteor_output = meteor.compute(predictions=predictions, references=references)
     rouge_output = rouge.compute(
@@ -19,8 +20,8 @@ def compute_metrics(predictions, references)
     return {
         'meteor_score': round(meteor_output['meteor'], 4),
         'rouge2_precision': round(rouge_output.precision, 4),
-        # 'rouge2_recall': round(rouge_output.recall, 4),
-        # 'rouge2_f_measure': round(rouge_output.fmeasure, 4),
+        'rouge2_recall': round(rouge_output.recall, 4),
+        'rouge2_f_measure': round(rouge_output.fmeasure, 4),
         # 'node stance f1': round(node_f1, 4),
         # 'node stance acc': round(node_acc, 4)
     }
@@ -32,6 +33,8 @@ class EvalCallback(TrainerCallback):
     def __init__(self):
         self.best_rouge = -inf
         self.best_epoch = 0
+        self.scores = []
+
 
     def on_epoch_begin(self, *args, **kwargs):
 
@@ -51,10 +54,12 @@ class EvalCallback(TrainerCallback):
         
 
         metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
-        if metrics["rouge"] > self.best_rouge:
+        if metrics["rouge2_fmeasure"] > self.best_rouge:
             model.save_pretrained("saved_model")
-
-
+        self.scores["epoch"] = len(self.scores) +1
+        self.scores.append(metrics)
+        scores_df = pd.DataFrame(self.scores)
+        scores_df.to_csv("scores/llama_results.csv")
 
         model.train()
 
