@@ -1,7 +1,8 @@
 
 from datasets import Dataset
 from peft import LoraConfig, PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback
+import transformers
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback, Seq2SeqTrainer
 from trl import SFTTrainer
 import torch
 
@@ -10,13 +11,47 @@ from preproc_utils import get_preprocessed_debatabase_sft
 from summarization_metrics import compute_metrics
 
 
+
+# def mod_gen(input_ids, max_new_tokens=200):
+#     generation_output = model.generate(
+#             input_ids=input_ids,
+#             generation_config=GenerationConfig(temperature=1.0, top_p=1.0, top_k=50, num_beams=1),
+#             return_dict_in_generate=True,
+#             output_scores=True,
+#             max_new_tokens=max_new_tokens
+#     )
+#     for seq in generation_output.sequences:
+#         output = tokenizer.decode(seq)
+#         print(output)
+
+
 class EvalCallback(TrainerCallback):
     def __init__(self):
         pass
 
     def on_epoch_begin(self, *args, **kwargs):
 
+        model.eval()
+
+        gold_texts = []
+        generated_texts = []
+
+        for sample in val_dataset:
+            gold_texts.append(sample["output"])
+            input_text = sample["input"]
+            input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
+            output_tok = model.generate(input_ids=input_tok, max_new_tokens=400)
+            generated_text = tokenizer.decode(output_tok[0])
+            output_text = generated_text.split("[/INST]</s>", 1)[1]
+            generated_texts.append(output_text)
+        
         import pdb; pdb.set_trace()
+
+
+
+
+        model.train()
+
         print("my callback!!")
 
 

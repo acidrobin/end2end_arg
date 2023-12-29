@@ -48,13 +48,20 @@ def get_preprocessed_debatabase_sft(split):
     # ss_dset = datasets.load_dataset("samsum", split=split)
 
 
-    prompt = (
+    full_text = (
         f"<s>[INST]Create an Argument Graph from these comments:\n{{comments}}\n---\nArgument Graph:[/INST]\n {{summaries}}</s>"
     )
 
+    prompt = (
+        f"<s>[INST]Create an Argument Graph from these comments:\n{{comments}}\n---\nArgument Graph:[/INST]</s>"
+    )
+
+
     def apply_prompt_template(sample):
         return {
-            "text": prompt.format(comments=sample["comments"], summaries=sample["summaries"]),
+            "text": full_text.format(comments=sample["comments"], summaries=sample["summaries"]),
+            "input": prompt.format(comments=sample["comments"]),
+            "output": sample["summaries"]
         }
 
     dataset = dataset.map(apply_prompt_template, remove_columns=list(dataset.features))
