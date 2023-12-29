@@ -1,0 +1,4 @@
+,meteor_score,rouge2_precision,rouge2_recall,rouge2_f_measure,epoch
+0,0.0422,0.0042,0.0043,0.0043,1
+1,0.0196,0.0,0.0,0.0,2
+2,0.0019,0.0,0.0,0.0,3

@@ -10,6 +10,7 @@ import pandas as pd
 
 from preproc_utils import get_preprocessed_debatabase_sft
 
+from datasets import load_metric
 
 meteor = load_metric('meteor')
 rouge = load_metric('rouge')
@@ -39,6 +40,7 @@ class EvalCallback(TrainerCallback):
         self.best_rouge = -inf
         self.best_epoch = 0
         self.scores = []
+        self.sample_outputs = []
 
 
     def on_epoch_begin(self, *args, **kwargs):
@@ -59,12 +61,19 @@ class EvalCallback(TrainerCallback):
         
 
         metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
-        if metrics["rouge2_fmeasure"] > self.best_rouge:
-            model.save_pretrained("saved_model")
-        self.scores["epoch"] = len(self.scores) +1
+        if metrics["rouge2_f_measure"] > self.best_rouge:
+            trainer.model.save_pretrained("saved_model")
+        metrics["epoch"] = len(self.scores) +1
         self.scores.append(metrics)
         scores_df = pd.DataFrame(self.scores)
         scores_df.to_csv("scores/llama_results.csv")
+
+        self.sample_outputs.append(generated_texts[0])
+
+        with open("scores/sample_output.txt","w") as sample_file:
+            for i, text in enumerate(self.sample_outputs:)
+                sample_file.write(f"epoch {i+1}\n")
+                sample_file.write(text + "\n\n")
 
         model.train()
 
