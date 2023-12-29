@@ -5,29 +5,33 @@ import transformers
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback, Seq2SeqTrainer
 from trl import SFTTrainer
 import torch
+from math import inf
 
 from preproc_utils import get_preprocessed_debatabase_sft
 
-from summarization_metrics import compute_metrics
+
+def compute_metrics(predictions, references)
+
+    meteor_output = meteor.compute(predictions=predictions, references=references)
+    rouge_output = rouge.compute(
+         predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
+
+    return {
+        'meteor_score': round(meteor_output['meteor'], 4),
+        'rouge2_precision': round(rouge_output.precision, 4),
+        # 'rouge2_recall': round(rouge_output.recall, 4),
+        # 'rouge2_f_measure': round(rouge_output.fmeasure, 4),
+        # 'node stance f1': round(node_f1, 4),
+        # 'node stance acc': round(node_acc, 4)
+    }
 
 
-
-# def mod_gen(input_ids, max_new_tokens=200):
-#     generation_output = model.generate(
-#             input_ids=input_ids,
-#             generation_config=GenerationConfig(temperature=1.0, top_p=1.0, top_k=50, num_beams=1),
-#             return_dict_in_generate=True,
-#             output_scores=True,
-#             max_new_tokens=max_new_tokens
-#     )
-#     for seq in generation_output.sequences:
-#         output = tokenizer.decode(seq)
-#         print(output)
 
 
 class EvalCallback(TrainerCallback):
     def __init__(self):
-        pass
+        self.best_rouge = -inf
+        self.best_epoch = 0
 
     def on_epoch_begin(self, *args, **kwargs):
 
@@ -45,21 +49,24 @@ class EvalCallback(TrainerCallback):
             output_text = generated_text.split("[/INST]</s>", 1)[1]
             generated_texts.append(output_text)
         
-        import pdb; pdb.set_trace()
 
+        metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+        if metrics["rouge"] > self.best_rouge:
+            model.save_pretrained("saved_model")
 
 
 
         model.train()
-
-        print("my callback!!")
-
 
 eval_callback = EvalCallback()
 
 train_dataset = get_preprocessed_debatabase_sft("train")
 
 val_dataset = get_preprocessed_debatabase_sft("val")
+
+
+train_dataset = train_dataset[:3]
+val_dataset = val_dataset[:3]
 
 # ## Training
 
@@ -110,13 +117,14 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=0.1,
+    num_train_epochs=3,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
     #evaluation_strategy='epoch',
     optim='paged_adamw_32bit',
-    save_steps=10000,
+    # save_steps=10000,
+    save_strategy="no",
     logging_steps=10,
     eval_steps=10,
     learning_rate=5*2e-4,

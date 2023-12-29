@@ -10,3 +10,4 @@ client_secrets.json
 slurm*
 llama-2-7b-nmt
 results
+saved_model
