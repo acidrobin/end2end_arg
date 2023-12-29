@@ -11,6 +11,11 @@ import pandas as pd
 from preproc_utils import get_preprocessed_debatabase_sft
 
 
+meteor = load_metric('meteor')
+rouge = load_metric('rouge')
+
+
+
 def compute_metrics(predictions, references):
 
     meteor_output = meteor.compute(predictions=predictions, references=references)
