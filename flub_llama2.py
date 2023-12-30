@@ -12,6 +12,8 @@ from preproc_utils import get_preprocessed_debatabase_sft
 
 from datasets import load_metric
 
+from copy import deepcopy
+
 meteor = load_metric('meteor')
 rouge = load_metric('rouge')
 
@@ -45,7 +47,10 @@ class EvalCallback(TrainerCallback):
 
     def on_epoch_begin(self, *args, **kwargs):
 
-        model.eval()
+
+        model2 = deepcopy(model)
+        model2.eval()
+        model2.bfloat16()
 
         gold_texts = []
         generated_texts = []
@@ -54,7 +59,7 @@ class EvalCallback(TrainerCallback):
             do_sample=True,
             max_new_tokens=512,
             top_p=0.99,
-            temperature=1e-2,
+            temperature=1e-8,
         )
 
 
@@ -63,11 +68,12 @@ class EvalCallback(TrainerCallback):
             input_text = sample["input"]
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
-            output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
+            output_tok = model2.generate(input_ids=input_tok, generation_config=generation_config)
             generated_text = tokenizer.decode(output_tok[0])
             output_text = generated_text.split("[/INST]</s>", 1)[1]
             generated_texts.append(output_text)
         
+        del(model2)
 
         metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
         if metrics["rouge2_f_measure"] > self.best_rouge:
@@ -84,7 +90,7 @@ class EvalCallback(TrainerCallback):
                 sample_file.write(f"epoch {i+1}\n")
                 sample_file.write(text + "\n\n")
 
-        model.train()
+        # model.train()
 
 eval_callback = EvalCallback()
 
