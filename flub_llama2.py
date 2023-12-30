@@ -2,7 +2,7 @@
 from datasets import Dataset
 from peft import LoraConfig, PeftModel
 import transformers
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback, Seq2SeqTrainer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback, Seq2SeqTrainer, GenerationConfig
 from trl import SFTTrainer
 import torch
 from math import inf
@@ -50,11 +50,20 @@ class EvalCallback(TrainerCallback):
         gold_texts = []
         generated_texts = []
 
+        generation_config=GenerationConfig(
+            do_sample=True,
+            max_new_tokens=512,
+            top_p=0.99,
+            temperature=1e-2,
+        )
+
+
         for sample in val_dataset:
             gold_texts.append(sample["output"])
             input_text = sample["input"]
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
-            output_tok = model.generate(input_ids=input_tok, max_new_tokens=400)
+
+            output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
             generated_text = tokenizer.decode(output_tok[0])
             output_text = generated_text.split("[/INST]</s>", 1)[1]
             generated_texts.append(output_text)
@@ -71,7 +80,7 @@ class EvalCallback(TrainerCallback):
         self.sample_outputs.append(generated_texts[0])
 
         with open("scores/sample_output.txt","w") as sample_file:
-            for i, text in enumerate(self.sample_outputs:)
+            for i, text in enumerate(self.sample_outputs):
                 sample_file.write(f"epoch {i+1}\n")
                 sample_file.write(text + "\n\n")
 
@@ -83,8 +92,8 @@ train_dataset = get_preprocessed_debatabase_sft("train")
 
 val_dataset = get_preprocessed_debatabase_sft("val")
 
-train_dataset = train_dataset.select(range(2))
-val_dataset = val_dataset.select(range(2))
+# train_dataset = train_dataset.select(range(2))
+# val_dataset = val_dataset.select(range(2))
 
 # train_dataset = train_dataset[:3]
 # val_dataset = val_dataset[:3]
@@ -127,8 +136,8 @@ model.config.use_cache = False
 model.config.pretraining_tp = 1
 
 tokenizer = AutoTokenizer.from_pretrained('meta-llama/Llama-2-7b-hf', trust_remote_code=True)
-tokenizer.pad_token = tokenizer.eos_token
-tokenizer.padding_side = 'right'
+tokenizer.pad_token = "[PAD]"
+tokenizer.padding_side = "left"
 
 
 # In[ ]:
@@ -142,12 +151,12 @@ training_arguments = TrainingArguments(
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
-    #evaluation_strategy='epoch',
+    evaluation_strategy='steps',
     optim='paged_adamw_32bit',
     # save_steps=10000,
     save_strategy="no",
     logging_steps=10,
-    eval_steps=10,
+    eval_steps=100,
     learning_rate=5*2e-4,
     weight_decay=0.001,
     fp16=True,
@@ -166,7 +175,7 @@ trainer = SFTTrainer(
     eval_dataset=val_dataset,
     peft_config=peft_config,
     dataset_text_field='text',
-    max_seq_length=6000,
+    max_seq_length=10000,
     tokenizer=tokenizer,
     args=training_arguments,
     packing=False,
