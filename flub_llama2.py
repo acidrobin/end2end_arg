@@ -59,7 +59,7 @@ class EvalCallback(TrainerCallback):
             do_sample=True,
             max_new_tokens=512,
             top_p=0.99,
-            temperature=1e-8,
+            temperature=0.75,
         )
 
 
@@ -157,14 +157,14 @@ training_arguments = TrainingArguments(
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
-    evaluation_strategy='steps',
+    evaluation_strategy='epoch',
     optim='paged_adamw_32bit',
     # save_steps=10000,
-    save_strategy="steps",
+    save_strategy="epoch",
     resume_from_checkpoint=True,
     logging_steps=10,
-    eval_steps=100,
-    save_steps=100,
+    # eval_steps=100,
+    # save_steps=100,
     learning_rate=5*2e-4,
     weight_decay=0.001,
     fp16=True,
