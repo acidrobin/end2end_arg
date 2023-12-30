@@ -5,71 +5,28 @@ epoch 1
 
 Wybierz jeden z poniższych opcji:
 
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 2
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 3
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 4
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 5
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 6
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 7
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 8
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
--
+- [x] Zapoznaj się z dokumentacją
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x] Zapoznaj się z dokumentacją i zgłoś problem
+- [x]
 
