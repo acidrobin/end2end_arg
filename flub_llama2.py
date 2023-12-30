@@ -65,7 +65,7 @@ class EvalCallback(TrainerCallback):
 
         for sample in val_dataset:
             gold_texts.append(sample["output"])
-            input_text = sample["input"]
+            input_text = sample["input"][:40] + "[/INST]</s>"
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
             output_tok = model2.generate(input_ids=input_tok, generation_config=generation_config)
