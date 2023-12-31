@@ -56,16 +56,16 @@ class EvalCallback(TrainerCallback):
         generated_texts = []
 
         generation_config=GenerationConfig(
-            do_sample=True,
+            do_sample=False,
             max_new_tokens=512,
-            top_p=0.99,
-            temperature=0.75,
+        
         )
 
 
         for sample in val_dataset:
             gold_texts.append(sample["output"])
-            input_text = sample["input"][:40] + "[/INST]</s>"
+            input_text = sample["input"]
+            # import pdb; pdb.set_trace()
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
             output_tok = model2.generate(input_ids=input_tok, generation_config=generation_config)
@@ -138,6 +138,7 @@ model = AutoModelForCausalLM.from_pretrained(
     quantization_config=bnb_config,
     device_map={"": 0}
 )
+# model.cuda()
 model.config.use_cache = False
 model.config.pretraining_tp = 1
 
@@ -161,7 +162,7 @@ training_arguments = TrainingArguments(
     optim='paged_adamw_32bit',
     # save_steps=10000,
     save_strategy="epoch",
-    resume_from_checkpoint=True,
+    # resume_from_checkpoint=False,
     logging_steps=10,
     # eval_steps=100,
     # save_steps=100,
