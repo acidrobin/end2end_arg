@@ -48,9 +48,9 @@ class EvalCallback(TrainerCallback):
     def on_epoch_begin(self, *args, **kwargs):
 
 
-        model2 = deepcopy(model)
-        model2.eval()
-        model2.bfloat16()
+        # model2 = deepcopy(model)
+        model.eval()
+        # model2.bfloat16()
 
         gold_texts = []
         generated_texts = []
@@ -68,12 +68,12 @@ class EvalCallback(TrainerCallback):
             # import pdb; pdb.set_trace()
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
-            output_tok = model2.generate(input_ids=input_tok, generation_config=generation_config)
+            output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
             generated_text = tokenizer.decode(output_tok[0])
             output_text = generated_text.split("[/INST]</s>", 1)[1]
             generated_texts.append(output_text)
         
-        del(model2)
+        # del(model2)
 
         metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
         if metrics["rouge2_f_measure"] > self.best_rouge:
@@ -90,7 +90,7 @@ class EvalCallback(TrainerCallback):
                 sample_file.write(f"epoch {i+1}\n")
                 sample_file.write(text + "\n\n")
 
-        # model.train()
+        model.train()
 
 eval_callback = EvalCallback()
 
@@ -101,12 +101,6 @@ val_dataset = get_preprocessed_debatabase_sft("val")
 # train_dataset = train_dataset.select(range(2))
 # val_dataset = val_dataset.select(range(2))
 
-# train_dataset = train_dataset[:3]
-# val_dataset = val_dataset[:3]
-
-# ## Training
-
-# In[ ]:
 
 
 # bitsandbytes
@@ -124,27 +118,28 @@ peft_config = LoraConfig(
     r=64,
     bias='none',
     task_type='CAUSAL_LM',
-    target_modules=["q_proj","v_proj"]
+    target_modules=["q_proj",
+    "up_proj",
+    "o_proj",
+    "k_proj",
+    "down_proj",
+    "gate_proj",
+    "v_proj"]
 )
-
-
-# In[ ]:
-
 
 # Llama 2
 
 model = AutoModelForCausalLM.from_pretrained(
     'meta-llama/Llama-2-7b-hf',
     quantization_config=bnb_config,
-    device_map={"": 0}
 )
 # model.cuda()
 model.config.use_cache = False
 model.config.pretraining_tp = 1
 
 tokenizer = AutoTokenizer.from_pretrained('meta-llama/Llama-2-7b-hf', trust_remote_code=True)
-tokenizer.pad_token = "[PAD]"
-tokenizer.padding_side = "left"
+tokenizer.pad_token = tokenizer.eos_token
+tokenizer.padding_side = 'right'
 
 
 # In[ ]:
@@ -184,7 +179,7 @@ trainer = SFTTrainer(
     eval_dataset=val_dataset,
     peft_config=peft_config,
     dataset_text_field='text',
-    max_seq_length=10000,
+    max_seq_length=7000,
     tokenizer=tokenizer,
     args=training_arguments,
     packing=False,
