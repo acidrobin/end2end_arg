@@ -149,7 +149,7 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=3,
+    num_train_epochs=10,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
@@ -161,8 +161,8 @@ training_arguments = TrainingArguments(
     logging_steps=10,
     # eval_steps=100,
     # save_steps=100,
-    learning_rate=5*2e-4,
-    weight_decay=0.001,
+    learning_rate=1e-3,
+    # weight_decay=0.001,
     fp16=True,
     bf16=False,
     max_grad_norm=0.3,
@@ -198,17 +198,17 @@ trainer.model.save_pretrained('llama-2-7b-nmt')
 
 # Checkpoint
 
-base = AutoModelForCausalLM.from_pretrained(
-    'meta-llama/Llama-2-7b-hf',
-    low_cpu_mem_usage=True,
-    return_dict=True,
-    torch_dtype=torch.float16,
-    device_map={"": 0}
-)
-model = PeftModel.from_pretrained(base, 'llama-2-7b-nmt')
-model = model.merge_and_unload()
+# base = AutoModelForCausalLM.from_pretrained(
+#     'meta-llama/Llama-2-7b-hf',
+#     low_cpu_mem_usage=True,
+#     return_dict=True,
+#     torch_dtype=torch.float16,
+#     device_map={"": 0}
+# )
+# model = PeftModel.from_pretrained(base, 'llama-2-7b-nmt')
+# model = model.merge_and_unload()
 
-tokenizer = AutoTokenizer.from_pretrained('meta-llama/Llama-2-7b-hf', trust_remote_code=True)
-tokenizer.add_special_tokens({'pad_token': '[PAD]'})
-tokenizer.pad_token = tokenizer.eos_token
-tokenizer.padding_side = 'right'
+# tokenizer = AutoTokenizer.from_pretrained('meta-llama/Llama-2-7b-hf', trust_remote_code=True)
+# tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+# tokenizer.pad_token = tokenizer.eos_token
+# tokenizer.padding_side = 'right'
