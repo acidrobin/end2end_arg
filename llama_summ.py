@@ -34,7 +34,8 @@ def compute_metrics(predictions, references):
         'rouge2_recall': round(rouge_output.recall, 4),
         'rouge2_f_measure': round(rouge_output.fmeasure, 4),
         'node stance f1': round(node_f1, 4),
-        'node stance acc': round(node_acc, 4)
+        'node stance acc': round(node_acc, 4),
+        "graph edit distance": round(ged, 4)
     }
 
 

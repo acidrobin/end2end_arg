@@ -96,7 +96,7 @@ def parse_text_to_networkx(text):
     text_lines = text.split("\n")
     G = nx.DiGraph(rankdir="TB")
 
-    G.add_node("main topic", text="")
+    G.add_node("main topic", node_name="main topic", text="")
 
     colon_trans = str.maketrans("","",":")
 
@@ -119,7 +119,7 @@ def parse_text_to_networkx(text):
 
 
 def node_match(node_1, node_2):
-    return node_1["node name"] == node_2["node name"]
+    return node_1["node_name"] == node_2["node_name"]
 
 def compute_node_stance_acc_f1_ged(references, predictions):
     node_accs = []
@@ -136,8 +136,6 @@ def compute_node_stance_acc_f1_ged(references, predictions):
         geds.append(ged)
 
     return np.mean(node_accs), np.mean(node_f1s), np.mean(geds)
-
-
 
 
 
