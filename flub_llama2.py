@@ -70,7 +70,7 @@ class EvalCallback(TrainerCallback):
 
             output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
             generated_text = tokenizer.decode(output_tok[0])
-            output_text = generated_text.split("[/INST]</s>", 1)[1]
+            output_text = generated_text.split("[/INST]", 1)[1]
             generated_texts.append(output_text)
         
         # del(model2)
@@ -83,7 +83,7 @@ class EvalCallback(TrainerCallback):
         scores_df = pd.DataFrame(self.scores)
         scores_df.to_csv("scores/llama_results.csv")
 
-        self.sample_outputs.append(generated_texts[0])
+        self.sample_outputs.append(generated_texts[-1])
 
         with open("scores/sample_output.txt","w") as sample_file:
             for i, text in enumerate(self.sample_outputs):
@@ -97,9 +97,9 @@ eval_callback = EvalCallback()
 train_dataset = get_preprocessed_debatabase_sft("train")
 
 val_dataset = get_preprocessed_debatabase_sft("val")
-
+ 
 # train_dataset = train_dataset.select(range(2))
-# val_dataset = val_dataset.select(range(2))
+val_dataset = val_dataset.select(range(1))
 
 
 
@@ -113,9 +113,13 @@ bnb_config = BitsAndBytesConfig(
 
 # LoRa
 peft_config = LoraConfig(
-    lora_alpha=16,
-    lora_dropout=0.1,
-    r=64,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.05,
+
+    # lora_alpha=16,
+    # lora_dropout=0.1,
+    # r=64,
     bias='none',
     task_type='CAUSAL_LM',
     target_modules=["q_proj",
@@ -154,14 +158,14 @@ training_arguments = TrainingArguments(
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
     evaluation_strategy='epoch',
-    optim='paged_adamw_32bit',
+    optim='adamw_torch_fused',
     # save_steps=10000,
     save_strategy="epoch",
     # resume_from_checkpoint=False,
     logging_steps=10,
     # eval_steps=100,
     # save_steps=100,
-    learning_rate=1e-3,
+    learning_rate=5e-4,
     # weight_decay=0.001,
     fp16=True,
     bf16=False,
@@ -190,6 +194,8 @@ trainer = SFTTrainer(
 trainer.train()
 trainer.model.save_pretrained('llama-2-7b-nmt')
 
+
+#Try adamw_torch_fused
 
 # ## Inference
 

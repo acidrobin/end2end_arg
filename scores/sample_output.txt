@@ -1,90 +1,35 @@
 epoch 1
-<s> sierpni 2017
 
-### 1
 
-Wybierz jeden z poniższych opcji:
+[1] BBC News, ‘Ireland rejects EU reform treaty’, 13 June 2008, http://news.bbc.co.uk/1/hi/7453560.stm
 
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
+[2] Bellotti, Sarah M., and Dale, Reginald, ‘U.S. Media Snubs New EU Leaders’, Center for Strategic & International Studies, http://csis.org/blog/us-media-snubs-new-eu-leaders
 
-### 2
+[3] Renda, Andrea, ‘Policy-Making in the EU; Achievements, Challenges and Proposals for Reform’, Centre for European Policy Studies, 2009, www.ceps.eu/files/book/1854.pdf
 
-Wybierz jeden z poniższych opcji:
+[4] Aznar, José María, ‘Europe must reset the clock on stability and growth’, FT.com, 16 May 2010, http://www.ft.com/cms/s/0/6e07c4f0-6115-11df-9bf0-00144feab49a.html#axzz1a1I5v8kb
 
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
+[5] Gjørtler, Peter, ‘ Lisbon Treaty - the Reform Treaty of the European Union’, grayston & company, November 2009 http://www.graystoncompany.com/gco/articles/G&C_article_Lisbon_Treaty_PG.pdf
 
-### 3
+[6] Roberts, Linda, ‘The CARICOM Single Market and Economy and the Caribbean Court of Justice’, Southampton Working Papers in European Law, 2007/1, http://www.eulaw.soton.ac.uk/elpub/SWPEL3_Roberts.pdf
 
-Wybierz jeden z poniższych opcji:
+[7] The Democracy Movement Surrey, ‘The EU - Superstate or Free Trade Partner? We Can Leave.’ 2007 http://www.democracymovementsurrey.co.uk/canweleave.html
 
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 4
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 5
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 6
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 7
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
-- [x] Opcja 3
-
-### 8
-
-Wybierz jeden z poniższych opcji:
-
-- [x] Wszystkie opcje
-- [x] Opcja 1
-- [x] Opcja 2
--
+[8] Turmo, Ivan and Brad
 
 epoch 2
-<s> sierpni 2017
-The 2017 edition of the International Conference on the Future of Europe will take place in Brussels on 20 September 2017. The conference will bring together a wide range of stakeholders from the European Union and beyond to discuss the future of Europe.
-The conference will be held in the European Parliament in Brussels, Belgium. The European Parliament is the only EU institution that is directly elected by the people of Europe. It is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by the people of Europe. The European Parliament is the only EU institution that is directly elected by
 
-epoch 3
-<s> sierpni 2011 r.
-The 2011 edition of the International Conference on High Performance Computing, Networking, Storage and Analysis of Big Data (HPC Nirvana 2011) will be held in the beautiful city of Krakow, Poland, from 18th to 22nd September 2011.
-HPC Nirvana 2011 is an international conference on high performance computing, networking, storage and analysis of big data. The conference is organized by the Association for Computing Machinery (ACM) and the Polish Association of Computing Machinery (PWHC).
-The conference will feature a number of keynote speeches, technical sessions, workshops, tutorials, posters and demonstrations. The conference will also feature a number of social events, including a welcome reception, a gala dinner and a boat trip on the Vistula river.
-The conference will be held at the Hotel Copernicus, which is located in the heart of Krakow, just a few minutes walk from the famous Wawel Castle and the Old Town. The hotel is equipped with modern conference facilities and offers a number of leisure facilities, including a swimming pool, sauna and a fitness centre.
-The conference will be held in English.
-The conference will be held in the beautiful city of Krakow, Poland, from 18th to 22nd September 2011.
-The 2011 edition of the International Conference on High Performance Computing, Networking, Storage and Analysis of Big Data (HPC Nirvana 2011) will be held in the beautiful city of Krakow, Poland, from 18th to 22nd September 2011. HPC Nirvana 2011 is an international conference on high performance computing, networking, storage and analysis of big data. The conference is organized by the Association for Computing Machinery (ACM) and the Polish Association of Computing Machinery (PWHC). The conference will feature a number of keynote speeches, technical sessions, workshops, tutorials, posters and demonstrations. The conference will also feature a number of social events, including a welcome reception, a gala dinner and a boat trip on the Vistula river. The conference will be held
+Comment 1 (supports main topic): The EU needs a constitution
+
+Comment 2 (attacks main topic): The EU should not adopt a constitution
+
+Comment 3 (supports main topic): A constitution would help to create a European identity
+
+Comment 4 (supports main topic): A constitution would make the EU more user-friendly
+
+Comment 5 (attacks main topic): The EU already has a constitution
+
+Comment 6 (supports main topic): The ECJ has been overstepping its bounds
+
+Comment 7 (attacks main topic): A constitution would be a first step towards a United States of Europe</s>
 
