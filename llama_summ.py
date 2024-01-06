@@ -2,10 +2,9 @@
 from datasets import Dataset
 from peft import LoraConfig, PeftModel
 import transformers
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback, Seq2SeqTrainer, GenerationConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, TrainerCallback,  GenerationConfig
 from trl import SFTTrainer
 import torch
-from math import inf
 import pandas as pd
 
 from preproc_utils import get_preprocessed_debatabase_sft
@@ -13,6 +12,8 @@ from preproc_utils import get_preprocessed_debatabase_sft
 from datasets import load_metric
 
 from copy import deepcopy
+from summary_metrics import compute_node_stance_acc_f1
+
 
 meteor = load_metric('meteor')
 rouge = load_metric('rouge')
@@ -24,6 +25,8 @@ def compute_metrics(predictions, references):
     meteor_output = meteor.compute(predictions=predictions, references=references)
     rouge_output = rouge.compute(
          predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
+
+    node_acc, node_f1 = compute_node_stance_acc_f1(predictions=predictions, references=references)
 
     return {
         'meteor_score': round(meteor_output['meteor'], 4),
@@ -39,7 +42,7 @@ def compute_metrics(predictions, references):
 
 class EvalCallback(TrainerCallback):
     def __init__(self):
-        self.best_rouge = -inf
+        self.best_rouge = -1
         self.best_epoch = 0
         self.scores = []
         self.sample_outputs = []
@@ -48,9 +51,7 @@ class EvalCallback(TrainerCallback):
     def on_epoch_begin(self, *args, **kwargs):
 
 
-        # model2 = deepcopy(model)
         model.eval()
-        # model2.bfloat16()
 
         gold_texts = []
         generated_texts = []
@@ -60,7 +61,6 @@ class EvalCallback(TrainerCallback):
             max_new_tokens=512,
         
         )
-
 
         for sample in val_dataset:
             gold_texts.append(sample["output"])

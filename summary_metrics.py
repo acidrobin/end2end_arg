@@ -114,6 +114,20 @@ def parse_text_to_networkx(text):
     return G
 
 
+def compute_node_stance_acc_f1(references, predictions):
+    node_accs = []
+    node_f1s = []
+    for lab, pred in list(zip(references, predictions)):
+
+        gold_graph = parse_text_to_networkx(lab)
+        pred_graph = parse_text_to_networkx(pred)
+        node_accs.append(node_stance_accuracy(gold=gold_graph, predicted=pred_graph))
+        node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
+
+    return np.mean(node_accs), np.mean(node_f1s)
+
+
+
 
 if __name__ == "__main__":
 
