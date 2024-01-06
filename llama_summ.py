@@ -12,7 +12,7 @@ from preproc_utils import get_preprocessed_debatabase_sft
 from datasets import load_metric
 
 from copy import deepcopy
-from summary_metrics import compute_node_stance_acc_f1
+from summary_metrics import compute_node_stance_acc_f1_ged
 
 
 meteor = load_metric('meteor')
@@ -26,7 +26,7 @@ def compute_metrics(predictions, references):
     rouge_output = rouge.compute(
          predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
 
-    node_acc, node_f1 = compute_node_stance_acc_f1(predictions=predictions, references=references)
+    node_acc, node_f1, ged = compute_node_stance_acc_f1_ged(predictions=predictions, references=references)
 
     return {
         'meteor_score': round(meteor_output['meteor'], 4),

@@ -84,10 +84,10 @@ def node_stance_f1(gold, predicted):
     gold_perspectives, pred_perspectives = get_gold_and_pred_perspectives(gold_graph=gold, 
                                                             pred_graph=predicted)
 
-    print(gold_perspectives)
-    print(pred_perspectives)
-    import pdb; pdb.set_trace()
-    return f1_score(y_true=gold_perspectives, y_pred=pred_perspectives)
+    # print(gold_perspectives)
+    # print(pred_perspectives)
+    # import pdb; pdb.set_trace()
+    return f1_score(y_true=gold_perspectives, y_pred=pred_perspectives, average="macro")
 
 
 def parse_text_to_networkx(text):
@@ -112,23 +112,31 @@ def parse_text_to_networkx(text):
             parent = parent.strip().lower()
             comment = comment.strip().lower()
             
-            G.add_node(node_name, text=comment.translate(colon_trans))
+            G.add_node(node_name, node_name=node_name.translate(colon_trans), text=comment.translate(colon_trans))
             G.add_edge(node_name, parent, label=relation.translate(colon_trans))
 
     return G
 
 
-def compute_node_stance_acc_f1(references, predictions):
+def node_match(node_1, node_2):
+    return node_1["node name"] == node_2["node name"]
+
+def compute_node_stance_acc_f1_ged(references, predictions):
     node_accs = []
     node_f1s = []
+    geds = []
     for lab, pred in list(zip(references, predictions)):
 
         gold_graph = parse_text_to_networkx(lab)
         pred_graph = parse_text_to_networkx(pred)
         node_accs.append(node_stance_accuracy(gold=gold_graph, predicted=pred_graph))
         node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
+        # print(gold_graph())
+        ged = nx.graph_edit_distance(gold_graph, pred_graph, node_match=node_match)
+        geds.append(ged)
 
-    return np.mean(node_accs), np.mean(node_f1s)
+    return np.mean(node_accs), np.mean(node_f1s), np.mean(geds)
+
 
 
 
