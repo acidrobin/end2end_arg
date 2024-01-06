@@ -80,9 +80,13 @@ def node_stance_accuracy(gold, predicted):
 
 def node_stance_f1(gold, predicted):
     
+
     gold_perspectives, pred_perspectives = get_gold_and_pred_perspectives(gold_graph=gold, 
                                                             pred_graph=predicted)
 
+    print(gold_perspectives)
+    print(pred_perspectives)
+    import pdb; pdb.set_trace()
     return f1_score(y_true=gold_perspectives, y_pred=pred_perspectives)
 
 
