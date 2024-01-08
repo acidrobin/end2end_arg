@@ -19,6 +19,8 @@ meteor = load_metric('meteor')
 rouge = load_metric('rouge')
 
 
+MULTILEVEL=True
+
 
 def compute_metrics(predictions, references):
 
@@ -77,16 +79,25 @@ class EvalCallback(TrainerCallback):
         # del(model2)
 
         metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+  
+  
         if metrics["rouge2_f_measure"] > self.best_rouge:
             trainer.model.save_pretrained("saved_model")
         metrics["epoch"] = len(self.scores) +1
         self.scores.append(metrics)
         scores_df = pd.DataFrame(self.scores)
-        scores_df.to_csv("scores/llama_results.csv")
 
         self.sample_outputs.append(generated_texts[-1])
 
-        with open("scores/sample_output.txt","w") as sample_file:
+
+        if MULTILEVEL:
+            folder_name = "scores_multilevel"
+        else:
+            folder_name = "scores"
+
+        scores_df.to_csv(f"{folder_name}/llama_results.csv")
+
+        with open(f"{folder_name}/sample_output.txt","w") as sample_file:
             for i, text in enumerate(self.sample_outputs):
                 sample_file.write(f"epoch {i+1}\n")
                 sample_file.write(text + "\n\n")
@@ -95,12 +106,12 @@ class EvalCallback(TrainerCallback):
 
 eval_callback = EvalCallback()
 
-train_dataset = get_preprocessed_debatabase_sft("train")
 
-val_dataset = get_preprocessed_debatabase_sft("val")
+train_dataset = get_preprocessed_debatabase_sft("train",multilevel=MULTILEVEL)
+val_dataset = get_preprocessed_debatabase_sft("val",multilevel=MULTILEVEL)
  
 # train_dataset = train_dataset.select(range(2))
-val_dataset = val_dataset.select(range(1))
+# val_dataset = val_dataset.select(range(1))
 
 
 

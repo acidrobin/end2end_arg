@@ -1,19 +1,426 @@
 epoch 1
 
 
-[1] BBC News, ‘Ireland rejects EU reform treaty’, 13 June 2008, http://news.bbc.co.uk/1/hi/7453560.stm
+[INST]Create an Argument Graph from these comments:
 
-[2] Bellotti, Sarah M., and Dale, Reginald, ‘U.S. Media Snubs New EU Leaders’, Center for Strategic & International Studies, http://csis.org/blog/us-media-snubs-new-eu-leaders
+Comment 1: Daesh has an ideology that is a threat to western states, particularly those with Muslim minorities. Although Daesh’s ideology might seem incompatible with west the west an ICM poll found in 2014 that 16% of French citizens have a positive opinion of Daesh.[1] This means that western countries face an ideological clash within their own populations. A majority dislikes and fears Daesh and its ideology while a minority supports them despite their violence. Such a split reduces community cohesion and will likely breed distrust of Muslim populations (even of those who don’t have positive views of Daesh).[2][1] Grant, Madeline, ‘16% of French Citizens Support ISIS, Poll finds’, newsweek, 26 August 2014, http://www.newsweek.com/16-french-citizens-support-isis-poll-finds-266795[2] Hundal, Sunny, ‘The real threat from the Islamic State is to Muslims, not the west’, AlJazeera, 26 August 2014, http://www.aljazeera.com/indepth/opinion/2014/08/real-threat-from-islamic-state--201482316357532975.html
 
-[3] Renda, Andrea, ‘Policy-Making in the EU; Achievements, Challenges and Proposals for Reform’, Centre for European Policy Studies, 2009, www.ceps.eu/files/book/1854.pdf
+Comment 2: All western countries are insulated by distance from Islamic State. The closest western countries are Greece and Cyprus which is as close as the EU comes to Syria. But both are separated from Syria by the Mediterranean Sea. If Daesh were truly considered a threat of the kind that requires harsh national security responses then Europe could close its borders to the South and East – its borders with Turkey in particular. This has however not happened because the risk of terrorists (re-)entering Europe is not considered great enough to warrant such a response.   
 
-[4] Aznar, José María, ‘Europe must reset the clock on stability and growth’, FT.com, 16 May 2010, http://www.ft.com/cms/s/0/6e07c4f0-6115-11df-9bf0-00144feab49a.html#axzz1a1I5v8kb
+Comment 3: Daesh is a terrorist organisation.[1] There are large numbers of people within Europe who support Islamic State and Europeans travelling to fight for Daesh is an ongoing problem
 
-[5] Gjørtler, Peter, ‘ Lisbon Treaty - the Reform Treaty of the European Union’, grayston & company, November 2009 http://www.graystoncompany.com/gco/articles/G&C_article_Lisbon_Treaty_PG.pdf
+epoch 2
 
-[6] Roberts, Linda, ‘The CARICOM Single Market and Economy and the Caribbean Court of Justice’, Southampton Working Papers in European Law, 2007/1, http://www.eulaw.soton.ac.uk/elpub/SWPEL3_Roberts.pdf
+Comment 1 (supports main topic): Daesh is a threat to western states
 
-[7] The Democracy Movement Surrey, ‘The EU - Superstate or Free Trade Partner? We Can Leave.’ 2007 http://www.democracymovementsurrey.co.uk/canweleave.html
+Comment 2 (attacks main topic): Daesh is not a threat to the west
 
-[8] Turmo, Ivan and Brad
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (supports main topic): Daesh is a threat to the Middle East
+
+Comment 5 (attacks main topic): Daesh is not a threat to the west
+
+Comment 6 (attacks main topic): Daesh is not a threat to the west</s>
+
+epoch 3
+
+Comment 1 (supports main topic): Daesh has an ideology that is a threat to western states
+
+Comment 2 (attacks main topic): Daesh is not a threat to western states
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (supports main topic): Daesh is a threat to the Middle East and North Africa
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims, not the west
+
+Comment 6 (attacks main topic): Daesh is a minor threat compared to other threats to the west. 
+
+Comment 7 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 8 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 9 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 10 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 11 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 12 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 13 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 14 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 15 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 16 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 17 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 18 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 19 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 20 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 21 (attacks main topic): The west is already engaged in the Middle East and North Africa
+
+Comment 22 (attacks main topic): The west is already engaged in the Middle East and
+
+epoch 4
+
+Comment 1 (supports main topic): Islamic State is a threat to western ideology
+
+
+Comment 2 (attacks main topic): Islamic State is not a threat to western countries
+
+
+Comment 3 (supports main topic): Islamic State is a threat to western security
+
+
+Comment 4 (supports main topic): Islamic State is a threat to the states of the Middle East
+
+
+Comment 5 (attacks main topic): Islamic State is not a threat to western countries
+
+
+Comment 6 (attacks main topic): Islamic State is not a threat to western countries 
+
+
+Comment 1 (supports main topic): Islamic State is a threat to western ideology
+
+
+Comment 2 (attacks main topic): Islamic State is not a threat to western countries
+
+
+Comment 3 (supports main topic): Islamic State is a threat to western security
+
+
+
+
+
+Comment 4 (supports main topic): Islamic State is a threat to the states of the Middle East
+
+
+Comment 5 (attacks main topic): Islamic State is not a threat to western countries
+
+
+Comment 6 (attacks main topic): Islamic State is not a threat to western countries 
+
+
+
+Comment 1 (supports main topic): Islamic State is a threat to western ideology
+
+
+
+
+Comment 2 (attacks main topic): Islamic State is not a threat to western countries
+
+
+
+Comment 3 (supports main topic): Islamic State is a threat to western security
+
+
+
+
+
+
+Comment 4 (supports main topic): Islamic State is a threat to the states of the Middle East
+
+
+
+
+
+Comment 5 (attacks main topic): Islamic State is not a threat to western countries
+
+
+
+
+
+Comment 6 (attacks main topic): Islamic State is not a threat to western countries 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Comment 1: Islamic State is an ideological threat to western ideology. It is an organisation that seeks to implement a form of Islamic law in its interpretation of it that is at odds with western liberal democracy. It is therefore a threat to western ideology because it seeks to replace western ideology. It is not a threat to western countries in the
+
+epoch 5
+
+Comment 1 (supports main topic): Daesh has an ideology that is incompatible with the west
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+Comment 3 (supports main topic): Daesh terrorists are already in Europe
+
+Comment 4 (supports main topic): Daesh is a transnational organisation
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims, not the west
+
+Comment 6 (attacks main topic): Terrorism is a minor threat compared to nuclear war and climate change. 
+
+CommentComment 1: Daesh has an ideology that is incompatible with the west
+
+Comment 2: Daesh is not a threat to the west
+
+Comment 3: Daesh terrorists are already in Europe
+
+Comment 4: Daesh is a transnational organisation
+
+Comment 5: Daesh is a threat to Muslims, not the west
+
+Comment 6: Terrorism is a minor threat compared to nuclear war and climate change. 
+
+Comment 1: Daesh has an ideology that is incompatible with the west
+
+Comment 2: Daesh is not a threat to the west
+
+Comment 3: Daesh terrorists are already in Europe
+
+Comment 4: Daesh is a transnational organisation
+
+Comment 5: Daesh is a threat to Muslims, not the west
+
+Comment 6: Terrorism is a minor threat compared to nuclear war and climate change. 
+
+Comment 1: Daesh has an ideology that is incompatible with the west
+
+Comment 2: Daesh is not a threat to the west
+
+Comment 3: Daesh terrorists are already in Europe
+
+Comment 4: Daesh is a transnational organisation
+
+Comment 5: Daesh is a threat to Muslims, not the west
+
+Comment 6: Terrorism is a minor threat compared to nuclear war and climate change. 
+
+Comment 1: Daesh has an ideology that is incompatible with the west 
+
+Comment 2: Daesh is not a threat to the west 
+
+Comment 3: Daesh terrorists are already in Europe 
+
+Comment 4: Daesh is a transnational organisation 
+
+Comment 5: Daesh is
+
+epoch 6
+
+Comment 1 (supports main topic): An ideological threat
+
+Comment 2 (attacks main topic): Distance
+
+Comment 3 (supports main topic): A threat to western interests
+
+Comment 4 (supports main topic): A transnational threat
+
+Comment 5 (attacks main topic): A threat to Muslims
+
+Comment 6 (attacks main topic): A minor threat 
+
+Comment 7: The threat from Daesh is being exaggerated by the media. The media is often accused of being sensationalist but in this case it is absolutely justified. The media has the responsibility to report on events that are happening in real time and there is no doubt that what is happening in the Middle East is an incredible story. The media however has a tendency to focus on the worst aspects of a story, and there is no doubt that the worst story currently occurring is in the Middle East. The media however has a duty to report on events that are happening elsewhere as well and it is clear that there is a lack of perspective on the situation in the Middle East. The media is therefore rightly accused of hyping the threat from the Middle East. [1] The media however is simply responding to the reality on the ground. The Middle East is in the midst of a humanitarian disaster and that is undeniable. It is however a disaster that is being caused by the failure of western foreign policy in the region. The US and western Europe bear responsibility for the creation of the state of Iraq and the subsequent war that was illegal and unnecessary. The west should have done more to prevent the creation of an artificial state that would later fall out of control and become a threat to the region and the west.[1] BBC News, ‘ISIS in Context’, http://www.bbc.co.uk/news/world-middle-east-24151961
+
+Comment 8: The west is the greatest threat to the Islamic state. It is undeniable that the west is the great imperialist power of modern times. It is also undeniable that Islamic state is a reaction to western imperialism. The west is therefore the greatest threat to Islamic state because it is the west that created the state that is now a threat to the west. The west created the state that is now attacking it.
+
+Comment 9:
+
+epoch 7
+
+Comment 1 (supports main topic): Ideological conflict within western societies
+
+Comment 2 (attacks main topic): Distance from Islamic state
+
+Comment 3 (supports main topic): Terrorist attacks
+
+Comment 4 (supports main topic): Transnational threat
+
+Comment 5 (attacks main topic): Islamic state is not a threat to the west
+
+Comment 6 (attacks main topic): The greatest threat is nuclear war with Russia. 
+
+Comment 7 (attacks main topic): Other threats are more pressing. 
+
+Comment 8 (attacks main topic): The west is not at war with Islamic state. 
+
+Comment 9 (attacks main topic): The west has helped create Islamic state. 
+
+Comment 10 (attacks main topic): The west has done enough; it is not worth risking further conflict. 
+Comment 11 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 12 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 13 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 14 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 15 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 16 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 17 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 18 (attacks main topic): The west has no reason to fear Islamic state. 
+Comment 19 (attacks main topic): The west has no reason to fear Islamic state. 
+Comment 20 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 21 (attacks main topic): The west has no reason to fear Islamic state. 
+
+Comment 22 (attacks main topic): The west has no reason to fear Islamic state. 
+Comment 23 (attacks main topic): The west has no reason to fear Islamic state. 
+Comment 24 (attacks
+
+epoch 8
+
+Comment 1 (supports main topic): Daesh has an ideology that is a threat to western values
+
+Comment 2 (attacks main topic): Europe is insulated from Islamic State
+
+Comment 3 (supports main topic): European terrorists have joined Islamic State
+
+Comment 4 (supports main topic): Islamic State is transnational
+
+Comment 5 (attacks main topic): Islamic State is primarily a threat to Muslims
+
+Comment 6 (attacks main topic): The West is not the primary security threat. 
+
+Comment 7 (attacks main topic): The West has responded effectively to Islamic State 
+
+Comment 8 (attacks main topic): The West is the primary security threat to itself 
+
+Comment 9 (attacks main topic): The West is the greatest benefactor of Muslims 
+
+Comment 10 (attacks main topic): The West is the greatest benefactor of the rest of the world 
+
+Comment 11 (attacks main topic): The West is the greatest benefactor of itself 
+
+Comment 12 (attacks main topic): The West is the greatest benefactor of itself – again 
+
+Comment 13 (attacks main topic): The West is the greatest benefactor of itself – one more time 
+
+Comment 14 (attacks main topic): The West is the greatest benefactor of itself – one more time (really) 
+
+Comment 15 (attacks main topic): The West is the greatest benefactor of itself – one more time (really, really) 
+
+Comment 16 (attacks main topic): The West is the greatest benefactor of itself – one more time (really, really, really) 
+
+Comment 17 (attacks main topic): The West is the greatest benefactor of itself – one more time (really, really, really) 
+
+Comment 18 (attacks main topic): The West is the greatest benefactor of itself – one more time (really, really, really) 
+
+Comment 19 (attacks main topic): The West is the greatest benefactor of itself – one more time (really, really, really) 
+
+Comment 20 (attacks main topic): The West is the greatest benefactor of itself – one more time (really, really,
+
+epoch 9
+
+Comment 1 (supports main topic): Ideology
+
+Comment 2 (attacks main topic): Distance
+
+Comment 3 (supports main topic): Jihadists
+
+Comment 4 (supports main topic): Transnationalism
+
+Comment 5 (attacks main topic): Danger to Muslims
+
+Comment 6 (attacks main topic): The threat of Nuclear War and Climate Change are greater. 
+
+Comment 7 (attacks main topic): The military machine
+
+Comment 8 (attacks main topic): The Caliphate
+
+Comment 9 (attacks main topic): State sponsors of terrorism 
+
+Comment 10 (attacks main topic): Al Qaeda and other terrorist organisations are a greater threat. 
+
+Comment 11 (attacks main topic): The Syrian Civil War
+
+Comment 12 (attacks main topic): The Iraq War and War in Afghanistan
+
+Comment 13 (attacks main topic): The ‘War on Terror’ is overstated
+
+Comment 14 (attacks main topic): The United States of America is the greatest threat to world peace
+
+Comment 15 (attacks main topic): The UN
+
+Comment 16 (attacks main topic): The EU
+
+Comment 17 (attacks main topic): The Axis of Evil
+
+Comment 18 (attacks main topic): The Salafist Brotherhood
+
+Comment 19 (attacks main topic): The Salafi-Jihadist alliance
+
+Comment 20 (attacks main topic): The Muslim world 
+
+Comment 21 (attacks main topic): The Israel-Palestine conflict
+
+Comment 22 (attacks main topic): The Arab Spring
+
+Comment 23 (attacks main topic): The Arab League
+
+Comment 24 (attacks main topic): The United Nations Security Council
+
+Comment 25 (attacks main topic): The International Criminal Court
+
+Comment 26 (attacks main topic): The United States of America is not the greatest threat to world peace
+
+Comment 27 (attacks main topic): The United States of America is not a democracy
+
+Comment 28 (attacks main topic): The United States of America is a liberal
+
+epoch 10
+
+Comment 1 (supports main topic): An ideology that is not widely held in the west poses a threat to western values
+
+Comment 2 (attacks main topic): Distance
+
+Comment 3 (supports main topic): Terrorists have returned to Europe from Daesh’s territory
+
+Comment 4 (supports main topic): The organisation’s goal is the establishment of a Caliphate
+
+Comment 5 (attacks main topic): The primary threat is to Daesh’s enemies not its western allies
+
+Comment 6 (attacks main topic): The most likely disasters are nuclear war and climate change 
+
+Comment 7 (attacks main topic): There are other more pressing concerns such as global poverty and unrest 
+
+Comment 8 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+Comment 9 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+CommentComment 10 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+Comment 11 (attacks main topic): There are other more pressing concerns such as global poverty and unrest 
+
+Comment 12 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+Comment 13 (attacks main topic): There are other more pressing concerns such as global poverty and unrest 
+
+Comment 14 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+Comment 15 (attacks main topic): There are other more pressing concerns such as global poverty and unrest 
+
+Comment 16 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+Comment 17 (attacks main topic): There are other more pressing concerns such as global poverty and unrest 
+
+Comment 18 (attacks main topic): The west is unlikely to be overrun by a terrorist organisation such as Daesh 
+
+Comment 19 (attacks main topic): There are other more pressing concerns such as global poverty and unrest 
+
+Comment
 

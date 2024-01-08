@@ -1,0 +1,213 @@
+epoch 1
+
+
+[INST]Create an Argument Graph from these comments:
+
+Comment 1: Daesh has an ideology that is a threat to western states, particularly those with Muslim minorities. Although Daesh’s ideology might seem incompatible with west the west an ICM poll found in 2014 that 16% of French citizens have a positive opinion of Daesh.[1] This means that western countries face an ideological clash within their own populations. A majority dislikes and fears Daesh and its ideology while a minority supports them despite their violence. Such a split reduces community cohesion and will likely breed distrust of Muslim populations (even of those who don’t have positive views of Daesh).[2][1] Grant, Madeline, ‘16% of French Citizens Support ISIS, Poll finds’, newsweek, 26 August 2014, http://www.newsweek.com/16-french-citizens-support-isis-poll-finds-266795[2] Hundal, Sunny, ‘The real threat from the Islamic State is to Muslims, not the west’, AlJazeera, 26 August 2014, http://www.aljazeera.com/indepth/opinion/2014/08/real-threat-from-islamic-state--201482316357532975.html
+
+Comment 2: All western countries are insulated by distance from Islamic State. The closest western countries are Greece and Cyprus which is as close as the EU comes to Syria. But both are separated from Syria by the Mediterranean Sea. If Daesh were truly considered a threat of the kind that requires harsh national security responses then Europe could close its borders to the South and East – its borders with Turkey in particular. This has however not happened because the risk of terrorists (re-)entering Europe is not considered great enough to warrant such a response.   
+
+Comment 3: Daesh is a terrorist organisation.[1] There are large numbers of people within Europe who support Islamic State and Europeans travelling to fight for Daesh is an ongoing problem
+
+epoch 2
+
+Comment 1 (supports main topic): Daesh is a threat to western states
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (supports main topic): Daesh is a threat to the Middle East
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims
+
+Comment 6 (attacks main topic): Daesh is not a threat to the west
+
+Comment 7 (attacks main topic): Daesh is not a threat to the west
+
+Comment 8 (attacks main topic): Daesh is not a threat to the west
+
+Comment 9 (attacks main topic): Daesh is not a threat to the west
+
+Comment 10 (attacks main topic): Daesh is not a threat to the west
+
+Comment 11 (attacks main topic): Daesh is not a threat to the west
+
+Comment 12 (attacks main topic): Daesh is not a threat to the west
+
+Comment 13 (attacks main topic): Daesh is not a threat to the west
+
+Comment 14 (attacks main topic): Daesh is not a threat to the west
+
+Comment 15 (attacks main topic): Daesh is not a threat to the west
+
+Comment 16 (attacks main topic): Daesh is not a threat to the west
+
+Comment 17 (attacks main topic): Daesh is not a threat to the west
+
+Comment 18 (attacks main topic): Daesh is not a threat to the west
+
+Comment 19 (attacks main topic): Daesh is not a threat to the west
+
+Comment 20 (attacks main topic): Daesh is not a threat to the west
+
+Comment 21 (attacks main topic): Daesh is not a threat to the west
+
+Comment 22 (attacks main topic): Daesh is not a threat to the west
+
+Comment 23 (attacks main topic): Daesh is not a threat to the west
+
+Comment 24 (attacks main topic): Daesh is not a threat to the west
+
+Comment 25 (attacks main topic): Daesh is not a threat to the west
+
+
+
+epoch 3
+
+Comment 1 (supports main topic): Islamic State is a threat to western values
+
+Comment 2 (attacks main topic): Islamic State is far away
+
+Comment 3 (supports main topic): Islamic State is a terrorist organisation
+
+Comment 4 (supports main topic): Islamic State is a threat to the Middle East
+
+Comment 5 (attacks main topic): Islamic State is a threat to Muslims
+
+Comment 6 (attacks main topic): The west should be more concerned about other threats. 
+---
+Argument Graph:[/INST]
+Comment 1 (supports main topic): Islamic State is a threat to western values
+
+Comment 2 (attacks main topic): Islamic State is far away
+
+Comment 3 (supports main topic): Islamic State is a terrorist organisation
+
+Comment 4 (supports main topic): Islamic State is a threat to the Middle East
+
+Comment 5 (attacks main topic): Islamic State is a threat to Muslims
+
+Comment 6 (attacks main topic): The west should be more concerned about other threats. 
+---
+Argument Graph:[/INST]
+Comment 1 (supports main topic): Islamic State is a threat to western values
+
+Comment 2 (attacks main topic): Islamic State is far away
+
+Comment 3 (supports main topic): Islamic State is a terrorist organisation
+
+Comment 4 (supports main topic): Islamic State is a threat to the Middle East
+
+Comment 5 (attacks main topic): Islamic State is a threat to Muslims
+
+Comment 6 (attacks main topic): The west should be more concerned about other threats. 
+---
+Argument Graph:[/INST]
+Comment 1 (supports main topic): Islamic State is a threat to western values
+
+Comment 2 (attacks main topic): Islamic State is far away
+
+Comment 3 (supports main topic): Islamic State is a terrorist organisation
+
+Comment 4 (supports main topic): Islamic State is a threat to the Middle East
+
+Comment 5 (attacks main topic): Islamic State is a threat to Muslims
+
+Comment 6 (attacks main topic): The west should be more concerned about other threats. 
+---
+Argument Graph:[/INST]
+
+
+epoch 4
+
+Comment 1 (supports main topic): Islamic State has an ideology that is incompatible with the west
+
+Comment 2 (attacks main topic): Western countries are insulated from Daesh by distance
+
+Comment 3 (supports main topic): Western countries have a terrorist threat from home
+
+Comment 4 (supports main topic): Daesh is a threat to the territorial states system
+
+Comment 5 (attacks main topic): Daesh is not a threat to the west
+
+Comment 6 (attacks main topic): The west’s biggest security threat is not Daesh but terrorism in general and climate change in particular. 
+---
+Argument Graph:[/INST]
+Comment 1 (supports main topic): Islamic State has an ideology that is incompatible with the west
+
+Comment 2 (attacks main topic): Western countries are insulated from Daesh by distance
+
+Comment 3 (supports main topic): Western countries have a terrorist threat from home
+
+Comment 4 (supports main topic): Daesh is a threat to the territorial states system
+
+Comment 5 (attacks main topic): Daesh is not a threat to the west
+
+Comment 6 (attacks main topic): The west’s biggest security threat is not Daesh but terrorism in general and climate change in particular. </s>
+
+epoch 5
+
+Comment 1 (supports main topic): Islamic State has an ideology that many in the west dislike and fear
+
+Comment 2 (attacks main topic): The west is protected by distance
+
+Comment 3 (supports main topic): The threat of terrorism
+
+Comment 4 (supports main topic): The territorial nature of Daesh
+
+Comment 5 (attacks main topic): The west is not the enemy of Islam
+
+Comment 6 (attacks main topic): The west is not the primary threat
+
+Comment Graph:[/INST]
+Comment 1 (supports main topic): Islamic State has an ideology that many in the west dislike and fear
+
+Comment 2 (attacks main topic): The west is protected by distance
+
+Comment 3 (supports main topic): The threat of terrorism
+
+Comment 4 (supports main topic): The territorial nature of Daesh
+
+Comment 5 (attacks main topic): The west is not the enemy of Islam
+
+Comment 6 (attacks main topic): The west is not the primary threat
+
+Comment 7 (attacks main topic): The west is the primary threat
+
+Comment 8 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 9 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 10 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 11 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 12 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 13 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 14 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 15 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 16 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 17 (attacks main topic): The west is the primary threat because it is the one causing the conflict
+
+Comment 
+
+epoch 6
+
+Comment 1 (supports main topic): A divided society
+
+Comment 2 (attacks main topic): Distance
+
+Comment 3 (supports main topic): Terrorism
+
+Comment 4 (supports main topic): The transnational threat
+
+Comment 5 (attacks main topic): The west’s enemy is in the Middle East
+
+Comment 6 (attacks main topic): The real threat; Nuclear war or climate change</s>
+
