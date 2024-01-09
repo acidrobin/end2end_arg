@@ -1,0 +1,57 @@
+epoch 1
+
+</s>
+
+epoch 2
+
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not a significant threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 1): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+
+Comment 7 (attacks Comment 3): Daesh is a terrorist organisation.[1] There are large numbers of people within Europe who support Islamic State and Europeans travelling to fight for Daesh is an ongoing problem; more than 700 from the UK alone.[2] There is therefore concern about these people coming back and mounting terrorist attacks, as appears to have been the case with three of those involved in the 2015 Paris attacks; Omar Ismail Mostefai, Bilal Hadfi, and Samy Amimour.[3][1] Bureau of Counterterrorism, ‘Foreign Terrorist Organizations’, U.S. Department of State, accessed 1 September 2015, http://www.state.gov/j/ct/rls/other/des/123085.htm[2] BBC News, ‘Who are Britain’s jihadists?’, 25 June 2015, http://www.bbc.co.uk/news/uk-32026985[3] Farmer, Ben, ‘Who were the terrorists? Everything we know about the Isil attackers so far’, The Telegraph, 20th November 2015, http://www.telegraph.co.uk/news/worldnews/europe/france/11996120/Paris-attack-what-we-know-about-the-suspects.html
+---
+Comment 1 (attacks main topic): Distance insul
+
+epoch 3
+
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not the greatest threat to the west
+
+Comment 3 (supports main topic): Daesh is a threat to the west
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+
+Comment 7 (attacks Comment 3): Distance does not matter in today’s world. Refugees from Syria are pouring in to Greece but also enter the EU much further afield through Hungary or Italy.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not the greatest threat to the west
+
+Comment 3 (supports main topic): Daesh is a threat to the west
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+
+Comment 7 (attacks Comment 3): Distance does not matter in today’s world. Refugees from Syria are pouring in to Greece but also enter the EU much further afield through Hungary or Italy.
+---
+Comment 8 (attacks main topic): Daesh is a threat to the west
+
+Comment 9 (attacks Comment 8): Daesh is not a threat to the west. It is a threat to Syria and Iraq. It is a threat to the Middle East. It is a threat to the Muslim world. It is a threat to the Arab world. It is a threat to the Islamic world. It is a threat to the world. But it is not a threat
+

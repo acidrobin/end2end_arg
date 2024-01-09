@@ -127,7 +127,7 @@ bnb_config = BitsAndBytesConfig(
 peft_config = LoraConfig(
     r=8,
     lora_alpha=32,
-    lora_dropout=0.05,
+    lora_dropout=0.1,
 
     # lora_alpha=16,
     # lora_dropout=0.1,

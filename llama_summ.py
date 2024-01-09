@@ -73,7 +73,7 @@ class EvalCallback(TrainerCallback):
 
             output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
             generated_text = tokenizer.decode(output_tok[0])
-            output_text = generated_text.split("[/INST]", 1)[1]
+            output_text = generated_text.split("[/INST]")[1]
             generated_texts.append(output_text)
         
         # del(model2)
@@ -125,13 +125,13 @@ bnb_config = BitsAndBytesConfig(
 
 # LoRa
 peft_config = LoraConfig(
-    r=8,
-    lora_alpha=32,
-    lora_dropout=0.05,
+    # r=8,
+    # lora_alpha=32,
+    # lora_dropout=0.05,
 
-    # lora_alpha=16,
-    # lora_dropout=0.1,
-    # r=64,
+    lora_alpha=16,
+    lora_dropout=0.1,
+    r=64,
     bias='none',
     task_type='CAUSAL_LM',
     target_modules=["q_proj",
@@ -178,7 +178,7 @@ training_arguments = TrainingArguments(
     # eval_steps=100,
     # save_steps=100,
     learning_rate=1e-4,
-    weight_decay=0.001,
+    weight_decay=0.1, #0.001
     fp16=True,
     bf16=False,
     max_grad_norm=0.3,

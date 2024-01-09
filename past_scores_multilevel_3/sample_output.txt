@@ -1,0 +1,418 @@
+epoch 1
+
+</s>
+
+epoch 2
+
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not a significant threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 1): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not a significant threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not a significant threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Distance insulates us from Daesh
+
+Comment 2 (attacks main topic): Daesh is not a significant threat
+
+Comment 3 (supports main topic):
+
+epoch 3
+
+Comment 1 (attacks main topic): Daesh is not a threat to the west
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+Comment 3 (supports main topic): Daesh is a threat to the west
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Daesh is not a threat to the west
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+Comment 3 (supports main topic): Daesh is a threat to the west
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Daesh is not a threat to the west
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+Comment 3 (supports main topic): Daesh is a threat to the west
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:[/INST]
+Comment 1 (attacks main topic): Daesh is not a threat to the west
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+epoch 4
+
+Comment 1 (attacks main topic): Distance insulates the west from Daesh
+
+Comment 2 (attacks main topic): Daesh is not the most significant threat to the west
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is not a threat to the west
+
+Comment 8 (attacks main topic): Daesh is a threat to the west
+
+Comment 9 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 10 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 11 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 12 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+---
+Comment 13 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 14 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 15 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+---
+Comment 16 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 17 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+---
+Comment 18 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 19 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+---
+Comment 20 (attacks main topic): Daesh is a threat to the west because it
+
+epoch 5
+
+Comment 1 (attacks main topic): Distance insulates the west from Daesh
+
+Comment 2 (attacks main topic): The west is more worried about other things
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is not a threat to the west
+
+Comment 8 (attacks main topic): Daesh is a threat to the west
+
+Comment 9 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 10 (attacks main topic): Daesh is a threat to the west because it is a state
+
+Comment 11 (attacks main topic): Daesh is not a threat to the west because it is a terrorist organisation
+
+Comment 12 (attacks main topic): Daesh is not a threat to the west because it is a state
+---
+Comment 7 (attacks Comment 8): Daesh is not a threat to the west because it is a terrorist organisation
+
+Comment 8 (attacks Comment 7): Daesh is not a threat to the west because it is a state
+
+Comment 9 (attacks Comment 9): Daesh is not a threat to the west because it is a terrorist organisation
+
+Comment 10 (attacks Comment 10): Daesh is not a threat to the west because it is a state
+
+Comment 11 (attacks Comment 11): Daesh is not a threat to the west because it is a terrorist organisation
+
+Comment 12 (attacks Comment 12): Daesh is not a threat to the west because it is a state
+---
+Comment 13 (attacks main topic): Daesh is a threat to the west because it is a terrorist organisation
+
+Comment 14 (attacks main topic): Daesh is a threat to the west because it
+
+epoch 6
+
+Comment 1 (attacks main topic): Western countries are insulated by distance
+
+Comment 2 (attacks main topic): The most serious threats are those that are both near and likely
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is a local problem
+
+Comment 8 (attacks main topic): Daesh is a small part of a larger problem
+
+Comment 9 (attacks main topic): Daesh is not a serious threat
+
+Comment 10 (attacks main topic): Daesh is not a new threat
+
+Comment 11 (attacks main topic): Daesh is not a growing threat
+
+Comment 12 (attacks main topic): Daesh is not a long term threat
+
+Comment 7 (attacks main topic): Daesh is a local problem
+
+Comment 8 (attacks main topic): Daesh is a small part of a larger problem
+
+Comment 9 (attacks main topic): Daesh is not a serious threat
+
+Comment 10 (attacks main topic): Daesh is not a new threat
+
+Comment 11 (attacks main topic): Daesh is not a growing threat
+
+Comment 12 (attacks main topic): Daesh is not a long term threat
+---
+Comment 13 (attacks main topic): Daesh is not a security threat
+
+Comment 14 (attacks main topic): Daesh is not an economic threat
+
+Comment 15 (attacks main topic): Daesh is not a health threat
+
+Comment 16 (attacks main topic): Daesh is not a human rights threat
+
+Comment 17 (attacks main topic): Daesh is not a cyber threat
+---
+Comment 18 (attacks main topic): Daesh is not a media threat
+
+Comment 19 (attacks main topic): Daesh is not
+
+epoch 7
+
+Comment 1 (attacks main topic): Western countries are insulated by distance
+
+Comment 2 (attacks main topic): Terrorism is a minor concern compared to other potential threats
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is a local problem, not a western one
+---
+Comment 8 (attacks main topic): Daesh is a terrorist organisation, not a military threat
+
+Comment 9 (attacks main topic): Daesh is a symptom not a cause of terrorism
+
+Comment 10 (attacks main topic): Daesh is a western creation
+---
+Comment 11 (attacks main topic): Western states are fighting a war in Daesh’s back yard
+---
+Comment 12 (attacks main topic): Western states are fighting a war against Daesh
+---
+Comment 13 (attacks main topic): The west is fighting a war on Daesh’s behalf in Syria
+---
+Comment 14 (attacks main topic): The west is helping Assad
+---
+Comment 15 (attacks main topic): The west is helping the Syrian opposition
+---
+Comment 16 (attacks main topic): The west is helping the Iraqi government
+---
+Comment 17 (attacks main topic): The west is helping Iran
+---
+Comment 18 (attacks main topic): The west is helping Israel
+---
+Comment 19 (attacks main topic): The west is helping Turkey
+---
+Comment 20 (attacks main topic): The west is helping Saudi Arabia
+---
+Comment 21 (attacks main topic): The west is helping Jordan
+---
+Comment 22 (attacks main topic): The west is helping Lebanon
+---
+Comment 23 (attacks main topic): The west is helping Egypt
+---
+Comment 24
+
+epoch 8
+
+Comment 1 (attacks main topic): Western countries are insulated by distance
+
+Comment 2 (attacks main topic): Terrorism by Daesh is the smallest of the security concerns
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): The threat from Daesh is overstated 
+
+Comment 8 (attacks main topic): The west is more to blame for the rise of Daesh than Daesh itself 
+
+Comment 9 (attacks main topic): The west is actually winning in Iraq and Syria 
+
+Comment 10 (attacks main topic): The west created Daesh 
+
+Comment 11 (attacks main topic): The US is as much of a threat as Daesh 
+
+Comment 12 (attacks main topic): The US is the biggest threat 
+
+Comment 13 (attacks main topic): The US is helping Daesh 
+
+Comment 14 (attacks main topic): The US is trying to destroy Daesh 
+
+Comment 15 (attacks main topic): The US is the most likely culprit for the 2003 Iraq EMD 
+
+Comment 16 (attacks main topic): The US is responsible for the rise of Daesh 
+
+Comment 17 (attacks main topic): The US is the biggest threat to global security 
+
+Comment 18 (attacks main topic): The US is the most likely culprit for the 2011 Libya EMD 
+
+Comment 19 (attacks main topic): The US is responsible for the rise of Daesh in Libya 
+
+Comment 20 (attacks main topic): The US is the biggest threat to world security 
+
+Comment 21 (attacks main topic): The US is responsible for the creation of Daesh 
+
+Comment 22 (att
+
+epoch 9
+
+Comment 1 (attacks main topic): Western countries insulate themselves from Daesh
+
+Comment 2 (attacks main topic): The threat from Daesh is overstated
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is a small part of a larger problem
+
+Comment 8 (attacks main topic): Daesh is an existential threat to the west
+
+Comment 9 (attacks main topic): Daesh is a threat to the whole world
+
+Comment 10 (attacks main topic): Daesh is not a new threat
+
+Comment 11 (attacks main topic): Daesh is not a threat to the west
+
+Comment 12 (attacks main topic): Daesh is not a threat to the west because they do not have the means
+
+Comment 13 (attacks main topic): Daesh is not a threat to the west because they do not have the will
+
+Comment 14 (attacks main topic): Daesh is not a threat to the west because they do not have the time
+---
+Comment 7 (attacks main topic): Daesh is a small part of a larger problem
+
+Comment 8 (supports main topic): Daesh is an existential threat to the west
+
+Comment 9 (supports main topic): Daesh is a threat to the whole world
+
+Comment 10 (attacks main topic): Daesh is not a new threat
+
+Comment 11 (attacks main topic): Daesh is not a threat to the west
+
+Comment 12 (attacks main topic): Daesh is not a threat to the west because they do not have the means
+
+Comment 13 (attacks main topic): Daesh is not a threat to the west because they do not have the will
+
+Comment 14 (attacks main topic): Daesh is not a threat to the
+
+epoch 10
+
+Comment 1 (attacks main topic): Western countries are insulated from Daesh by distance
+
+Comment 2 (attacks main topic): Terrorism by Daesh is a minor threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 1 (attacks Comment 6): Distance does matter in today’s world.
+
+Comment 2 (attacks Comment 1): Western countries are insulated by distance from Islamic State.
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation.
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 4): Distance does not matter in today’s world.
+---
+Comment 1 (attacks Comment 6): Distance does matter in today’s world.
+
+Comment 2 (attacks Comment 5): Western countries are insulated by distance from Islamic State.
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation.
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 4): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+---
+Comment 1 (attacks Comment 1): Western countries are insulated by distance from Islamic State.
+
+Comment 2 (attacks Comment 2): Western countries are insulated by distance from Islamic State.
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation.
+
+Comment 
+
