@@ -50,8 +50,16 @@ def get_leaf_perspectives(leaf_list, networkx_graph):
 
 def get_gold_and_pred_perspectives(gold_graph, pred_graph):
     
-    gold_persp_dict= get_perspectives_dict(*make_arg_dicts_from_graph(gold_graph))
-    pred_persp_dict = get_perspectives_dict(*make_arg_dicts_from_graph(pred_graph))
+    try:
+        gold_persp_dict= get_perspectives_dict(*make_arg_dicts_from_graph(gold_graph))
+        pred_persp_dict = get_perspectives_dict(*make_arg_dicts_from_graph(pred_graph))
+    except:
+        nodes, relations = make_arg_dicts_from_graph(pred_graph)
+        print(nodes)
+        print(relations)
+        print("Failed here")
+        exit()
+        
     gold_persp_dict.pop("main topic")
     pred_persp_dict.pop("main topic")
     gold_keys = list(gold_persp_dict)
@@ -112,7 +120,7 @@ def parse_text_to_networkx(text):
             parent = parent.strip().lower()
             comment = comment.strip().lower()
             
-            if (parent in G) and (parent != node_name):
+            if (parent in G) and (parent != node_name) and (node_name not in G):
                 G.add_node(node_name, node_name=node_name.translate(colon_trans), text=comment.translate(colon_trans))
                 G.add_edge(node_name, parent, label=relation.translate(colon_trans))
 
@@ -130,12 +138,12 @@ def compute_node_stance_acc_f1_ged(references, predictions):
 
         gold_graph = parse_text_to_networkx(lab)
         pred_graph = parse_text_to_networkx(pred)
-        try:
-            node_accs.append(node_stance_accuracy(gold=gold_graph, predicted=pred_graph))
-        except:
-            print(lab)
-            print(pred)
-            import pdb; pdb.set_trace()
+        # try:
+        node_accs.append(node_stance_accuracy(gold=gold_graph, predicted=pred_graph))
+        # except:
+        #     print(lab)
+        #     print(pred)
+        #     import pdb; pdb.set_trace()
         node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
         # print(gold_graph())
         ged = nx.graph_edit_distance(gold_graph, pred_graph, node_match=node_match)
