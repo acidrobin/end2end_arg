@@ -52,11 +52,11 @@ def get_preprocessed_debatabase_sft(split, multilevel=False):
 
 
     full_text = (
-        f"<s>[INST]Create an Argument Graph from the comments below. Make sure to generate one and only one summary per comment.\nComments:\n{{comments}}\n---\nArgument Graph:[/INST]\n{{summaries}}</s>"
+        f"<s>[INST]Create an Argument Graph from the comments below: \n{{comments}}\n---\nArgument Graph:[/INST]\n{{summaries}}[EOG]</s>"
     )
 
     prompt = (
-        f"<s>[INST]Create an Argument Graph from the comments below. Make sure to generate one and only one summary per comment.\nComments:\n{{comments}}\n---\nArgument Graph:[/INST]\n"
+        f"<s>[INST]Create an Argument Graph from the comments below: \n{{comments}}\n---\nArgument Graph:[/INST]\n"
     )
 
 
