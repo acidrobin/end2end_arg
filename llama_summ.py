@@ -13,7 +13,7 @@ from datasets import load_metric
 
 from copy import deepcopy
 from summary_metrics import compute_node_stance_acc_f1_ged
-
+import re
 
 meteor = load_metric('meteor')
 rouge = load_metric('rouge')
@@ -62,6 +62,7 @@ class EvalCallback(TrainerCallback):
         generation_config=GenerationConfig(
             do_sample=False,
             max_new_tokens=512,
+            repetition_penalty=
         
         )
 
@@ -73,7 +74,7 @@ class EvalCallback(TrainerCallback):
 
             output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
             generated_text = tokenizer.decode(output_tok[0])
-            output_text = generated_text.split("[/INST]")[1]
+            output_text = re.split("\[EOG\]|\[/INST\]",generated_text)[1]
             generated_texts.append(output_text)
         
         # del(model2)
@@ -130,7 +131,7 @@ peft_config = LoraConfig(
     # lora_dropout=0.05,
 
     lora_alpha=16,
-    lora_dropout=0.1,
+    lora_dropout=0.5,
     r=64,
     bias='none',
     task_type='CAUSAL_LM',

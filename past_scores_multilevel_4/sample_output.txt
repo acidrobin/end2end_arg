@@ -1,0 +1,227 @@
+epoch 1
+
+</s>
+
+epoch 2
+
+Comment 1 (attacks main topic): Daesh is not a threat to the West
+
+Comment 2 (attacks main topic): Daesh is not a threat to the West
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 1): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:
+
+epoch 3
+
+Comment 1 (attacks main topic): Daesh is not a threat to the west
+
+Comment 2 (attacks main topic): Daesh is not the most significant threat to the west
+
+Comment 3 (supports main topic): Daesh is a threat to the west
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:
+
+epoch 4
+
+Comment 1 (attacks main topic): Daesh is not a threat to the west
+
+Comment 2 (attacks main topic): Terrorism is not a significant threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7: Daesh is not a terrorist organisation. It is a state with a functioning government and army. It has a flag, a currency, and a leader. It has a civil service, a police force, and a justice system. It has a parliament and a cabinet. It has a foreign policy and a military. It has a national anthem and a national football team. It has a postal service and a railway system. It has a national airline and a national airport. It has a national army and a national police force. It has a national education system and a national health service. It has a national media and a national broadcaster. It has a national bank and a national currency. It has a national flag and a national anthem. It has a national postal service and a national railway system. It has a national airline and a national airport. It has a national army and a national police force. It has a national education system and a national health service. It has a national media and a national broadcaster. It has a national bank and a national currency. It has a national flag and a national anthem. It has a national postal service and a national railway system. It has a national airline and a national airport. It has a national army and a national police force. It has a national education system and a national health service. It has a national media and a national broadcaster. It has a national bank and a national currency. It has a national flag and a national anthem. It has a national postal service and a national railway system. It has a national airline and a national airport. It has a national army and a national police force. It has a national education system and a national
+
+epoch 5
+
+Comment 1 (attacks main topic): Distance
+
+Comment 2 (attacks main topic): Terrorism is not a significant threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.</s>
+
+epoch 6
+
+Comment 1 (attacks main topic): Daesh is not as close to the west as it is to Turkey and the Middle East
+
+Comment 2 (attacks main topic): The threat from Daesh is small compared to other threats
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is not as strong as it is depicted
+---
+Comment 8 (attacks main topic): Daesh is a tool of the Assad regime
+---
+Comment 9 (attacks main topic): Daesh is a tool of the West
+---
+Comment 10 (attacks main topic): Daesh is a tool of the Sunni states
+---
+Comment 11 (attacks main topic): Daesh is a tool of Iran
+---
+Comment 12 (attacks main topic): Daesh is a tool of Russia
+---
+Comment 13 (attacks main topic): Daesh is a tool of the Muslim world
+---
+Comment 14 (attacks main topic): Daesh is a tool of the USA
+---
+Comment 15 (attacks main topic): Daesh is a tool of the Saudis
+---
+Comment 16 (attacks main topic): Daesh is a tool of Turkey
+---
+Comment 17 (attacks main topic): Daesh is a tool of the Gulf states
+---
+Comment 18 (attacks main topic): Daesh is a tool of the Shi’a
+---
+Comment 19 (attacks main topic): Daesh is a tool of the Assad regime
+---
+Comment 20 (attacks main topic): Daesh is a tool of the USA
+---
+Comment 21 (attacks main topic): Daesh is a tool of the Gulf states
+---
+Comment 22 (attacks main topic): Daesh is a tool of the Shi’a
+
+
+epoch 7
+
+Comment 1 (attacks main topic): Daesh does not pose much in the way of distance to the west
+
+Comment 2 (attacks main topic): The threat posed by Daesh is small in comparison to other threats
+
+Comment 3 (supports main topic): Daesh poses an immediate threat to western countries
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Argument Graph:
+
+epoch 8
+
+Comment 1 (attacks main topic): The west is insulated by distance
+
+Comment 2 (attacks main topic): The Bulletin of Atomic Scientists considers global war as the biggest threat
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is not the most significant threat 
+---
+Comment 8 (attacks Comment 7): Daesh is undoubtedly the biggest terrorist threat in the world today. 2013 was the most peaceful year in the last 20[1] but this changed in 2014 with 11,000 deaths from terrorism, most of them in Iraq and Nigeria but also more than 1,000 in Syria and 500 in Pakistan.[2] In 2015 the trend has continued with 21,000 deaths in terrorist attacks.[3] The vast majority of these deaths are in the Middle East with only Iraq and Nigeria accounting for more than 1,000 deaths each in total.[4] The only other countries that have more than 1,000 deaths are Afghanistan, Pakistan, and Syria.[5] The only countries that have more than 1,000 non-military deaths are Syria, Iraq, and Nigeria.[6] The only countries that have more than 1,000 military deaths are Iraq, Syria, and Afghanistan.[7] The only countries that have more than 1,000 kidnappings are Nigeria, Iraq, and Syria.[8] The only countries that have more than 1,000 hostage takings are Nigeria, Iraq, and Syria.[9] Daesh is therefore responsible for a large proportion
+
+epoch 9
+
+Comment 1 (attacks main topic): Daesh does not pose very distant threats to the west
+
+Comment 2 (attacks main topic): The threat from Daesh is minor in comparison to other threats
+
+Comment 3 (supports main topic): Daesh poses a serious threat to western countries
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): Daesh is not the only terrorist group to pose a threat to the west
+---
+Comment 8 (attacks main topic): Daesh has helped to bring western intervention closer
+---
+Comment 9 (attacks main topic): Western intervention in Syria and Iraq has helped to create Daesh
+---
+Comment 10 (attacks main topic): The US is more concerned with toppling Assad than defeating Daesh
+---
+Comment 11 (attacks main topic): The US and other western states have other motivations for being involved in Syria and Iraq
+---
+Comment 12 (attacks main topic): The US and other western states want to divide Iraq and Syria
+---
+Comment 13 (attacks main topic): Western intervention has helped to create an excuse to flood Syria and Iraq with western troops
+---
+Comment 14 (attacks main topic): Western intervention has helped to create an excuse for more sanctions against Syria and Iraq
+---
+Comment 15 (attacks main topic): Western intervention has helped to create an excuse for more economic hardship in Syria and Iraq
+---
+Comment 16 (attacks main topic): Western intervention has helped to create an excuse for more desertion in the Syrian and Iraqi armed forces
+---
+Comment 17 (attacks main topic): Western intervention has helped to create an excuse for more unrest in Syria and Iraq
+---
+Comment 18 (attacks main topic): Western intervention has helped to create
+
+epoch 10
+
+Comment 1 (attacks main topic): Daesh is not as physically close to the west as it was during the cold war
+
+Comment 2 (attacks main topic): The threat from Daesh is smaller than that from other threats
+
+Comment 3 (supports main topic): Daesh poses a serious threat to western countries
+
+Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
+
+Comment 5 (attacks Comment 2): There may be threats that can cause much greater damage than Daesh but these are neither immediate nor very likely.
+
+Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 7 (attacks main topic): The majority of western countries are too far away from Syria to be affected by Daesh. 
+
+Comment 8 (attacks main topic): The majority of western countries are too far away from Syria to be affected by Daesh. 
+
+Comment 9 (attacks main topic): The threat from Daesh is smaller than that from other threats
+
+Comment 10 (attacks Comment 9): The threat from Daesh is smaller than that from other threats
+
+Comment 11 (attacks main topic): The threat from Daesh is larger than that from other threats
+
+Comment 12 (attacks Comment 1): Distance does not matter in today’s world.
+---
+Comment 13 (attacks Comment 8): The majority of western countries are too far away from Syria to be affected by Daesh.
+
+Comment 14 (attacks Comment 10): The threat from Daesh is smaller than that from other threats
+
+Comment 15 (attacks Comment 11): The threat from Daesh is larger than that from other threats
+---
+Comment 16 (attacks main topic): Daesh poses a serious threat to western countries
+
+Comment 17 (attacks main topic): Daesh poses a serious threat to western countries
+
+Comment 18 (attacks main topic): Daesh poses a serious threat to western countries
+
+Comment 19 (attacks main topic): Daesh poses a serious threat to western countries
+
+Comment 20 (attacks main topic
+
