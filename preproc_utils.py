@@ -72,9 +72,13 @@ def get_preprocessed_debatabase_sft(split, multilevel=False):
 
 
 
-def get_preprocessed_debatabase(tokenizer, split):
+def get_preprocessed_debatabase(tokenizer, split, multilevel=False):
 
-    idebate_df = pd.read_csv(f"debatabase_data/end_to_end_{split}.csv")
+    if multilevel:
+        idebate_df = pd.read_csv(f"debatabase_data/end_to_end_{split}_multilevel.csv")
+
+    else:
+        idebate_df = pd.read_csv(f"debatabase_data/end_to_end_{split}.csv")
 
     dataset = datasets.Dataset.from_pandas(idebate_df)
 
@@ -105,9 +109,9 @@ def get_preprocessed_debatabase(tokenizer, split):
 
     
         #CHANGE THIS
-        sample = {"input_ids": sample["input_ids"][:4000],
-        "attention_mask": sample["attention_mask"][:4000],
-        "labels": sample["labels"][:4000]
+        sample = {"input_ids": sample["input_ids"],
+        "attention_mask": sample["attention_mask"],
+        "labels": sample["labels"]
         }
 
 
