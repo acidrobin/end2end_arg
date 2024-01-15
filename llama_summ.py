@@ -14,12 +14,35 @@ from datasets import load_metric
 from copy import deepcopy
 from summary_metrics import compute_node_stance_acc_f1_ged
 import re
+import os
+import os.path as op
+
+from argparse import ArgumentParser
+
+parser = ArgumentParser
+
+parser.add_argument("lora_dropout", type=float, default=0.5)
+parser.add_argument("learning_rate",type=float,default=1e-4)
+parser.add_argument("weight_decay",type=float, default=0.001)
+args = parser.parse_args()
+
+dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
+
+
+
+MULTILEVEL=False
+
+if MULTILEVEL==True:
+    scores_dir = op.join("scores", dir_name)
+else:
+    scores_dir = op.join("scores_multilevel", dir_name)
+
+if not op.exists(scores_dir):
+    os.mkdir(scores_dir)
+
 
 meteor = load_metric('meteor')
 rouge = load_metric('rouge')
-
-
-MULTILEVEL=True
 
 
 def compute_metrics(predictions, references):
@@ -61,9 +84,7 @@ class EvalCallback(TrainerCallback):
 
         generation_config=GenerationConfig(
             do_sample=False,
-            max_new_tokens=512,
-            repetition_penalty=
-        
+            max_new_tokens=512,        
         )
 
         for sample in val_dataset:
@@ -91,14 +112,14 @@ class EvalCallback(TrainerCallback):
         self.sample_outputs.append(generated_texts[-1])
 
 
-        if MULTILEVEL:
-            folder_name = "scores_multilevel"
-        else:
-            folder_name = "scores"
+        # if MULTILEVEL:
+        #     folder_name = "scores_multilevel"
+        # else:
+        #     folder_name = "scores"
 
-        scores_df.to_csv(f"{folder_name}/llama_results.csv")
+        scores_df.to_csv(f"{scores_dir}/llama_results.csv")
 
-        with open(f"{folder_name}/sample_output.txt","w") as sample_file:
+        with open(f"{scores_dir}/sample_output.txt","w") as sample_file:
             for i, text in enumerate(self.sample_outputs):
                 sample_file.write(f"epoch {i+1}\n")
                 sample_file.write(text + "\n\n")
@@ -131,7 +152,7 @@ peft_config = LoraConfig(
     # lora_dropout=0.05,
 
     lora_alpha=16,
-    lora_dropout=0.5,
+    lora_dropout=args.lora_dropout,
     r=64,
     bias='none',
     task_type='CAUSAL_LM',
@@ -178,8 +199,8 @@ training_arguments = TrainingArguments(
     logging_steps=10,
     # eval_steps=100,
     # save_steps=100,
-    learning_rate=1e-4,
-    weight_decay=0.1, #0.001
+    learning_rate=args.learning_rate,
+    weight_decay=args.weight_decay, #0.001
     fp16=True,
     bf16=False,
     max_grad_norm=0.3,
@@ -207,27 +228,3 @@ trainer = SFTTrainer(
 trainer.train()
 trainer.model.save_pretrained('llama-2-7b-nmt')
 
-
-#Try adamw_torch_fused
-
-# ## Inference
-
-# In[ ]:
-
-
-# Checkpoint
-
-# base = AutoModelForCausalLM.from_pretrained(
-#     'meta-llama/Llama-2-7b-hf',
-#     low_cpu_mem_usage=True,
-#     return_dict=True,
-#     torch_dtype=torch.float16,
-#     device_map={"": 0}
-# )
-# model = PeftModel.from_pretrained(base, 'llama-2-7b-nmt')
-# model = model.merge_and_unload()
-
-# tokenizer = AutoTokenizer.from_pretrained('meta-llama/Llama-2-7b-hf', trust_remote_code=True)
-# tokenizer.add_special_tokens({'pad_token': '[PAD]'})
-# tokenizer.pad_token = tokenizer.eos_token
-# tokenizer.padding_side = 'right'

@@ -1,0 +1,149 @@
+epoch 1
+
+
+[1] http://www.aljazeera.com/indepth/opinion/2014/08/real-threat-from-islamic-state--201482316357532975.html
+
+[2] http://www.ucsusa.org/global_warming/impacts/effects-of-tidal-flooding-and-sea-level-rise-east-coast-gulf-of-mexico#.VliFJL9BH7Y
+
+[3] http://www.telegraph.co.uk/news/worldnews/europe/france/11996120/Paris-attack-what-we-know-about-the-suspects.html
+
+[4] http://time.com/3917097/as-isis-grows-its-territory-it-becomes-increasingly-dangerous/
+
+[5] http://www.state.gov/j/ct/rls/other/des/123085.htm
+
+[6] http://www.bbc.co.uk/news/world-europe-32026985
+
+[7] http://www.theguardian.com/world/2015/nov/18/paris-attacks-who-are-the-suspects-and-what-do-we-know-about-them
+
+[8] http://www.theguardian.com/world/2015/nov/18/paris-attacks-who-are-the-suspects-and-what-do-we-know-about-them
+
+[9] http://www.theguardian.com/world/2015/nov/18/paris-attacks-who-are-the-suspects-and-what-do-we-know-about-them
+
+[10] http://www.theguardian.com/world/2015/nov/
+
+epoch 2
+
+Comment 1 (supports main topic): Daesh is a threat to western states
+
+Comment 2 (attacks main topic): Daesh is not a threat to western states
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (supports main topic): Daesh is a threat to the Middle East
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims
+
+Comment 6 (attacks main topic): Terrorism by Daesh is a minor threat
+
+epoch 3
+
+Comment 1 (supports main topic): Daesh is a threat to western states
+
+Comment 2 (attacks main topic): Daesh is not a threat to western states
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (supports main topic): Daesh is a threat to the Middle East
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims
+
+Comment 6 (attacks main topic): Terrorism is not a significant threat
+
+epoch 4
+
+Comment 1 (supports main topic): Daesh has an ideology that is incompatible with western values
+
+Comment 2 (attacks main topic): Daesh is not a threat to western countries
+
+Comment 3 (supports main topic): Daesh is a terrorist organisation
+
+Comment 4 (supports main topic): Daesh is a threat to the entire Middle East
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims not the west
+
+Comment 6 (attacks main topic): Terrorism is not the greatest threat to the west
+
+epoch 5
+
+Comment 1 (supports main topic): Islamic State is a threat to western countries
+
+Comment 2 (attacks main topic): Islamic State is not a threat to the west
+
+Comment 3 (supports main topic): Islamic State is a terrorist organisation
+
+Comment 4 (supports main topic): Islamic State is a threat to the Middle East
+
+Comment 5 (attacks main topic): Islamic State is a threat to Muslims
+
+Comment 6 (attacks main topic): Terrorism is not the greatest security threat
+
+epoch 6
+
+Comment 1 (supports main topic): Islamic State has an ideology that is incompatible with the west
+
+Comment 2 (attacks main topic): Daesh is not considered a threat by western countries
+
+Comment 3 (supports main topic): Terrorism
+
+Comment 4 (supports main topic): Daesh is a transnational organisation
+
+Comment 5 (attacks main topic): Daesh is a threat to Muslims
+
+Comment 6 (attacks main topic): The threat of nuclear war is greater
+
+epoch 7
+
+Comment 1 (supports main topic): Islamic State is a threat to western ideology
+
+Comment 2 (attacks main topic): Daesh is not a threat to the west
+
+Comment 3 (supports main topic): Terrorism
+
+Comment 4 (supports main topic): Transnationalism
+
+Comment 5 (attacks main topic): IS is a threat to Muslims
+
+Comment 6 (attacks main topic): The threat of nuclear war
+
+epoch 8
+
+Comment 1 (supports main topic): Islamic State poses a threat to western societies
+
+Comment 2 (attacks main topic): Islamic State is not a threat to western countries
+
+Comment 3 (supports main topic): Many of those who support IS are western citizens
+
+Comment 4 (supports main topic): Islamic State is a transnational terrorist organisation
+
+Comment 5 (attacks main topic): Islamic State is at war with Muslims not the west
+
+Comment 6 (attacks main topic): Terrorism is not the greatest security threat to western countries
+
+epoch 9
+
+Comment 1 (supports main topic): Islamic State has an ideology that it wants to export
+
+Comment 2 (attacks main topic): Daesh is not a significant military threat
+
+Comment 3 (supports main topic): Terrorism
+
+Comment 4 (supports main topic): The Caliphate threatens the entire Middle East
+
+Comment 5 (attacks main topic): The threat is to Daesh’s own territory, not the west’s
+
+Comment 6 (attacks main topic): The threat of nuclear war is greater
+
+epoch 10
+
+Comment 1 (supports main topic): IS has an ideology that threatens western societies
+
+Comment 2 (attacks main topic): IS is not considered a threat to the west
+
+Comment 3 (supports main topic): IS members pose a terrorist threat to western countries
+
+Comment 4 (supports main topic): IS is a transnational organisation
+
+Comment 5 (attacks main topic): IS is a threat to Muslims
+
+Comment 6 (attacks main topic): The threat from IS is small by comparison
+
