@@ -171,3 +171,26 @@ if __name__ == "__main__":
         print(node_stance_f1(networkx_graph, networkx_graph_2))
         print(node_stance_accuracy(networkx_graph, networkx_graph_2))
         
+
+from datasets import load_metric
+meteor = load_metric('meteor')
+rouge = load_metric('rouge')
+
+
+def compute_metrics(predictions, references):
+
+    meteor_output = meteor.compute(predictions=predictions, references=references)
+    rouge_output = rouge.compute(
+         predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
+
+    node_acc, node_f1, ged = compute_node_stance_acc_f1_ged(predictions=predictions, references=references)
+
+    return {
+        'meteor_score': round(meteor_output['meteor'], 4),
+        'rouge2_precision': round(rouge_output.precision, 4),
+        'rouge2_recall': round(rouge_output.recall, 4),
+        'rouge2_f_measure': round(rouge_output.fmeasure, 4),
+        'node stance f1': round(node_f1, 4),
+        'node stance acc': round(node_acc, 4),
+        "graph edit distance": round(ged, 4)
+    }

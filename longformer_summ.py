@@ -7,9 +7,16 @@ from transformers import (
 )
 
 from preproc_utils import get_preprocessed_debatabase
+from summary_metrics import compute_metrics
 
 MULTILEVEL=False
 
+if MULTILEVEL:
+    scores_dir = "longformer_scores_multilevel"
+else:
+    scores_dir = "longformer_scores"
+
+import pandas as pd
 tokenizer = AutoTokenizer.from_pretrained("allenai/led-large-16384")
 
 
@@ -18,8 +25,8 @@ val_dataset = get_preprocessed_debatabase(tokenizer, "val", multilevel=MULTILEVE
  
 # comment out following lines for a test run
 
-train_dataset = train_dataset.select(range(32))
-val_dataset = val_dataset.select(range(32))
+# train_dataset = train_dataset.select(range(1))
+# val_dataset = val_dataset.select(range(1))
 
 # set Python list to PyTorch tensor
 train_dataset.set_format(
@@ -54,15 +61,16 @@ batch_size = 1
 # enable fp16 apex training
 training_args = Seq2SeqTrainingArguments(
     predict_with_generate=True,
-    evaluation_strategy="steps",
+    evaluation_strategy="epoch",
     per_device_train_batch_size=batch_size,
     per_device_eval_batch_size=batch_size,
     #fp16=True,
     #fp16_backend="apex",
     output_dir="./longformer",
     logging_steps=250,
-    eval_steps=5000,
-    save_steps=500,
+    num_train_epochs=1,
+    # eval_steps=5000,
+    # save_steps=500,
     warmup_steps=1500,
     save_total_limit=2,
     gradient_accumulation_steps=1,
@@ -71,7 +79,13 @@ training_args = Seq2SeqTrainingArguments(
 epoch = 0
 
 # compute Rouge score during validation
-def compute_metrics(pred):
+
+scores = []
+
+
+def compute_all_metrics(pred):
+    global epoch
+    global scores
     epoch += 1
     labels_ids = pred.label_ids
     pred_ids = pred.predictions
@@ -80,20 +94,16 @@ def compute_metrics(pred):
     labels_ids[labels_ids == -100] = tokenizer.pad_token_id
     label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
 
-    rouge_output = rouge.compute(
-        predictions=pred_str, references=label_str, rouge_types=["rouge2"]
-    )["rouge2"].mid
-
-    with open("longformer_scores/sample_output.txt","w+") as sample_file:              
+    with open(f"{scores_dir}/sample_output.txt","w+") as sample_file:              
         sample_file.write(f"epoch {epoch}\n")
         sample_file.write(pred_str[-1] + "\n\n")
 
+    metrics = compute_metrics(predictions=pred_str, references=label_str)
+    scores.append(metrics)
+    scores_df = pd.DataFrame(scores)
+    scores_df.to_csv(f"{scores_dir}/longformer_results.csv")
 
-    return {
-        "rouge2_precision": round(rouge_output.precision, 4),
-        "rouge2_recall": round(rouge_output.recall, 4),
-        "rouge2_fmeasure": round(rouge_output.fmeasure, 4),
-    }
+    return metrics
 
 
 # load model + enable gradient checkpointing & disable cache for checkpointing
@@ -113,13 +123,18 @@ trainer = Seq2SeqTrainer(
     model=led,
     tokenizer=tokenizer,
     args=training_args,
-    compute_metrics=compute_metrics,
+    compute_metrics=compute_all_metrics,
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
+    num_train_epochs=10,
+
 )
 
 # start training
 trainer.train()
+
+scores_df = pd.DataFrame(scores)
+scores_df.to_csv(f"{scores_dir}/longformer_results.csv")
 
 
 # load pubmed
