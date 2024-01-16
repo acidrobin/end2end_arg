@@ -102,18 +102,14 @@ def get_preprocessed_debatabase(tokenizer, split, multilevel=False):
         summary = tokenizer.encode(sample["summary"] +  tokenizer.eos_token, add_special_tokens=False)
 
         sample = {
-            "input_ids": prompt + summary,
-            "attention_mask" : [1] * (len(prompt) + len(summary)),
-            "labels": [-100] * len(prompt) + summary}
+            "input_ids": prompt,
+            "attention_mask" : [1] * len(prompt),
+            "global_attention_mask": [1] + [0] * (len(prompt)-1),
+            "labels": summary}
 
 
     
         #CHANGE THIS
-        sample = {"input_ids": sample["input_ids"],
-        "attention_mask": sample["attention_mask"],
-        "labels": sample["labels"]
-        }
-
 
         # sample = {"input_ids": sample["input_ids"][-400:],
         # "attention_mask": sample["attention_mask"][-400:],
@@ -131,8 +127,8 @@ def get_preprocessed_debatabase(tokenizer, split, multilevel=False):
     # lengths = [len(i) for i in dataset["input_ids"]]
     # import matplotlib.pyplot as plt
     # plt.hist(lengths, bins=200)
-    # plt.show()
-    # plt.savefig("hist")
+    # # plt.show()
+    # plt.savefig("longformer_hist")
     # import pdb; pdb.set_trace()
 
     #input max length = 6647

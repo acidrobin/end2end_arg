@@ -10,25 +10,38 @@ from preproc_utils import get_preprocessed_debatabase
 
 MULTILEVEL=False
 
-train_dataset = get_preprocessed_debatabase("train",multilevel=MULTILEVEL)
-val_dataset = get_preprocessed_debatabase("val",multilevel=MULTILEVEL)
- 
+tokenizer = AutoTokenizer.from_pretrained("allenai/led-large-16384")
 
+
+train_dataset = get_preprocessed_debatabase(tokenizer, "train", multilevel=MULTILEVEL)
+val_dataset = get_preprocessed_debatabase(tokenizer, "val", multilevel=MULTILEVEL)
+ 
+# comment out following lines for a test run
+
+train_dataset = train_dataset.select(range(32))
+val_dataset = val_dataset.select(range(32))
+
+# set Python list to PyTorch tensor
+train_dataset.set_format(
+    type="torch",
+    columns=["input_ids", "attention_mask", "global_attention_mask", "labels"],
+)
+
+# set Python list to PyTorch tensor
+val_dataset.set_format(
+    type="torch",
+    columns=["input_ids", "attention_mask", "global_attention_mask", "labels"],
+)
+# for batch in train_dataset:
+#     print(batch)
+#     import pdb; pdb.set_trace()
 
 
 # load rouge
 rouge = load_metric("rouge")
 
-# load pubmed
-pubmed_train = load_dataset("scientific_papers", "pubmed", ignore_verifications=True, split="train")
-pubmed_val = load_dataset("scientific_papers", "pubmed", ignore_verifications=True, split="validation[:10%]")
-
-# comment out following lines for a test run
-pubmed_train = pubmed_train.select(range(4))
-pubmed_val = pubmed_val.select(range(4))
 
 # load tokenizer
-tokenizer = AutoTokenizer.from_pretrained("allenai/led-large-16384")
 
 
 # max encoder length is 8192 for PubMed
@@ -55,9 +68,11 @@ training_args = Seq2SeqTrainingArguments(
     gradient_accumulation_steps=1,
 )
 
+epoch = 0
 
 # compute Rouge score during validation
 def compute_metrics(pred):
+    epoch += 1
     labels_ids = pred.label_ids
     pred_ids = pred.predictions
 
@@ -68,6 +83,11 @@ def compute_metrics(pred):
     rouge_output = rouge.compute(
         predictions=pred_str, references=label_str, rouge_types=["rouge2"]
     )["rouge2"].mid
+
+    with open("longformer_scores/sample_output.txt","w+") as sample_file:              
+        sample_file.write(f"epoch {epoch}\n")
+        sample_file.write(pred_str[-1] + "\n\n")
+
 
     return {
         "rouge2_precision": round(rouge_output.precision, 4),
@@ -82,7 +102,7 @@ led = AutoModelForSeq2SeqLM.from_pretrained("allenai/led-large-16384", gradient_
 # set generate hyperparameters
 led.config.num_beams = 4
 led.config.max_length = 512
-led.config.min_length = 100
+led.config.min_length = 10
 led.config.length_penalty = 2.0
 led.config.early_stopping = True
 led.config.no_repeat_ngram_size = 3
@@ -94,12 +114,17 @@ trainer = Seq2SeqTrainer(
     tokenizer=tokenizer,
     args=training_args,
     compute_metrics=compute_metrics,
-    train_dataset=pubmed_train,
-    eval_dataset=pubmed_val,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
 )
 
 # start training
 trainer.train()
+
+
+# load pubmed
+# pubmed_train = load_dataset("scientific_papers", "pubmed", ignore_verifications=True, split="train")
+# pubmed_val = load_dataset("scientific_papers", "pubmed", ignore_verifications=True, split="validation[:10%]")
 
 
 
