@@ -67,8 +67,8 @@ training_args = Seq2SeqTrainingArguments(
     #fp16=True,
     #fp16_backend="apex",
     output_dir="./longformer",
-    logging_steps=250,
-    num_train_epochs=1,
+    # logging_steps=250,
+    num_train_epochs=10,
     # eval_steps=5000,
     # save_steps=500,
     warmup_steps=1500,
@@ -81,11 +81,13 @@ epoch = 0
 # compute Rouge score during validation
 
 scores = []
+sample_outputs = []
 
 
 def compute_all_metrics(pred):
     global epoch
     global scores
+    global sample_outputs
     epoch += 1
     labels_ids = pred.label_ids
     pred_ids = pred.predictions
@@ -94,9 +96,12 @@ def compute_all_metrics(pred):
     labels_ids[labels_ids == -100] = tokenizer.pad_token_id
     label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
 
-    with open(f"{scores_dir}/sample_output.txt","w+") as sample_file:              
-        sample_file.write(f"epoch {epoch}\n")
-        sample_file.write(pred_str[-1] + "\n\n")
+    sample_outputs.append(pred_str[-1])
+
+    with open(f"{scores_dir}/sample_output.txt","w") as sample_file:   
+        for o in sample_outputs:           
+            sample_file.write(f"epoch {epoch}\n")
+            sample_file.write(o + "\n\n")
 
     metrics = compute_metrics(predictions=pred_str, references=label_str)
     scores.append(metrics)
@@ -126,7 +131,6 @@ trainer = Seq2SeqTrainer(
     compute_metrics=compute_all_metrics,
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
-    num_train_epochs=10,
 
 )
 

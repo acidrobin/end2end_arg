@@ -91,3 +91,45 @@ Comment 5 (attacks main topic): Daesh is primarily a threat to Muslims
 
 Comment 6 (attacks main topic): The threat of nuclear war is greater
 
+epoch 7
+
+Comment 1 (supports main topic): Islamic State has an ideology that is incompatible with the west
+
+Comment 2 (attacks main topic): Daesh is not a near neighbour
+
+Comment 3 (supports main topic): A terrorist organisation
+
+Comment 4 (supports main topic): Transnationalism
+
+Comment 5 (attacks main topic): Only a threat to Muslims
+
+Comment 6 (attacks main topic): Terrorism
+
+epoch 8
+
+Comment 1 (supports main topic): Islamic State has an ideology that it wants to export
+
+Comment 2 (attacks main topic): IS is a long way away from the west
+
+Comment 3 (supports main topic): IS has launched terrorist attacks against western targets
+
+Comment 4 (supports main topic): IS is a transnational organisation
+
+Comment 5 (attacks main topic): IS is at war with other states not the west
+
+Comment 6 (attacks main topic): Terrorism is not a significant threat
+
+epoch 9
+
+Comment 1 (supports main topic): Islamic State has an ideology that is incompatible with the west
+
+Comment 2 (attacks main topic): Daesh is a terrorist organisation but not a threat to the west
+
+Comment 3 (supports main topic): A threat to the west through terrorism
+
+Comment 4 (supports main topic): A transnational organisation
+
+Comment 5 (attacks main topic): Daesh is only a threat to Muslims and those in its territory
+
+Comment 6 (attacks main topic): Terrorism is not a significant threat
+

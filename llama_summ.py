@@ -30,7 +30,7 @@ dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
 
 
-MULTILEVEL=False
+MULTILEVEL=True
 
 if MULTILEVEL==True:
     scores_dir = op.join("scores", dir_name)
