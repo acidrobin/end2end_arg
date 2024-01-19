@@ -20,7 +20,7 @@ epoch 3
 
 Comment 1 (attacks main topic): Distance insulates us from Daesh
 
-Comment 2 (attacks main topic): Daesh is not the greatest threat to the west
+Comment 2 (attacks main topic): Terrorism is not a significant threat
 
 Comment 3 (supports main topic): Daesh is a terrorist organisation
 
@@ -46,9 +46,9 @@ Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
 
 epoch 5
 
-Comment 1 (attacks main topic): Distance insulates the west from Daesh
+Comment 1 (attacks main topic): Distance
 
-Comment 2 (attacks main topic): There are greater threats to western countries
+Comment 2 (attacks main topic): Terrorism is not a significant threat
 
 Comment 3 (supports main topic): Daesh is a terrorist organisation
 
@@ -60,9 +60,9 @@ Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
 
 epoch 6
 
-Comment 1 (attacks main topic): Daesh is not a significant threat in terms of its ability to cause harm
+Comment 1 (attacks main topic): Daesh is not insulated by distance
 
-Comment 2 (attacks main topic): There are much greater threats to western countries
+Comment 2 (attacks main topic): Terrorism is not the most significant threat
 
 Comment 3 (supports main topic): Daesh is a terrorist organisation
 
@@ -74,9 +74,9 @@ Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
 
 epoch 7
 
-Comment 1 (attacks main topic): Distance insulates
+Comment 1 (attacks main topic): Daesh is not as physically close to the west as the media would have us believe
 
-Comment 2 (attacks main topic): The threat from Daesh is small compared to other threats
+Comment 2 (attacks main topic): The threat posed by Daesh is small compared to other threats
 
 Comment 3 (supports main topic): Daesh is a terrorist organisation
 
@@ -88,7 +88,7 @@ Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
 
 epoch 8
 
-Comment 1 (attacks main topic): Daesh is not as far away as the media would have us believe
+Comment 1 (attacks main topic): Daesh is not a distant threat
 
 Comment 2 (attacks main topic): The threat from Daesh is small compared to other threats
 
@@ -102,11 +102,11 @@ Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
 
 epoch 9
 
-Comment 1 (attacks main topic): Western countries are insulated by distance from Islamic State
+Comment 1 (attacks main topic): Daesh is not as far away as the west believes
 
-Comment 2 (attacks main topic): The threat from Daesh is minor in comparison to other threats
+Comment 2 (attacks main topic): The threat from Daesh is minor compared to other threats
 
-Comment 3 (supports main topic): Daesh is a terrorist organisation
+Comment 3 (supports main topic): Daesh is a threat to the west
 
 Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
 
@@ -116,11 +116,11 @@ Comment 6 (attacks Comment 1): Distance does not matter in today’s world.
 
 epoch 10
 
-Comment 1 (attacks main topic): Distance insulates
+Comment 1 (attacks main topic): Daesh is not as far a threat as the media would have us believe
 
-Comment 2 (attacks main topic): The threat from Daesh is minor in comparison to other threats
+Comment 2 (attacks main topic): There are more urgent threats
 
-Comment 3 (supports main topic): Daesh is a threat 
+Comment 3 (supports main topic): Daesh is a terrorist organisation
 
 Comment 4 (attacks Comment 3): Daesh ideology and the possibility of terrorist attacks resulting from it is undeniably a problem.
 

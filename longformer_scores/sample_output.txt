@@ -1,0 +1,110 @@
+epoch 10
+Comment 1 (supports main topic): Islamic State is a threat to western states
+
+Comment 2 (attacks main topic) Western states are insulated from the threat of Islamic State
+
+Attack 1 (defines main topic as a threat): IS is an ideological clash with western states.
+ 
+Comment 3 (attacks primary topic): Daesh is a terrorist organisation.
+ carbohydComment 4 (supplies main topic: IS is a transnational threat to the Middle East and North Africa.   
+ Comment 5 (attacks major topic): Western countries are insulated by distance from Islamic State
+
+epoch 10
+Comment 1 (supports main topic): The Islamic State poses a threat to western states
+
+Comment 2 (attacks maintopic): All western countries are insulated by distance from Islamic State. The closest western states are Greece and Cyprus which is as close as the EU comes to Syria. But both are separated from Syria by the Mediterranean Sea. The largest security concern should still be the small chance of complete destruction by nuclear weapons. The Bulletin of the Atomic Scientists’ doomsday clock is set at 3 minutes to midnight in 1015 – it was set at 1 minute to midnight the day after 9/11.   –   
+ Comment 3 (attacks primary topic): There are large numbers of people within Europe who support Islamic State and Europeans travelling to fight for Daesh is an ongoing problem; more than 700 from the UK alone.[2] There is therefore concern about these people coming back and mounting terrorist attacks.  –. Comment 4 (attacks major topic): Islamic State is a dangerous threat to the territorial states of the Middle East and North Africa. It is not just a threat for one state but to every state in the Middle Eastern and North African region.  -  Comment 5 (attacks chief topic): Those who support the Islamic State do so out of fear for their own countries and their own people. .  .
+  – “Daesh” is an ideological threat to all Muslims and those who support it are likely to be targeted by western states. 
+ – Comment 6 (attacks Main topic): Terrorism by Daesh is not the real threat to Western countries
+
+epoch 10
+Comment 1 (supports main topic): Islamic State is a threat to western security
+
+Comment 2 (attacks main topic]: Western countries are geographically isolated from the threat of terrorism.
+
+Factoid: Western countries should close their borders to the Middle East and North Africa to prevent the spread of terrorism in western countries. 
+
+Context: Western nations should be aware of the threat from Islamic State and be prepared to deal with it if necessary to protect their interests. 
+
+epoch 10
+Comment 1 (supports main topic): Islamic State/Daesh is a threat to western states
+
+Comment 2 (attacks main issue): Western countries are insulated from the threat of terrorism by geographical stretch of the continent
+                Comment 3 (support main topic ): There are people travelling to the west who support Islamic State and are therefore a security threat
+
+Fact-checking: Islamic State is not a terrorist threat in western states.
+
+Conclusions: There is no single threat that affects all of the states in the Middle East and North Africa. The largest security concern should still be nuclear weapons and the threat from Islamic State. The west should not and cannot afford to rely on the US or the west’s allies to combat the threat.
+
+epoch 10
+Comment 1 (supports main topic): Islamic State/Daesh is a threat to western states’ cultural identity
+
+Comment 2 (attacks main topic.): All western countries are insulated by distance from Islamic State   COUNTERPOINT   DISASTER ACHIEVES IN THE WEST  
+
+ Comment 3 (defends main topic); The threat of terrorists returning to the west is overstated   Comment 4 (is linked to territorial expansion of the Islamic State in neighbouring states and their claim to leadership  ネットショウ,   Grows exponentially as the group gets bigger  
+
+epoch 10
+Comment 1 (supports main topic): The Islamic State is a threat to western countries
+
+Comment 2 (attacks main topics): All western countries are insulated from Islamic threat
+
+Factors motivating the West to arm itself against Islamic State
+
+Competence, not religion, drives western countries to arm themselves to the teeth of Islamic State 
+
+Feature 3 (defending main topic) The threat of terrorism is not confined to Islamic State or the Middle East
+
+Conflicts of interest between western countries and their allies   COINTENDENTIAL POINT 
+ Comment 4 (support main topic), Daesh is a powerful transnationalism that is as strong as any single political party   Comment 5 (attacks primary topic): Islamic State’s primary threat is to western Muslims not western countries  Compromising with the Islamic State means that the focus of conflict is not with western countries but with the Muslims of eastern states   Paternalistic attitudes to the west mean that western countries should focus on preventing Islamic State not in launching attacks against western states
+
+Conclusions  
+
+epoch 10
+Comment 1 (supports main topic): It is the extremist ideology that is most dangerous for western countries
+
+Comment 2 (attacks main topic.): All western countries are insulated from the threat of Islamic State 
+
+Further attacks by the group would be more severe if the government did not recognise the group’s legitimacy.
+ Comment 3 (support main topic ): The threat of terrorist attacks is not confined to the west but is widespread and affects all of Europe  Comment 4 (supposed main topic: The threat to western security is the expansion of the Islamic State and its claim to leadership 
+	Comment 5 (attacks primary topic): The focus of the group is on the Middle East not on the west
+
+Factionalism
+
+Conflicts of interest with the group mean it is not a threat to the West’S allies and that is a positive thing.  
+
+epoch 10
+Comment 1 (supports main topic): It is an ideology that is a threat to western states
+
+Comment 2 (attacks main subject): All western countries are insulated by distance from Islamic State.
+ 
+Comment 3 (support main topics): Terrorism is a priority for western states. 
+
+Further investigation into the nature of terrorism is necessary in order to provide a strong deterrent.  
+ Comment 4 (suppests main topic ): The threat of Islamic State is not confined to its two main areas of conflict – Iraq and the west.
+ 9/11 demonstrated the global threat that terrorism poses to western countries.
+ 10 (attacks major topic): If Daesh was a bigger threat then it would require harsh security measures. 
+
+epoch 10
+Comment 1 (supports main topic): The ideology of Daesh is a threat to western states
+
+Comment 2 (attacks main topics): All western countries are insulated from the threat of Islamic State 
+
+Further investigation reveals that the Islamic State is not going to stop attacking western countries.
+	Comment 3 (support main topic ): The threat of terrorism and security risks are too great to ignore. It is a growing threat that needs to be addressed. The Bulletin of the Atomic Scientists’ doomsday clock is set at 3 minutes to midnight in order to ensure it is not reached by terrorists. The same principle should be applied to climate change. 
+Comment 4 (Supports main Topic): The Daesh threat is not confined to Syria and Iraq but is rather felt across the Middle East and North Africa.
+ Comment 5 (attacks Main topic): In the eyes of most western states, the Islamic state is not a threat at all.
+ fixmeComment 6 (attacks primary topic): Terrorism by Daesh is no more dangerous than terrorism by the Taliban 
+
+epoch 10
+Comment 1 (supports main topic): It is their ideology that is most dangerous
+
+Comment 2 (attacks main topics): All western countries are insulated by distance from Islamic State 
+
+Further investigation reveals that the real threat to western countries is not from Daesh but from within the Middle East and North Africa  EU membersh
+
+Confidence in the Islamic State is the least western can do to deter future terrorist attacks  EU Member States
+
+Comprehensive and coordinated action is required to prevent further atrocities  EU Membersh
+	Comment 3 (support main topic ): Daesh is a terrorist organisation and its supporters are likely to return to the continent to fight it  EU member states can only rely on themselves to protect them from disaster  EU leaders have already taken measures to protect western countries from being sucked into a quagmire created by Daesh EU Member States can only benefit from the fact that they are not directly threatened by the terrorist organisation  EU countries are also vulnerable to its destructive power
+ EU Member states
+
