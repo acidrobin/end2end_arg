@@ -183,7 +183,7 @@ tokenizer.padding_side = 'right'
 # {{comments}}
 # [/INST]
 #"""
-prompt_template=f"""
+prompt_template_long=f"""
 [INST]
 Main topic: This House believes Europe still needs a constitution
 
@@ -216,6 +216,30 @@ Comment 5 (attacks main topic): There already are constitutional documents
 Comment 6 (supports main topic): The ECJ has often been accused of over-stepping the legitimate boundaries of 
 
 Comment 7 (attacks main topic): A EU Constitution will lead to a superstate, which is undesirable at the moment
+[EOG]
+[INST]
+{{comments}}
+[/INST]
+"""
+
+
+prompt_template=f"""
+[INST]
+Main topic: This House believes Europe still needs a constitution
+
+Comment 1: A comprehensive reform of the EU institutional layout is a must given the pressures created by the continuing enlargement process as well as the integration process. The existing EU architecture worked fine for a community of six states, and even for a group of twelve, but it is now desperately out-dated and unsuitable for a Union of 27 or more. For example, the national veto still applies in many areas, meaning one state can block progress even when the other 26 agree. Even when agreement is reached, it is often agonisingly slow and difficult to implement across the whole of the Union, often having to pass through every parliament. 
+
+Comment 2: The European Union should be wary of adopting a European Constitution as many states may not be able to abide by its terms. The reason why Greece is in so much financial trouble is its unwillingness to abide by the European Growth and Stability Pact, however others, Germany and France had already broken the pact.[1] Such a failure to abide by the rules with a constitution, something which is meant to be at the heart of the state, would greatly damage European credibility and would practically rule out the possibility of more comprehensive change in the future.
+
+Comment 3: Since the Maastricht Treaty, the citizens of EU member states have possessed parallel citizenship of the EU. However, European citizens do not identify themselves with the EU in the way that citizens of the USA self-identify as American. An important part of the patriotism of Americans is ‘constitutional patriotism;’ pride in their constitution and civic institutions. The European Union aims to bring about ever closer union between the peoples of Europe. It should foster a shared sense of ‘European identity’ by adopting a constitution, in which every citizen of the EU can take pride.
+
+[/INST]
+[SOG]
+Comment 1 (supports main topic): A comprehensive reform of the EU institutional layout is a must
+
+Comment 2 (attacks main topic): Adopting a European Constitution and failing to abide by it would be a big and challenging failure
+
+Comment 3 (supports main topic): A EU constitution will foster a “European identity”
 [EOG]
 [INST]
 {{comments}}
@@ -268,19 +292,18 @@ def do_prompting():
 
             if "[SOG]" in generated_text:
                 output_text = re.split(r"\[SOG\]",generated_text)[1]
-                if "[EOG]" in output_text:
-                    output_text = re.split(r"\[EOG\]")[0]
+                output_text = re.split(r"[\[\]]", output_text)[0]
 
                 succeeded_count+=1
-                print(output_text)
+                # print(output_text)
                 
             else:
                 output_text = ""
 
                 # print("if it is printing this it should fucking print the other thing")
-                # print("NO OUTPUT TEXT")
-                # print("GENERATED_TEXT: ************")
-                # print(generated_text)
+                print("NO OUTPUT TEXT")
+                print("GENERATED_TEXT: ************")
+                print(generated_text)
                 failed_count +=1 
     
         else:

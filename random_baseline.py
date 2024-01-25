@@ -16,8 +16,15 @@ from summary_metrics import compute_node_stance_acc_f1_ged
 import re
 import os
 import os.path as op
+import numpy as np
 
 from argparse import ArgumentParser
+from nltk import sent_tokenize
+
+def first_sent_summarize(comment):
+    return sent_tokenize(comment)[0]
+
+np.random.seed(42)
 
 parser = ArgumentParser()
 
@@ -30,7 +37,7 @@ dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
 
 
-MULTILEVEL=True
+MULTILEVEL=False
 
 if MULTILEVEL==True:
     scores_dir = op.join("scores_multilevel", dir_name)
@@ -66,60 +73,84 @@ def compute_metrics(predictions, references):
 
 
 
-train_dataset = get_preprocessed_debatabase_sft("train",multilevel=MULTILEVEL)
-val_dataset = get_preprocessed_debatabase_sft("val",multilevel=MULTILEVEL)
+# train_dataset = get_preprocessed_debatabase_sft("train",multilevel=False)
+test_dataset = get_preprocessed_debatabase_sft("test",multilevel=False)
  
-def do_random_baseline(self, *args, **kwargs):
+
+# train_dataset_multilevel = get_preprocessed_debatabase_sft("train",multilevel=True)
+test_dataset_multilevel = get_preprocessed_debatabase_sft("test",multilevel=True)
 
 
-    model.eval()
+
+def do_random_baseline():
+
+
 
     gold_texts = []
     generated_texts = []
 
 
-    for sample in val_dataset:
+    for sample in test_dataset:
         gold_texts.append(sample["output"])
         input_text = sample["input"]
+        input_lines = re.split(r"\n+", input_text)
+        output_string = ""
+        output_text = ""
 
-        for line in input_text:
-            print(line)
-            print()
 
-    exit()
-
-        # # import pdb; pdb.set_trace()
-        # input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
-
-        # output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
-        # generated_text = tokenizer.decode(output_tok[0])
-        # output_text = re.split("\[EOG\]|\[/INST\]",generated_text)[1]
-        # generated_texts.append(output_text)
-    
-    # del(model2)
+        for line in input_lines:
+            # print(line)
+            if line.startswith("Comment"):
+                comment_name, text = line.split(":", 1)
+                summary = first_sent_summarize(text)
+                stance = np.random.choice(["supports","attacks"])
+                new_line = f"{comment_name} ({stance} main topic): {summary.strip()}\n\n"
+                output_text += new_line
+     
+        generated_texts.append(output_text)
 
     metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+    scores_df = pd.DataFrame([metrics])
+    scores_df.to_csv("scores_random_baseline/single_level_results.csv")
 
 
-    if metrics["rouge2_f_measure"] > self.best_rouge:
-        trainer.model.save_pretrained("saved_model")
-    metrics["epoch"] = len(self.scores) +1
-    self.scores.append(metrics)
-    scores_df = pd.DataFrame(self.scores)
-
-    self.sample_outputs.append(generated_texts[-1])
 
 
-    # if MULTILEVEL:
-    #     folder_name = "scores_multilevel"
-    # else:
-    #     folder_name = "scores"
 
-    scores_df.to_csv(f"{scores_dir}/llama_results.csv")
+def do_random_baseline_multilevel():
 
-    with open(f"{scores_dir}/sample_output.txt","w") as sample_file:
-        for i, text in enumerate(self.sample_outputs):
-            sample_file.write(f"epoch {i+1}\n")
-            sample_file.write(text + "\n\n")
+    gold_texts = []
+    generated_texts = []
+
+    for sample in test_dataset:
+        gold_texts.append(sample["output"])
+        input_text = sample["input"]
+        input_lines = re.split(r"\n+", input_text)
+        output_string = ""
+        output_text = ""
+
+        for line in input_lines:
+            # print(line)
+            if line.startswith("Comment"):
+                comment_name, text = line.split(":", 1)
+                comment_number = int(line.split()[1][:-1])
+
+                potential_parents = ["main topic"] + [f"Comment {n}" for n in list(range(1,comment_number))]
+                parent = np.random.choice(potential_parents)
+                summary = first_sent_summarize(text)
+
+                stance = np.random.choice(["supports","attacks"])
+                new_line = f"{comment_name} ({stance} {parent}): {summary.strip()}\n\n"
+                output_text += new_line
+     
+        print(output_text)
+        generated_texts.append(output_text)
+
+    metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+    metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+    scores_df = pd.DataFrame([metrics])
+    scores_df.to_csv("scores_random_baseline/multi_level_results.csv")
+
 
 do_random_baseline()
+do_random_baseline_multilevel()
