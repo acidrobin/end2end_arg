@@ -8,8 +8,11 @@ import torch
 import pandas as pd
 
 from preproc_utils import get_preprocessed_debatabase_sft, get_raw_debatabase
-
 from datasets import load_metric
+
+
+
+from evaluate import load
 
 from copy import deepcopy
 from summary_metrics import compute_node_stance_acc_f1_ged
@@ -48,6 +51,7 @@ rouge = load_metric('rouge')
 def compute_metrics(predictions, references):
 
     meteor_output = meteor.compute(predictions=predictions, references=references)
+
     rouge_output = rouge.compute(
          predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
 
@@ -74,9 +78,10 @@ def compute_metrics(predictions, references):
 
 train_dataset = get_raw_debatabase("train",multilevel=MULTILEVEL)
 val_dataset = get_raw_debatabase("val",multilevel=MULTILEVEL)
- 
-# train_dataset = train_dataset.select(range(2))
-# val_dataset = val_dataset.select(range(1))
+test_dataset = get_raw_debatabase("test",multilevel=False)
+test_dataset_multilevel = get_raw_debatabase("test", multilevel=True)
+# # train_dataset = train_dataset.select(range(2))
+# val_dataset = val_dataset.select(range(3))
 
 
 
@@ -123,66 +128,6 @@ tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = 'right'
 
 
-# In[ ]:
-
-
-# Training
-
-# training_arguments = TrainingArguments(
-#     output_dir='./results',
-#     num_train_epochs=0.1,
-#     per_device_train_batch_size=1,
-#     per_device_eval_batch_size=1,
-#     gradient_accumulation_steps=1,
-#     evaluation_strategy='epoch',
-#     optim='adamw_torch_fused',
-#     # save_steps=10000,
-#     save_strategy="epoch",
-#     # resume_from_checkpoint=False,
-#     logging_steps=10,
-#     # eval_steps=100,
-#     # save_steps=100,
-#     learning_rate=args.learning_rate,
-#     weight_decay=args.weight_decay, #0.001
-#     fp16=True,
-#     bf16=False,
-#     max_grad_norm=0.3,
-#     max_steps=-1,
-#     warmup_ratio=0.03,
-#     group_by_length=True,
-#     lr_scheduler_type='constant',
-#     report_to='tensorboard'
-# )
-
-# trainer = SFTTrainer(
-#     model=model,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     peft_config=peft_config,
-#     dataset_text_field='text',
-#     max_seq_length=7000,
-#     tokenizer=tokenizer,
-#     args=training_arguments,
-#     packing=False,
-#     # callbacks=[eval_callback]
-# )
-
-# prompt_template =f"""
-# [INST] Main topic: This House would provide access to microfinance for the ‘unbanked’
-
-# Comment 1: The livelihoods approach provides a useful model to understand how poor people live[1]; and remains important to recognising the benefits of microfinance.The provision of microfinance reduces vulnerability to shocks and changes such as losing a job; enhances people’s access to assets that they use and need (such as finance, friend networks, and land); and this fundamentally acts to change the lives of the poor. 
-
-# Comment 2: There are significant barriers to introducing microfinance. Microfinance can’t reach everywhere; a lack of infrastructure, or poor infrastructure, can mean that microfinance initiatives often can’t reach where need is greatest. Those who are poorest most need money just to get buy, not to invest.
-# [/INST]
-
-# Comment 1 (supports main topic): A livelihoods approach
-
-# Comment 2 (attacks main topic): Realistic barriers
-
-# [INST]
-# {{comments}}
-# [/INST]
-#"""
 prompt_template_long=f"""
 [INST]
 Main topic: This House believes Europe still needs a constitution
@@ -223,7 +168,8 @@ Comment 7 (attacks main topic): A EU Constitution will lead to a superstate, whi
 """
 
 
-prompt_template=f"""
+
+prompt_one=f"""
 [INST]
 Main topic: This House believes Europe still needs a constitution
 
@@ -232,19 +178,55 @@ Comment 1: A comprehensive reform of the EU institutional layout is a must given
 Comment 2: The European Union should be wary of adopting a European Constitution as many states may not be able to abide by its terms. The reason why Greece is in so much financial trouble is its unwillingness to abide by the European Growth and Stability Pact, however others, Germany and France had already broken the pact.[1] Such a failure to abide by the rules with a constitution, something which is meant to be at the heart of the state, would greatly damage European credibility and would practically rule out the possibility of more comprehensive change in the future.
 
 Comment 3: Since the Maastricht Treaty, the citizens of EU member states have possessed parallel citizenship of the EU. However, European citizens do not identify themselves with the EU in the way that citizens of the USA self-identify as American. An important part of the patriotism of Americans is ‘constitutional patriotism;’ pride in their constitution and civic institutions. The European Union aims to bring about ever closer union between the peoples of Europe. It should foster a shared sense of ‘European identity’ by adopting a constitution, in which every citizen of the EU can take pride.
-
 [/INST]
 [SOG]
-Comment 1 (supports main topic): A comprehensive reform of the EU institutional layout is a must
+Comment 1: A comprehensive reform of the EU institutional layout is a must
 
-Comment 2 (attacks main topic): Adopting a European Constitution and failing to abide by it would be a big and challenging failure
+Comment 2: Adopting a European Constitution and failing to abide by it would be a big and challenging failure
 
-Comment 3 (supports main topic): A EU constitution will foster a “European identity”
+Comment 3: A EU constitution will foster a “European identity”
 [EOG]
 [INST]
 {{comments}}
 [/INST]
 """
+
+# Comment 1 (supports main topic): A comprehensive reform of the EU institutional layout is a must
+
+# Comment 2 (attacks main topic): Adopting a European Constitution and failing to abide by it would be a big and challenging failure
+
+# Comment 3 (supports main topic): A EU constitution will foster a “European identity”
+
+
+
+
+
+prompt_template_multilevel=f"""
+[INST]
+Main topic: This House would lease Crimea to Russia
+
+Comment 1: There is a lot more at stake than just the Crimean peninsula. While suggestions that it may destroy the whole international system are hyperbole the territory becoming part of Russia would be the most major territorial change in Europe since the unification of Germany and breakup of the USSR both of which were peaceful and mutually agreed events.  
+
+Comment 2: The big advantage of a lease is that it maintains the territorial status quo while giving Russia what it wants. If the concern is about the legal order and sovereignty of states then a lease provides the answer because the actual sovereignty over the territory is not handed over, merely the control over the territory and functions of that territory are. 
+
+Comment 3: It is hard to see why Ukraine would be willing to sign a lease with Russia when Russia has already proven it will not stick to the terms of its lease. Russia signed agreements in 1997 that recognised Crimea as a part of Ukraine in return for a lease on the base of the Russian Black Sea Fleet.
+
+Comment 4: While of the core points of sovereignty is that is indivisible this has not stopped the existence of other similar deals happening in the past.
+[/INST]
+[SOG]
+Comment 1 (attacks main topic): The crisis affects more than just Crimea
+
+Comment 2 (attacks Comment 1): The big advantage of a lease is that it maintains the territorial status quo while giving Russia what it wants.
+
+Comment 3 (attacks main topic): Why would Ukraine trust a lease when the previous one was violated?
+
+Comment 4 (supports main topic): There are precedents
+[EOG]
+[INST]
+{{comments}}
+[/INST]
+"""
+
 
 
 
@@ -267,24 +249,18 @@ def do_prompting():
     failed_count = 0
     succeeded_count = 0
 
-    for sample in val_dataset:
-        print("hi")
-        # print(dir(sample))
-        # print(sample.keys())
+    for sample in test_dataset:
+
         gold_texts.append(sample["summaries"])
-        input_text = prompt_template.format(comments=sample["comments"])
-        # print("INPUT TEXT: ************")
-        # print(input_text)
-        # import pdb; pdb.set_trace()
+        input_text = prompt_one.format(comments=sample["comments"])
+
         input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
         output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
   
 
         generated_text = tokenizer.decode(output_tok[0])
 
-
         generated_text = generated_text.split("[EOG]",1)[1]
-
 
         all_outputs = re.findall(r"\[SOG\](.*?)\[EOG\]", generated_text, flags=re.DOTALL)
 
@@ -295,22 +271,24 @@ def do_prompting():
                 output_text = re.split(r"[\[\]]", output_text)[0]
 
                 succeeded_count+=1
-                # print(output_text)
+                print("**********NO EOG*************")
+                print(output_text)
                 
             else:
-                output_text = ""
+                output_text = "fail"
 
-                # print("if it is printing this it should fucking print the other thing")
-                print("NO OUTPUT TEXT")
-                print("GENERATED_TEXT: ************")
-                print(generated_text)
                 failed_count +=1 
+                print("*********FAILED********")
+                print(generated_text)
     
         else:
             output_text = all_outputs[0]
             succeeded_count +=1 
-        
+            print("***********YES EOG************")
+            print(output_text)
             # print(output_text)
+        
+        generated_texts.append(output_text)
 
         input_token_lengths.append(len(input_tok[0]))
         output_token_lengths.append(len(output_tok[0]))
@@ -320,7 +298,91 @@ def do_prompting():
     print(f"max input token length: {max(input_token_lengths)}")
     print(f"max output token length: {max(output_token_lengths)}")
 
+    print(f"failed count: {failed_count}")
+    print(f"succeeded count: {succeeded_count}")
 
+
+
+
+    metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+
+
+    sample_output = generated_texts[-1]
+
+    with open(f"scores_double_prompting/sample_output.txt","w") as sample_file:
+        sample_file.write(sample_output + "\n\n")
+    scores_df = pd.DataFrame([metrics])
+    scores_df.to_csv(f"scores_double_prompting/single_level_results.csv")
+
+
+
+def do_prompting_multilevel():
+
+
+    model.eval()
+
+    gold_texts = []
+    generated_texts = []
+
+    generation_config=GenerationConfig(
+        do_sample=False,
+        max_new_tokens=512,        
+    )
+
+    input_token_lengths = []
+    output_token_lengths = []
+
+    failed_count = 0
+    succeeded_count = 0
+
+    for sample in test_dataset_multilevel:
+
+        gold_texts.append(sample["summaries"])
+        input_text = prompt_template_multilevel.format(comments=sample["comments"])
+
+        input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
+        output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
+  
+
+        generated_text = tokenizer.decode(output_tok[0])
+
+        generated_text = generated_text.split("[EOG]",1)[1]
+
+        all_outputs = re.findall(r"\[SOG\](.*?)\[EOG\]", generated_text, flags=re.DOTALL)
+
+        if len(all_outputs) < 1:
+
+            if "[SOG]" in generated_text:
+                output_text = re.split(r"\[SOG\]",generated_text)[1]
+                output_text = re.split(r"[\[\]]", output_text)[0]
+
+                succeeded_count+=1
+                print("**********NO EOG*************")
+                print(output_text)
+                
+            else:
+                output_text = "fail"
+
+                failed_count +=1 
+                print("*********FAILED********")
+                print(generated_text)
+    
+        else:
+            output_text = all_outputs[0]
+            succeeded_count +=1 
+            print("***********YES EOG************")
+            print(output_text)
+            # print(output_text)
+        
+        generated_texts.append(output_text)
+
+        input_token_lengths.append(len(input_tok[0]))
+        output_token_lengths.append(len(output_tok[0]))
+
+    # del(model2)
+
+    print(f"max input token length: {max(input_token_lengths)}")
+    print(f"max output token length: {max(output_token_lengths)}")
 
     print(f"failed count: {failed_count}")
     print(f"succeeded count: {succeeded_count}")
@@ -330,14 +392,18 @@ def do_prompting():
 
     metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
 
-    scores_df.to_csv(f"{scores_dir}/llama_results.csv")
 
     sample_output = generated_texts[-1]
 
-    with open(f"{scores_dir}/sample_output.txt","w") as sample_file:
+    with open(f"scores_double_prompting/sample_output_multilevel.txt","w") as sample_file:
         sample_file.write(sample_output + "\n\n")
+    scores_df = pd.DataFrame([metrics])
+    scores_df.to_csv(f"scores_double_prompting/multi_level_results.csv")
+
+
 
 
 do_prompting()
+# do_prompting_multilevel()
 #trainer.model.save_pretrained('llama-2-7b-nmt')
 

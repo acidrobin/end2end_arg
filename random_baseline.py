@@ -147,7 +147,6 @@ def do_random_baseline_multilevel():
         generated_texts.append(output_text)
 
     metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
-    metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
     scores_df = pd.DataFrame([metrics])
     scores_df.to_csv("scores_random_baseline/multi_level_results.csv")
 

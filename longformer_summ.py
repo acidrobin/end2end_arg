@@ -9,7 +9,7 @@ from transformers import (
 from preproc_utils import get_preprocessed_debatabase
 from summary_metrics import compute_metrics
 
-MULTILEVEL=False
+MULTILEVEL=True
 
 if MULTILEVEL:
     scores_dir = "longformer_scores_multilevel"
@@ -22,7 +22,10 @@ tokenizer = AutoTokenizer.from_pretrained("allenai/led-large-16384")
 
 train_dataset = get_preprocessed_debatabase(tokenizer, "train", multilevel=MULTILEVEL)
 val_dataset = get_preprocessed_debatabase(tokenizer, "val", multilevel=MULTILEVEL)
- 
+test_dataset = get_preprocessed_debatabase(tokenizer, "test", multilevel=MULTILEVEL)
+
+
+
 # comment out following lines for a test run
 
 # train_dataset = train_dataset.select(range(1))
@@ -36,6 +39,11 @@ train_dataset.set_format(
 
 # set Python list to PyTorch tensor
 val_dataset.set_format(
+    type="torch",
+    columns=["input_ids", "attention_mask", "global_attention_mask", "labels"],
+)
+
+test_dataset.set_format(
     type="torch",
     columns=["input_ids", "attention_mask", "global_attention_mask", "labels"],
 )
@@ -130,7 +138,7 @@ trainer = Seq2SeqTrainer(
     args=training_args,
     compute_metrics=compute_all_metrics,
     train_dataset=train_dataset,
-    eval_dataset=val_dataset,
+    eval_dataset=test_dataset,
 
 )
 
