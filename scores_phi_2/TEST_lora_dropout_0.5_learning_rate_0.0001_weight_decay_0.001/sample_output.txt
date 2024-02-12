@@ -1,0 +1,620 @@
+epoch 1
+
+
+The United.
+
+The United.
+
+The United.
+
+The United.
+
+The United
+
+The United.
+
+The United.
+
+The United
+
+
+The United.
+
+The United, and the United.
+
+The United
+
+The United
+
+
+
+
+
+
+
+The United
+
+
+The United
+
+
+The United
+
+The United
+
+The United
+
+
+
+The United
+
+
+The United
+
+The United
+
+
+The United
+
+
+The United
+
+
+The United
+
+
+The United
+
+
+
+
+
+
+
+
+
+
+
+The United
+
+
+
+
+The United.
+
+
+
+
+
+
+
+
+
+
+
+
+The United.
+
+
+
+
+
+
+
+
+
+
+
+
+The United.
+
+
+
+
+
+
+
+The House
+
+
+
+
+
+
+
+
+
+
+The
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The United
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+epoch 2
+
+Comment 1 (supports main topic): The state has a duty to protect its citizens from violence.
+
+Comment 2 (attacks main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 3 (supports main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 4 (attacks main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 5 (attacks main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 6 (supports main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 7 (attacks main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 8 (attacks main topic): The state should not be able to interfere with the private business of private companies.
+
+Comment 9 (attacks main topic): The state should not be able to interfere with the private business of private companies.
+
+epoch 3
+
+Comment 1 (supports main topic): The state has a duty to protect its citizens from violence
+
+Comment 2 (supports main topic): The police have a duty to protect the public from violence
+
+Comment 3 (attacks main topic): The state should not be able to censor the internet
+
+Comment 4 (supports main topic): The state should not seek to silence legitimate demonstrations
+
+Comment 5 (supports main topic): Social networks act as a catalyst for violence
+
+Comment 6 (attacks main topic): The police must try to stop riots from spreading
+
+Comment 7 (supports main topic): The police would not be able to block social networks during riots
+
+Comment 8 (attacks main topic): The state should not seek to censor free speech
+
+Comment 9 (attacks main topic): The blocking of social networks, of the internet, or of mobile phone networks in times of rioting is an illegitimate curtailment of a private company’s right to do business and serve its customers
+
+epoch 4
+
+Comment 1 (supports main topic): The state has a duty to protect its citizens
+
+Comment 2 (supports main topic): The police have a duty to protect the public
+
+Comment 3 (attacks main topic): The police have a duty to protect the public
+
+Comment 4 (supports main topic): The state has a duty to protect its citizens
+
+Comment 5 (supports main topic): The state has a duty to protect the public
+
+Comment 6 (attacks main topic): The police have a duty to protect the public
+
+Comment 7 (attacks main topic): The state has a duty to protect its citizens
+
+Comment 8 (supports main topic): The state has a duty to protect its citizens
+
+Comment 9 (attacks main topic): The state has a duty to protect its citizens
+
+epoch 5
+
+Comment 1 (supports main topic): The state has a duty to protect its citizens from rioting
+
+Comment 2 (supports main topic): The police need to be able to communicate with each other
+
+Comment 3 (attacks main topic): The police can use social media to track rioters
+
+Comment 4 (attacks main topic): The state should not seek to silence legitimate dissent
+
+Comment 5 (supports main topic): Social media acts as a catalyst for violence
+
+Comment 6 (supports main topic): The police need to prevent the spread of riots
+
+Comment 7 (attacks main topic): The police cannot block social networks
+
+Comment 8 (attacks main topic): The state seeks to expand its powers over speech
+
+Comment 9 (attacks main topic): The state should not seek to impose its will on private companies
+
+epoch 6
+
+Comment 1 (supports main topic): The state has a duty to protect its citizens from harm
+
+Comment 2 (supports main topic): The police need to be able to prevent riots from spreading
+
+Comment 3 (attacks main topic): The police can use social media to track rioters
+
+Comment 4 (attacks main topic): The state should not seek to muzzle the expression of outrage
+
+Comment 5 (supports main topic): Social media acts as a catalyst for violence
+
+Comment 6 (supports main topic): The police must try to stop riots from spreading
+
+Comment 7 (attacks main topic): The police would not be able to block social networks during riots
+
+Comment 8 (supports main topic): The state always likes to expand its powers over speech
+
+Comment 9 (attacks main topic): The blocking of social networks is an illegitimate curtailment of a private company’s right to do business
+
+epoch 7
+
+Comment 1 (supports main topic): The state has a duty to protect its citizens from harm
+
+Comment 2 (supports main topic): The police need to be able to communicate with each other and with the public
+
+Comment 3 (attacks main topic): The police can use social media to monitor and prevent riots
+
+Comment 4 (attacks main topic): The state should not be the arbiter of what is acceptable speech
+
+Comment 5 (supports main topic): Social media is a catalyst for violence
+
+Comment 6 (supports main topic): The police need to prevent the spread of riots
+
+Comment 7 (attacks main topic): The police would not be able to block social networks during riots
+
+Comment 8 (attacks main topic): The state would be able to use this as a precedent to censor other services online
+
+Comment 9 (attacks main topic): The state should not be able to impose a blanket ban on social networks
+
+epoch 8
+
+Comment 1 (supports main topic): Riots are a threat to society
+
+Comment 2 (attacks main topic): The police should be able to use social media to prevent riots
+
+Comment 3 (supports main topic): Social media is used to organize riots
+
+Comment 4 (supports main topic): The state should not be the arbiter of what is considered acceptable
+
+Comment 5 (attacks main topic): Social media is a catalyst for violence
+
+Comment 6 (attacks main topic): The police must try to stop riots from spreading
+
+Comment 7 (supports main topic): The police cannot block social networks during riots
+
+Comment 8 (supports main topic): The state should not be the arbiter of what is considered acceptable
+
+Comment 9 (attacks main topic): The state should not be the arbiter of what is considered acceptable
+
+epoch 9
+
+Comment 1 (supports main topic): Rioters should not be allowed to use social networks to incite violence
+
+Comment 2 (supports main topic): The police need to be able to prevent riots from spreading
+
+Comment 3 (attacks main topic): The police can use social networks to track rioters
+
+Comment 4 (attacks main topic): The state should not be the judge of what is legitimate protest
+
+Comment 5 (supports main topic): Social networks act as a catalyst for violence
+
+Comment 6 (supports main topic): The police need to prevent riots from spreading
+
+Comment 7 (attacks main topic): The police would not be able to block social networks during riots
+
+Comment 8 (attacks main topic): The state would like to expand its powers over speech
+
+Comment 9 (attacks main topic): The state should not be able to block social networks
+
+epoch 10
+
+Comment 1 (supports main topic): Riots are a threat to society
+
+Comment 2 (supports main topic): The police need to be able to communicate with each other
+
+Comment 3 (attacks main topic): The police can use social media to track rioters
+
+Comment 4 (attacks main topic): The state should not seek to silence legitimate demonstrations
+
+Comment 5 (supports main topic): Social media acts as a catalyst for violence
+
+Comment 6 (supports main topic): The police must try to stop riots from spreading
+
+Comment 7 (attacks main topic): It is impossible to block social networks during riots
+
+Comment 8 (attacks main topic): The state should not be able to expand its powers over speech
+
+Comment 9 (attacks main topic): The state should not be able to harm private businesses
+

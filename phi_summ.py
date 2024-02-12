@@ -30,7 +30,11 @@ dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
 
 
-MULTILEVEL=True
+TEST = True
+MULTILEVEL=False
+
+if TEST == True:
+    dir_name = "TEST_" + dir_name
 
 if MULTILEVEL==True:
     scores_dir = op.join("scores_multilevel_phi_2", dir_name)
@@ -84,6 +88,7 @@ class EvalCallback(TrainerCallback):
 
         generation_config=GenerationConfig(
             do_sample=False,
+            pad_token_id= tokenizer.eos_token_id,
             max_new_tokens=512,        
         )
 
@@ -131,7 +136,9 @@ eval_callback = EvalCallback()
 
 train_dataset = get_preprocessed_debatabase_sft("train",multilevel=MULTILEVEL)
 val_dataset = get_preprocessed_debatabase_sft("val",multilevel=MULTILEVEL)
- 
+if TEST:
+    val_dataset = get_preprocessed_debatabase_sft("test", multilevel=MULTILEVEL)
+  
 # train_dataset = train_dataset.select(range(2))
 # val_dataset = val_dataset.select(range(1))
 
@@ -169,6 +176,7 @@ peft_config = LoraConfig(
 
 model = AutoModelForCausalLM.from_pretrained(
     'microsoft/phi-2',
+    trust_remote_code=True,
     quantization_config=bnb_config,
 )
 # model.cuda()
@@ -176,9 +184,11 @@ model.config.use_cache = False
 model.config.pretraining_tp = 1
 
 tokenizer = AutoTokenizer.from_pretrained('microsoft/phi-2', trust_remote_code=True)
-tokenizer.pad_token = tokenizer.eos_token
-tokenizer.padding_side = 'right'
-
+# tokenizer.eos_token = "[EOS]"
+# tokenizer.pad_token = tokenizer.eos_token
+# tokenizer.padding_side = 'right'
+tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+model.resize_token_embeddings(len(tokenizer))
 
 # In[ ]:
 

@@ -1,0 +1,184 @@
+epoch 1
+
+
+Argument 1: The state should block access to social messaging networks during riots.
+
+Argument 2: The state should not block access to social messaging networks during riots.
+
+Argument 3: The state should not block access to social messaging networks during riots.
+
+Argument 4: The state should not block access to social messaging networks during riots.
+
+Argument 5: The state should not block access to social messaging networks during riots.
+
+Argument 6: The state should not block access to social messaging networks during riots.
+
+Argument 7: The state should not block access to social messaging networks during riots.
+
+Argument 8: The state should not block access to social messaging networks during riots.
+
+Argument 9: The state should not block access to social messaging networks during riots.
+
+Argument 10: The state should not block access to social messaging networks during riots.
+
+Argument 11: The state should not block access to social messaging networks during riots.
+
+Argument 12: The state should not block access to social messaging networks during riots.
+
+Argument 13: The state should not block access to social messaging networks during riots.
+
+Argument 14: The state should not block access to social messaging networks during riots.
+
+Argument 15: The state should not block access to social messaging networks during riots.
+
+Argument 16: The state should not block access to social messaging networks during riots.
+
+Argument 17: The state should not block access to social messaging networks during riots.
+
+Argument 18: The state should not block access to social messaging networks during riots.
+
+Argument 19: The state should not block access to social messaging networks during riots.
+
+Argument 20: The state should not block access to social messaging networks during riots.
+
+Argument 21: The state should not block access to social messaging networks during riots.
+
+Argument 22: The state should not block access to social messaging networks during riots.
+
+Argument 23: The state should not block access to social messaging networks during riots.
+
+Argument 24: The state should not block access to social messaging networks during riots.
+
+Argument 25: The state should not block access to social messaging networks during riots.
+
+Argument 26: The state should not block access to social messaging networks during riots.
+
+Argument 27: The state should not block access to social messaging networks during riots.
+
+
+epoch 2
+
+Comment 1 (attacks main topic): The state should not be able to control the internet
+
+Comment 2 (supports main topic): Social media networks are a catalyst for violence
+
+Comment 3 (supports main topic): The state should not be able to control the internet
+
+Comment 4 (attacks main topic): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks main topic): Rioters will always find tools by which to organize.
+
+Comment 6 (attacks Comment 4): When riots are on-going then the police needs to act but the safety of everyone involved should be considered to be paramount.
+
+epoch 3
+
+Comment 1 (attacks main topic): The state should not be able to control the internet
+
+Comment 2 (supports main topic): Social media networks are a catalyst for violence
+
+Comment 3 (attacks main topic): The state does not have the right to censor the internet
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (attacks Comment 4): When riots are on-going then the police needs to act but the safety of everyone involved should be considered to be paramount.
+
+epoch 4
+
+Comment 1 (attacks main topic): The state should not be allowed to censor the internet
+
+Comment 2 (attacks main topic): Social media networks are a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to censor the internet
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (attacks Comment 1): When riots are on-going then the police needs to act but the safety of everyone involved should be considered to be paramount.
+
+epoch 5
+
+Comment 1 (attacks main topic): The state should not be allowed to expand its powers over speech
+
+Comment 2 (supports main topic): Social media networks are a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to censor legitimate protest
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (attacks Comment 4): When riots are on-going then the police needs to act but the safety of everyone involved should be considered to be paramount.
+
+epoch 6
+
+Comment 1 (attacks main topic): The state should not be allowed to expand its powers over speech
+
+Comment 2 (supports main topic): Social media networks are a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to suppress legitimate protest
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): The police should be able to use force to stop riots
+
+epoch 7
+
+Comment 1 (attacks main topic): The state should not be allowed to expand its powers over speech
+
+Comment 2 (supports main topic): Social media networks are a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to suppress legitimate protest
+
+Comment 4 (attacks main topic): It is impossible to block social media networks during riots
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): The police should be able to use force to stop riots
+
+epoch 8
+
+Comment 1 (attacks main topic): The state should not be allowed to censor the internet
+
+Comment 2 (supports main topic): Twitter is a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to censor the internet
+
+Comment 4 (attacks main topic): It is impossible to block social networks during riots
+
+Comment 5 (attacks Comment 4): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): The police should be able to block social media networks during riots
+
+epoch 9
+
+Comment 1 (attacks main topic): The state should not be allowed to expand its powers over speech
+
+Comment 2 (supports main topic): Twitter is a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to suppress legitimate protest
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): Shutting down social media networks is a preventative measure
+
+epoch 10
+
+Comment 1 (attacks main topic): The state should not be allowed to censor the internet
+
+Comment 2 (supports main topic): Twitter is a catalyst for violence
+
+Comment 3 (attacks main topic): The state should not be allowed to censor the internet
+
+Comment 4 (attacks main topic): How can the police block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 4): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): The safety of everyone involved should be paramount
+

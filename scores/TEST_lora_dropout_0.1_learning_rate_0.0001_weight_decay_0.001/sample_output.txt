@@ -1,0 +1,83 @@
+epoch 1
+
+
+[1] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[2] http://www.guardian.co.uk/world/2012/feb/03/china-internet-links-tibetan-unrest
+
+[3] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[4] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[5] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[6] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[7] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[8] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[9] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+
+[10] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.
+
+epoch 2
+
+Comment 1 (supports main topic): Riots are not legitimate forms of protest
+
+Comment 2 (supports main topic): The police needs to act to prevent riots
+
+Comment 3 (attacks main topic): Social networks are useful to the police
+
+Comment 4 (attacks main topic): Riots are legitimate forms of protest
+
+Comment 5 (supports main topic): Social networks are a danger to society
+
+Comment 6 (supports main topic): Social networks are a danger to society
+
+Comment 7 (attacks main topic): The police cannot block social networks
+
+Comment 8 (attacks main topic): The state should not be able to block social networks
+
+Comment 9 (attacks main topic): The state should not be able to block social networks
+
+epoch 3
+
+Comment 1 (supports main topic): Riots are not legitimate forms of protest
+
+Comment 2 (supports main topic): Social media is a useful tool for rioters
+
+Comment 3 (attacks main topic): Social media is useful for the police
+
+Comment 4 (attacks main topic): Social media is a legitimate form of protest
+
+Comment 5 (supports main topic): Social media is a catalyst for riots
+
+Comment 6 (supports main topic): Social media is a tool for rioters to coordinate
+
+Comment 7 (attacks main topic): How to block social media
+
+Comment 8 (attacks main topic): The state should not be able to block social media
+
+Comment 9 (attacks main topic): Blocking social media is an illegitimate curtailment of freedom of speech
+
+epoch 4
+
+Comment 1 (supports main topic): Riots are a form of free speech that should not be tolerated
+
+Comment 2 (supports main topic): Blocking social media will prevent the rioters from organising
+
+Comment 3 (attacks main topic): Social media can be used by the police to track the rioters
+
+Comment 4 (attacks main topic): The state should not be the arbiter of legitimate protest
+
+Comment 5 (supports main topic): Social media is a catalyst for violence
+
+Comment 6 (supports main topic): Blocking social media will prevent the spread of riots
+
+Comment 7 (attacks main topic): How would the police block social media?
+
+Comment 8 (attacks main topic): Blocking social media is the first step in censorship
+
+Comment 9 (attacks main topic): Blocking social media is an illegitimate curtailment of freedom of speech
+

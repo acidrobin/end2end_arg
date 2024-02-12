@@ -28,9 +28,11 @@ args = parser.parse_args()
 
 dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
+TEST = True
+MULTILEVEL=False
 
-
-MULTILEVEL=True
+if TEST == True:
+    dir_name = "TEST_" + dir_name
 
 if MULTILEVEL==True:
     scores_dir = op.join("scores_multilevel", dir_name)
@@ -131,6 +133,8 @@ eval_callback = EvalCallback()
 
 train_dataset = get_preprocessed_debatabase_sft("train",multilevel=MULTILEVEL)
 val_dataset = get_preprocessed_debatabase_sft("val",multilevel=MULTILEVEL)
+if TEST:
+    val_dataset = get_preprocessed_debatabase_sft("test", multilevel=MULTILEVEL)
  
 # train_dataset = train_dataset.select(range(2))
 # val_dataset = val_dataset.select(range(1))
@@ -187,7 +191,7 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=10,
+    num_train_epochs=4,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,

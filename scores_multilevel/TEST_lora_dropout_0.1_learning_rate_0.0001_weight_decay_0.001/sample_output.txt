@@ -1,0 +1,59 @@
+epoch 1
+
+
+[1] Stylianou, A., “Cyber Regulation and the Riots”, Legal matters, Autumn 2011. http://legalmattersmag.wordpress.com/features/autumn-11/cyber-regulation-and-the-riots/
+
+[2] Dugan, L. “Blocking Twitter During Riots a Bad Idea, Study Proves”. Media Bistro. 2011. http://www.mediabistro.com/alltwitter/blocking-twitter-during-riots-a-bad-idea-study-proves_b13091
+
+[3] Branigan, T., “China cut off internet in area of Tibetan unrest”, The Guardian, 3 February 2012. http://www.guardian.co.uk/world/2012/feb/03/china-internet-links-tibetan-unrest
+
+[4] O’Rourke, Simon, “Empowering protest through social media”, Edith Cowan University Research Online, 2011, http://ro.ecu.edu.au/cgi/viewcontent.cgi?article=1021&context=icr  P.51
+
+[5] Cabanatuan, M., “BART admits halting cell service to stop protests”, SFGate, http://www.sfgate.com/news/article/BART-admits-halting-cell-service-to-stop-protests-2335114.php#ixzz2M7lxd9by
+
+[6] Temperton, J. “Blocking Facebook and Twitter During Riots Threatens Freedom”. Computer Active. 15 August 2011. http://www.computeractive.co.uk/ca/news/2101952/blocking-facebook-twitter-riots-threatens-freedom
+
+[7] Dugan, L. “Blocking Twitter During Riots a Bad Idea, Study Proves”. Media Bistro. 2011. http://www.
+
+epoch 2
+
+Comment 1 (attacks main topic): The state should not be allowed to expand its power over speech.
+
+Comment 2 (supports main topic): Social media networks are a catalyst for riots.
+
+Comment 3 (attacks main topic): The state should not be allowed to block legitimate protests.
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 3): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): Social media networks are a catalyst for riots.
+
+epoch 3
+
+Comment 1 (attacks main topic): The government should not be allowed to expand its power over speech
+
+Comment 2 (supports main topic): Social media is a catalyst for violence
+
+Comment 3 (attacks main topic): The government should not be allowed to determine what is legitimate protest
+
+Comment 4 (attacks Comment 2): How are the police to block social networks when riots are ongoing?
+
+Comment 5 (attacks Comment 3): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): The police should be able to prevent the escalation of violence
+
+epoch 4
+
+Comment 1 (attacks main topic): The government should not be allowed to expand its power over speech
+
+Comment 2 (supports main topic): Social media encourages rioters to escalate violence
+
+Comment 3 (attacks main topic): The government should not be allowed to determine what is legitimate protest
+
+Comment 4 (attacks main topic): It is impossible to block social media networks
+
+Comment 5 (attacks Comment 2): Rioters will always find tools by which to organize.
+
+Comment 6 (supports main topic): Rioters use social media to organize, shutting down social media networks would prevent this
+
