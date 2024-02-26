@@ -7,7 +7,7 @@ from trl import SFTTrainer
 import torch
 import pandas as pd
 
-from preproc_utils import get_preprocessed_debatabase_sft
+from preproc_utils import get_preprocessed_debatabase_class
 
 from datasets import load_metric
 
@@ -28,16 +28,16 @@ args = parser.parse_args()
 
 dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
-TEST = True
-MULTILEVEL=True
+TEST = False
+MULTILEVEL=False
 
 if TEST == True:
     dir_name = "TEST_" + dir_name
 
 if MULTILEVEL==True:
-    scores_dir = op.join("scores_multilevel", dir_name)
+    scores_dir = op.join("scores_class_multilevel", dir_name)
 else:
-    scores_dir = op.join("scores", dir_name)
+    scores_dir = op.join("scores_class", dir_name)
 
 if not op.exists(scores_dir):
     os.mkdir(scores_dir)
@@ -98,20 +98,20 @@ class EvalCallback(TrainerCallback):
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
             output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
-            generated_text = tokenizer.decode(output_tok[0])
-            output_text = re.split("\[EOG\]|\[/INST\]",generated_text)[1]
-            generated_texts.append(output_text)
+            generated_text = tokenizer.decode(output_tok[0]).split("[/INST]",1)[1]
+            generated_texts.append(generated_text)
         
         # del(model2)
 
-        metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
-  
-        confusion_matrix = metrics.pop("confusion matrix")
-        with open(f"{scores_dir}/confusion_matrix.txt","w") as sample_file:
-            sample_file.write(confusion_matrix.__str__())
+        print("*"*40)
+        print(gold_texts)
+        print(generated_texts)
         
-        if metrics["rouge2_f_measure"] > self.best_rouge:
-            trainer.model.save_pretrained("saved_model")
+        accuracy = len([i for i,j in zip(gold_texts,generated_texts) if i.strip().lower()==j.strip().lower()])/ len(gold_texts)
+        print(accuracy)
+        metrics = {"accuracy":accuracy}
+
+
         metrics["epoch"] = len(self.scores) +1
         self.scores.append(metrics)
         scores_df = pd.DataFrame(self.scores)
@@ -136,10 +136,10 @@ class EvalCallback(TrainerCallback):
 eval_callback = EvalCallback()
 
 
-train_dataset = get_preprocessed_debatabase_sft("train",multilevel=MULTILEVEL)
-val_dataset = get_preprocessed_debatabase_sft("val",multilevel=MULTILEVEL)
+train_dataset = get_preprocessed_debatabase_class("train")
+val_dataset = get_preprocessed_debatabase_class("val")
 if TEST:
-    val_dataset = get_preprocessed_debatabase_sft("test", multilevel=MULTILEVEL)
+    val_dataset = get_preprocessed_debatabase_class("test")
  
 # train_dataset = train_dataset.select(range(2))
 # val_dataset = val_dataset.select(range(1))

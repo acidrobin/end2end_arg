@@ -82,6 +82,53 @@ def get_preprocessed_debatabase_sft(split, multilevel=False):
     return dataset
 
 
+def get_preprocessed_debatabase_class(split):
+
+    idebate_df = pd.read_csv(f"debatabase_data/classification_{split}.csv")
+
+    dataset = datasets.Dataset.from_pandas(idebate_df)
+
+    prompt = (
+        f"<s>[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}\n[/INST]"
+        )
+
+    full_text = (
+        f"<s>[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}\n[/INST]{{stance}}</s>"
+    )
+
+    def apply_prompt_template(sample):
+        return {
+            "text": full_text.format(parent=sample["parent"], child=sample["child"],stance=sample["stance"]),
+            "input": prompt.format(parent=sample["parent"], child=sample["child"]),
+            "output": sample["stance"]
+        }
+
+    dataset = dataset.map(apply_prompt_template, remove_columns=list(dataset.features))
+    return dataset
+
+
+def get_preprocessed_debatabase_summ(split):
+
+    idebate_df = pd.read_csv(f"debatabase_data/mtl_data_{split}.csv")
+
+    dataset = datasets.Dataset.from_pandas(idebate_df)
+
+    prompt = (
+        f"<s>[INST]Summarise the following comment:\n{{comment}}\n[/INST]")
+
+    full_text = (
+        f"<s>[INST]Summarise the following comment:\n{{comment}}\n[/INST]{{summary}}</s>")
+    def apply_prompt_template(sample):
+        return {
+            "text": full_text.format(comment=sample["comment"], summary=sample["summary"]),
+            "input": prompt.format(comment=sample["comment"]),
+            "output": sample["summary"]
+        }
+
+    dataset = dataset.map(apply_prompt_template, remove_columns=list(dataset.features))
+    return dataset
+
+
 
 def get_preprocessed_debatabase(tokenizer, split, multilevel=False):
 

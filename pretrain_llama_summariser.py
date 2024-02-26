@@ -7,7 +7,7 @@ from trl import SFTTrainer
 import torch
 import pandas as pd
 
-from preproc_utils import get_preprocessed_debatabase_sft
+from preproc_utils import get_preprocessed_debatabase_summ
 
 from datasets import load_metric
 
@@ -28,16 +28,12 @@ args = parser.parse_args()
 
 dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
-TEST = True
-MULTILEVEL=True
+TEST = False
 
 if TEST == True:
     dir_name = "TEST_" + dir_name
 
-if MULTILEVEL==True:
-    scores_dir = op.join("scores_multilevel", dir_name)
-else:
-    scores_dir = op.join("scores", dir_name)
+scores_dir = op.join("scores_summ", dir_name)
 
 if not op.exists(scores_dir):
     os.mkdir(scores_dir)
@@ -53,18 +49,11 @@ def compute_metrics(predictions, references):
     rouge_output = rouge.compute(
          predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
 
-    len_diff, node_acc, node_f1, ged, confusion_matrix = compute_node_stance_acc_f1_ged(predictions=predictions, references=references)
-
     return {
-        "length_difference": round(len_diff, 4),
         'meteor_score': round(meteor_output['meteor'], 4),
         'rouge2_precision': round(rouge_output.precision, 4),
         'rouge2_recall': round(rouge_output.recall, 4),
         'rouge2_f_measure': round(rouge_output.fmeasure, 4),
-        'node stance f1': round(node_f1, 4),
-        'node stance acc': round(node_acc, 4),
-        "graph edit distance": round(ged, 4),
-        "confusion matrix": confusion_matrix
     }
 
 
@@ -98,9 +87,7 @@ class EvalCallback(TrainerCallback):
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
             output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
-            generated_text = tokenizer.decode(output_tok[0])
-            output_text = re.split("\[EOG\]|\[/INST\]",generated_text)[1]
-            generated_texts.append(output_text)
+            output_text = tokenizer.decode(output_tok[0])
         
         # del(model2)
 
@@ -136,10 +123,10 @@ class EvalCallback(TrainerCallback):
 eval_callback = EvalCallback()
 
 
-train_dataset = get_preprocessed_debatabase_sft("train",multilevel=MULTILEVEL)
-val_dataset = get_preprocessed_debatabase_sft("val",multilevel=MULTILEVEL)
+train_dataset = get_preprocessed_debatabase_summ("train")
+val_dataset = get_preprocessed_debatabase_summ("val")
 if TEST:
-    val_dataset = get_preprocessed_debatabase_sft("test", multilevel=MULTILEVEL)
+    val_dataset = get_preprocessed_debatabase_summ("test")
  
 # train_dataset = train_dataset.select(range(2))
 # val_dataset = val_dataset.select(range(1))
@@ -235,5 +222,5 @@ trainer = SFTTrainer(
 
 
 trainer.train()
-trainer.model.save_pretrained('llama-2-7b-nmt')
+#trainer.model.save_pretrained('llama-2-7b-nmt')
 

@@ -5,7 +5,7 @@ import re
 import os.path as op
 import pandas as pd
 import unicodedata
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, confusion_matrix
 from arglu.plot_argument_graphs import show_graph
 
 import networkx as nx
@@ -97,6 +97,10 @@ def node_stance_f1(gold, predicted):
     # import pdb; pdb.set_trace()
     return f1_score(y_true=gold_perspectives, y_pred=pred_perspectives, average="macro")
 
+def node_confusion_matrix(gold, predicted):
+    gold_perspectives, pred_perspectives = get_gold_and_pred_perspectives(gold_graph=gold, 
+                                                            pred_graph=predicted)
+    return confusion_matrix(y_true=gold_perspectives, y_pred=pred_perspectives,labels=[0,1,2])
 
 def parse_text_to_networkx(text):
     node_re = r"\s*([Cc]omment .+?)\s*\(\s*(\S+)\s*(.+?)\s*\)\s*(.+)"
@@ -134,6 +138,8 @@ def compute_node_stance_acc_f1_ged(references, predictions):
     node_accs = []
     node_f1s = []
     geds = []
+    len_diffs = []
+    confusion_matrix = np.zeros((3,3))
     for lab, pred in list(zip(references, predictions)):
 
         gold_graph = parse_text_to_networkx(lab)
@@ -147,9 +153,14 @@ def compute_node_stance_acc_f1_ged(references, predictions):
         node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
         # print(gold_graph())
         ged = nx.graph_edit_distance(gold_graph, pred_graph, node_match=node_match)
+        len_diffs.append(len(gold_graph) - len(pred_graph))
         geds.append(ged)
+        confusion_matrix += node_confusion_matrix(gold=gold_graph, predicted=pred_graph)
 
-    return np.mean(node_accs), np.mean(node_f1s), np.mean(geds)
+    llr = pd.DataFrame({"node_f1":node_f1s, "ged":geds,"len_diff":len_diffs})
+    llr.to_csv("low_level_results.csv")
+    
+    return np.mean(len_diffs),np.mean(node_accs), np.mean(node_f1s), np.mean(geds), confusion_matrix
 
 
 

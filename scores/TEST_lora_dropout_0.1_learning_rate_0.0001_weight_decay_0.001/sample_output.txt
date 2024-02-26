@@ -1,79 +1,998 @@
-epoch 1
+sample 1
 
+Comment 1 (supports main topic): The ICC has only been investigating African countries
 
-[1] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 2 (attacks main topic): Africa has been the most active in seeking international justice
 
-[2] http://www.guardian.co.uk/world/2012/feb/03/china-internet-links-tibetan-unrest
+Comment 3 (supports main topic): The ICC is controlled by the Security Council
 
-[3] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 4 (supports main topic): The ICC is more likely to prosecute African leaders than western ones
 
-[4] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 5 (attacks main topic): The ICC has been inclusive in its approach
 
-[5] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 6 (attacks main topic): Africa has been the most active in referring itself to the ICC
 
-[6] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 7 (attacks main topic): The ICC is not biased against Africa
 
-[7] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+sample 2
 
-[8] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 1 (supports main topic): People should be free to do what they want with their own bodies
 
-[9] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.html
+Comment 2 (supports main topic): Legalization will reduce the number of drug users
 
-[10] http://www.independent.co.uk/news/uk/crime/rioting-in-london-sparked-copycat-behaviour-6262030.
+Comment 3 (attacks main topic): Legalization will increase the number of drug users
 
-epoch 2
+Comment 4 (supports main topic): Alcohol and tobacco are legal, and drugs are no more harmful
 
-Comment 1 (supports main topic): Riots are not legitimate forms of protest
+Comment 5 (supports main topic): Legalization will reduce crime
 
-Comment 2 (supports main topic): The police needs to act to prevent riots
+Comment 6 (supports main topic): Legalization will ensure that drugs are pure
 
-Comment 3 (attacks main topic): Social networks are useful to the police
+Comment 7 (attacks main topic): Legalization will increase the number of drug users
 
-Comment 4 (attacks main topic): Riots are legitimate forms of protest
+Comment 8 (supports main topic): Legalization will reduce the funding of terrorist groups
 
-Comment 5 (supports main topic): Social networks are a danger to society
+Comment 9 (attacks main topic): Drugs are harmful and should be banned
 
-Comment 6 (supports main topic): Social networks are a danger to society
+Comment 10 (supports main topic): Legalization will allow the state to tax drugs
 
-Comment 7 (attacks main topic): The police cannot block social networks
+sample 3
 
-Comment 8 (attacks main topic): The state should not be able to block social networks
+Comment 1 (supports main topic): The collection and sale of personal data is an unacceptable invasion of privacy
 
-Comment 9 (attacks main topic): The state should not be able to block social networks
+Comment 2 (attacks main topic): The collection and sale of personal data allows for more efficient marketing
 
-epoch 3
+Comment 3 (supports main topic): The data is not safe
 
-Comment 1 (supports main topic): Riots are not legitimate forms of protest
+Comment 4 (supports main topic): The collection and sale of personal data is unacceptable to the public
 
-Comment 2 (supports main topic): Social media is a useful tool for rioters
+Comment 5 (attacks main topic): The collection and sale of personal data is a natural extension of the economic relationship between the individual and the company
 
-Comment 3 (attacks main topic): Social media is useful for the police
+Comment 6 (attacks main topic): The collection and sale of personal data allows for more efficient marketing
 
-Comment 4 (attacks main topic): Social media is a legitimate form of protest
+sample 4
 
-Comment 5 (supports main topic): Social media is a catalyst for riots
+Comment 1 (supports main topic): Corruption
 
-Comment 6 (supports main topic): Social media is a tool for rioters to coordinate
+Comment 2 (attacks main topic): Natural resources are a means of increasing the quality of life
 
-Comment 7 (attacks main topic): How to block social media
+Comment 3 (supports main topic): Resource extraction is a means of exploitation
 
-Comment 8 (attacks main topic): The state should not be able to block social media
+Comment 4 (supports main topic): Natural resources cause environmental damage
 
-Comment 9 (attacks main topic): Blocking social media is an illegitimate curtailment of freedom of speech
+Comment 5 (attacks main topic): Natural resources are a source of economic revenue
 
-epoch 4
+Comment 6 (supports main topic): Natural resources cause conflict
+
+Comment 7 (attacks main topic): Natural resources create jobs
+
+sample 5
+
+Comment 1 (supports main topic): The richest Americans should pay more taxes
+
+Comment 2 (supports main topic): The government should spend more money on social programs
+
+Comment 3 (attacks main topic): The government should not spend money on social programs
+
+Comment 4 (attacks main topic): The government should cut taxes and spending
+
+sample 6
+
+Comment 1 (supports main topic): The BCS system is unfair
+
+Comment 2 (attacks main topic): Playoffs would be bad for college football fans
+
+Comment 3 (supports main topic): Playoffs would be good for college football
+
+Comment 4 (supports main topic): Playoffs would be good for the game of college football
+
+Comment 5 (attacks main topic): Playoffs would be bad for the health of college football players
+
+Comment 6 (attacks main topic): Playoffs would be bad for college football as a whole
+
+sample 7
+
+Comment 1 (supports main topic): Community radio is a vital tool for democracy
+
+Comment 2 (attacks main topic): The medium is not the message
+
+Comment 3 (supports main topic): Community radio provides a voice for those who have none
+
+Comment 4 (supports main topic): Community radio is cheap and accessible
+
+Comment 5 (attacks main topic): Community radio is an anachronism
+
+Comment 6 (attacks main topic): Community radio is a tool for the extremists
+
+sample 8
+
+Comment 1 (supports main topic): The technology is unsafe.
+
+Comment 2 (supports main topic): Cloning is playing God.
+
+Comment 3 (attacks main topic): Cloning could be used to cure genetic diseases.
+
+Comment 4 (supports main topic): Cloning harms the integrity of the family.
+
+Comment 5 (supports main topic): Cloning treats children as objects.
+
+Comment 6 (attacks main topic): The desire to have a child is a natural one.
+
+Comment 7 (supports main topic): Cloning is contrary to human dignity.
+
+Comment 8 (attacks main topic): Cloning is not a threat to humanity.
+
+sample 9
+
+Comment 1 (supports main topic): Gambling is bad for people
+
+Comment 2 (supports main topic): Gambling is bad for families
+
+Comment 3 (attacks main topic): Governments are hypocritical about gambling
+
+Comment 4 (supports main topic): It is impossible to ban online gambling
+
+Comment 5 (supports main topic): Online gambling funds organised crime
+
+Comment 6 (supports main topic): Online gambling is addictive
+
+Comment 7 (attacks main topic): People should be free to gamble
+
+Comment 8 (attacks main topic): Gambling is the same as investment
+
+Comment 9 (attacks main topic): Regulation is the best way to control online gambling
+
+sample 10
+
+Comment 1 (supports main topic): The internet promotes free media which is essential to democracy
+
+Comment 2 (supports main topic): The internet promotes transparency and government-citizen communication
+
+Comment 3 (attacks main topic): The internet is not affordable to the poor
+
+Comment 4 (supports main topic): The internet allows for the organization of mass numbers of people
+
+Comment 5 (attacks main topic): The internet is used by authoritarian governments to repress dissent
+
+Comment 6 (attacks main topic): The internet makes it easier for governments to track down dissidents
+
+Comment 7 (supports main topic): The internet promotes democracy by informing the world
+
+Comment 8 (attacks main topic): The internet can be used for malicious purposes
+
+sample 11
+
+Comment 1 (supports main topic): Heathrow is at capacity and needs to expand to remain competitive
+
+Comment 2 (attacks main topic): Expansion is not economically viable
+
+Comment 3 (supports main topic): Heathrow is the best option for London
+
+Comment 4 (supports main topic): Expansion would create jobs
+
+Comment 5 (attacks main topic): Expansion would be environmentally disastrous
+
+Comment 6 (attacks main topic): Expansion would be unpopular
+
+sample 12
+
+Comment 1 (supports main topic): Elections are fundamentally dishonest
+
+Comment 2 (supports main topic): Elections are expensive
+
+Comment 3 (attacks main topic): Elections provide a focus for the leadership
+
+Comment 4 (supports main topic): Elections are not always the right decision
+
+Comment 5 (attacks main topic): Elections are the first step to democracy
+
+Comment 6 (attacks main topic): Elections for the legislature are still possible
+
+Comment 7 (supports main topic): Not having elections is a sign of success
+
+Comment 8 (attacks main topic): Elections provide a mandate
+
+sample 13
+
+Comment 1 (supports main topic): Year-round schooling is better for students
+
+Comment 2 (supports main topic): Year-round schooling reduces the “summer slide”
+
+Comment 3 (attacks main topic): Many schools are not set up for year-round use
+
+Comment 4 (attacks main topic): Year-round schooling is expensive
+
+Comment 5 (supports main topic): Year-round schooling is good for working parents
+
+Comment 6 (supports main topic): Year-round schooling reduces boredom
+
+Comment 7 (attacks main topic): Year-round schooling would reduce the availability of extra-curricular activities
+
+Comment 8 (supports main topic): Year-round schooling reduces the “summer gap”
+
+Comment 9 (attacks main topic): Year-round schooling would be bad for students who dislike school
+
+Comment 10 (supports main topic): Year-round schooling can be multi-tracked
+
+sample 14
+
+Comment 1 (supports main topic): There is no reason why athletes should be exempted from national service and entertainers should be no different
+
+Comment 2 (attacks main topic): There are other professions that are more deserving of exemption
+
+Comment 3 (supports main topic): Performers are at the peak of their careers at the age when they would normally be expected to do national service
+
+Comment 4 (supports main topic): Performers are unlikely to be able to sustain their careers if they are out of the public eye for two years
+
+Comment 5 (attacks main topic): National service is a requirement for all citizens of South Korea
+
+Comment 6 (attacks main topic): It is impossible to define who is and is not a celebrity
+
+Comment 7 (attacks main topic): Celebrities have a duty to set an example for others to follow
+
+sample 15
+
+Comment 1 (attacks main topic): Trials are likely to be turned in to a freak show
+
+Comment 2 (attacks main topic): A trial is a historical record
+
+Comment 3 (supports main topic): Televising trials will encourage defendants to disrupt the trial
+
+Comment 4 (supports main topic): Televising trials will make it more difficult to get witnesses
+
+Comment 5 (attacks main topic): The principle of open justice
+
+Comment 6 (attacks main topic): The ICC is not a domestic court
+
+sample 16
+
+Comment 1 (supports main topic): Torture is a necessary evil
+
+Comment 2 (attacks main topic): Torture is wrong
+
+Comment 3 (supports main topic): Torture is effective
+
+Comment 4 (supports main topic): Terrorists use torture, so we should too
+
+Comment 5 (attacks main topic): Torture is wrong
+
+Comment 6 (attacks main topic): Torture is a slippery slope
+
+sample 17
+
+Comment 1 (supports main topic): The ICC is a necessary institution for the protection of human rights
+
+Comment 2 (attacks main topic): The US is a key player in international security and ratifying the ICC would hamper its ability to act
+
+Comment 3 (supports main topic): The US people are in favour of the ICC
+
+Comment 4 (supports main topic): The ICC provides a neutral and unbiased forum for the prosecution of war criminals
+
+Comment 5 (supports main topic): The ICC would be a tool for those who wish to attack Israel
+
+Comment 6 (attacks main topic): The ICC is a threat to national sovereignty
+
+Comment 7 (attacks main topic): The ICC is unconstitutional
+
+sample 18
+
+Comment 1 (supports main topic): Gender-blind recruitment and training
+
+Comment 2 (supports main topic): Women are better suited to L.I.C.s
+
+Comment 3 (attacks main topic): Women are more likely to be captured and raped
+
+Comment 4 (attacks main topic): Women will endanger male soldiers
+
+Comment 5 (supports main topic): Women already face the same risks as men
+
+Comment 6 (supports main topic): Women are needed to fill the recruitment pool
+
+Comment 7 (attacks main topic): Women are a target for ethnic cleansing
+
+Comment 8 (supports main topic): Women should be treated equally in the military
+
+Comment 9 (attacks main topic): Women are unavailable for deployment
+
+Comment 10 (attacks main topic): Women will suffer higher injury rates
+
+sample 19
+
+Comment 1 (supports main topic): Cyber attacks are a new form of warfare
+
+Comment 2 (attacks main topic): There is no objective way to define what constitutes an act of war
+
+Comment 3 (supports main topic): Cyber attacks are a new form of warfare
+
+Comment 4 (supports main topic): Cyber attacks can cause large scale damage to the state
+
+Comment 5 (attacks main topic): Cyber attacks are difficult to trace
+
+Comment 6 (attacks main topic): Cyber attacks are often carried out by non-state actors
+
+sample 20
+
+Comment 1 (supports main topic): Death is a natural part of life and should be accepted as such
+
+Comment 2 (attacks main topic): The right to die will create a silent form of coercion
+
+Comment 3 (supports main topic): The right to die is a personal issue
+
+Comment 4 (supports main topic): We live longer than we have ever done before and we need to consider the quality of our deaths
+
+Comment 5 (attacks main topic): The right to die should be universal
+
+Comment 6 (attacks main topic): Killing is wrong
+
+Comment 7 (attacks main topic): The sanctity of life
+
+sample 21
+
+Comment 1 (supports main topic): Amnesties are necessary to deal with the fundamental problem of immigration
+
+Comment 2 (attacks main topic): An amnesty will simply result in more illegal immigration
+
+Comment 3 (supports main topic): Aging populations will require migrants to fill the gaps in the workforce
+
+Comment 4 (supports main topic): Migrants are necessary for the economies of rich countries
+
+Comment 5 (attacks main topic): An amnesty is unpopular
+
+Comment 6 (attacks main topic): An amnesty is letting criminal activity pay
+
+sample 22
+
+Comment 1 (supports main topic): Wind power is the most sustainable form of energy
+
+Comment 2 (attacks main topic): Wind power is a ‘bridge’ technology
+
+Comment 3 (supports main topic): Wind power is a sustainable resource
+
+Comment 4 (supports main topic): Wind power is a sustainable resource
+
+Comment 5 (attacks main topic): Wind power is environmentally damaging
+
+Comment 6 (attacks main topic): Wind power is unreliable
+
+sample 23
+
+Comment 1 (supports main topic): Farm subsidies are a waste of taxpayers’ money. 
+
+Comment 2 (supports main topic): Reform of the CAP would reduce the cost of subsidies to farmers. 
+
+Comment 3 (supports main topic): Subsidies cause environmental damage. 
+
+Comment 4 (supports main topic): Subsidies cause poverty. 
+
+Comment 5 (attacks main topic): Subsidies are a vital source of cheap food for the world’s poorest states. 
+
+Comment 6 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 7 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 8 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 9 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 10 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 11 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 12 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 13 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 14 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 15 (attacks main topic): Subsidies are a form of protectionism. 
+
+Comment 16 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 17 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 18 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 19 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 20 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 21 (attacks main topic): Subsidies are a form of charity. 
+
+Comment 22 (
+
+sample 24
+
+Comment 1 (supports main topic): Equality
+
+Comment 2 (supports main topic): Universal education
+
+Comment 3 (attacks main topic): Only for those who need it
+
+Comment 4 (supports main topic): Concentration
+
+Comment 5 (attacks main topic): Parents responsibility
+
+Comment 6 (attacks main topic): School meals
+
+Comment 7 (supports main topic): Educating children
+
+Comment 8 (attacks main topic): Cost
+
+sample 25
+
+Comment 1 (supports main topic): The market has no interest in altering a model in which scarcity increases profitability
+
+Comment 2 (attacks main topic): The market is a process in and of itself
+
+Comment 3 (supports main topic): Governmental and inter-governmental policies can be focused on decades in the future rather than on the next product launch
+
+Comment 4 (supports main topic): The government has the capacity to offer both the carrot of guaranteeing a future market and the stick of regulating future carbon emissions
+
+Comment 5 (attacks main topic): There is no doubt that, of course, government has a role in engaging with the market to encourage research and stimulate new areas of growth and development
+
+Comment 6 (attacks main topic): The market has an inbuilt motivation to preserve resources for future or more profitable use
+
+sample 26
+
+Comment 1 (supports main topic): Super PACs undermine the democratic character of the elective process
+
+Comment 2 (attacks main topic): Corporations and individuals should have the same rights and limitations on campaign contributions
+
+Comment 3 (supports main topic): The rules under which an individual citizen operate are different from those of corporations and should remain that way
+
+Comment 4 (supports main topic): Super PACs level the playing field for candidates
+
+Comment 5 (attacks main topic): Anonymity of super PACs allows foreign interests to influence American elections
+
+Comment 6 (supports main topic): Anonymity allows for political speech by groups and individuals who would otherwise be dismissed
+
+Comment 7 (supports main topic): Campaign finance reform gives the individual donor a voice more comparable to other donors’ interests
+
+Comment 8 (attacks main topic): This policy is unfeasible
+
+sample 27
+
+Comment 1 (supports main topic): Homework takes up time that should be spent on other activities
+
+Comment 2 (supports main topic): Homework takes up time in class
+
+Comment 3 (attacks main topic): We should take responsibility for our own learning
+
+Comment 4 (supports main topic): Teachers take a lot of time on homework
+
+Comment 5 (attacks main topic): Homework teaches us skills we will need in the future
+
+Comment 6 (supports main topic): We learn by doing things
+
+Comment 7 (supports main topic): Homework can be boring and stressful
+
+Comment 8 (attacks main topic): Homework is a way of catching up
+
+sample 28
+
+Comment 1 (attacks main topic): Nationalism in space is dangerous
+
+Comment 2 (supports main topic): Space exploration is economically viable
+
+Comment 3 (attacks main topic): There is little scientific benefit to manned space flight
+
+Comment 4 (attacks main topic): We should focus on the problems of the present
+
+sample 29
+
+Comment 1 (supports main topic): The Syrian regime has lost its legitimacy
+
+Comment 2 (supports main topic): Arming the rebels is necessary to ensure a moderate state in the future
+
+Comment 3 (attacks main topic): Arming the rebels will draw other powers into the conflict
+
+Comment 4 (attacks main topic): Arming the rebels would be a violation of international law
+
+Comment 5 (supports main topic): The Syrian government has received outside support
+
+Comment 6 (supports main topic): The Syrian army is a formidable force
+
+Comment 7 (attacks main topic): Arming the rebels would not be decisive
+
+Comment 8 (supports main topic): The only option is to arm the rebels
+
+Comment 9 (attacks main topic): Arming the rebels could lead to a wider conflict
+
+Comment 10 (attacks main topic): Arming the rebels would be unpopular
+
+sample 30
+
+Comment 1 (supports main topic): Parents need to monitor their children’s online and mobile communications to prevent cyberbullying.
+
+Comment 2 (supports main topic): Parents need to monitor their children’s online and mobile communications to ensure that they are properly using the time they have with the computer and the mobile phone.
+
+Comment 3 (attacks main topic): Parents need to teach their children how to be responsible, not monitor them.
+
+Comment 4 (supports main topic): Parents need to monitor their children’s online and mobile communications to prevent them from viewing pornography.
+
+Comment 5 (attacks main topic): Children have a right to privacy.
+
+Comment 6 (attacks main topic): Children need to trust their parents in order to learn how to trust others.
+
+Comment 7 (supports main topic): Parents need to monitor their children’s online and mobile communications to keep up with the latest in social media.
+
+Comment 8 (attacks main topic): Parental controls are more effective than monitoring.
+
+sample 31
+
+Comment 1 (supports main topic): Nuclear weapons are necessary for deterrence
+
+Comment 2 (attacks main topic): The UK is no longer a great power
+
+Comment 3 (supports main topic): The UK needs to maintain its own nuclear deterrent
+
+Comment 4 (supports main topic): Replacing Trident would be a loss of status
+
+Comment 5 (supports main topic): Disarmament
+
+Comment 6 (attacks main topic): We can’t afford it
+
+Comment 7 (attacks main topic): The UK does not have an independent nuclear deterrent
+
+sample 32
+
+Comment 1 (supports main topic): Hate crime enhancements are unjust because they punish two crimes with equal effects differently on the highly subjective basis of ‘intent’
+
+Comment 2 (attacks main topic): Hate crime enhancements are necessary to teach society that hatred is highly condemnable
+
+Comment 3 (supports main topic): Hate crime enhancements cause groups to feel persecuted by one another, and that this impression of persecution can incite a backlash and thus lead to an actual increase in crime
+
+Comment 4 (supports main topic): Hate crime enhancements are unjust because they punish an idea
+
+Comment 5 (attacks main topic): Hate crime enhancements are just because they help deter people from committing hate crimes
+
+Comment 6 (attacks main topic): Hate crime enhancements are just because the harm done to the victim and society is greater
+
+sample 33
+
+Comment 8 (attacks main topic): The ICC, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 200007, 200007, 200007, 200007, 2000
+
+sample 34
+
+Comment 1 (supports main topic): Religion divides society
+
+Comment 2 (attacks main topic): Religious organisations do a great deal of charitable work
+
+Comment 3 (supports main topic): Religious belief is often used as an excuse to persecute minorities
+
+Comment 4 (supports main topic): Religious belief is a justification for violence
+
+Comment 5 (attacks main topic): Religious organisations are often the only organisations that can mark national events
+
+Comment 6 (attacks main topic): Religious organisations are a welcome reminder that there is more to life than money
+
+sample 35
+
+Comment 1 (supports main topic): It’s in the interests of employers
+
+Comment 2 (attacks main topic): It’s dangerous for HIV-positive workers
+
+Comment 3 (supports main topic): It’s in the interests of other workers
+
+Comment 4 (supports main topic): It’s in the interests of the HIV positive employee
+
+Comment 5 (attacks main topic): Employers have no right to know
+
+Comment 6 (supports main topic): Businesses ought to take a responsible and active position on HIV
+
+Comment 7 (attacks main topic): It’s a disincentive to get tested
+
+sample 36
+
+Comment 1 (supports main topic): Superdelegates are undemocratic
+
+Comment 2 (attacks main topic): Superdelegates prevent candidates from moving too far to the extremes
+
+Comment 3 (supports main topic): Superdelegates are a vehicle for pork-barrel politics
+
+Comment 4 (supports main topic): Superdelegates are an elite that needs little help
+
+Comment 5 (attacks main topic): Superdelegates are a vehicle for party elders
+
+Comment 6 (attacks main topic): Superdelegates are a safety valve
+
+sample 37
+
+Comment 1 (supports main topic): Term limits are necessary to prevent the overmighty executive
+
+Comment 2 (supports main topic): Power corrupts
+
+Comment 3 (attacks main topic): Term limits are necessary to maintain the balance of power
+
+Comment 4 (supports main topic): Incumbency provides an unfair advantage
+
+Comment 5 (attacks main topic): Term limits are undemocratic
+
+Comment 6 (attacks main topic): Term limits encourage corruption
+
+Comment 7 (supports main topic): Term limits encourage the prioritization of difficult decisions
+
+Comment 8 (attacks main topic): Experience in leadership is necessary
+
+sample 38
+
+Comment 1 (supports main topic): Gender equality is a fundamental human right
+
+Comment 2 (attacks main topic): Quotas are not an efficient way to ensure gender equality
+
+Comment 3 (supports main topic): Quotas will increase the number of educated and skilled women in executive positions
+
+Comment 4 (supports main topic): Quotas will increase the labour force and labour productivity
+
+Comment 5 (attacks main topic): Quotas are not a good policy for competitive economies
+
+Comment 6 (supports main topic): Quotas will increase the number of women in top positions in companies
+
+Comment 7 (attacks main topic): Quotas are discriminatory and could be anti-constitutional
+
+sample 39
+
+Comment 1 (supports main topic): Drones are the most effective way of eliminating terrorists
+
+Comment 2 (supports main topic): Drones are the best way of eliminating terrorists
+
+Comment 3 (attacks main topic): Drones encourage the use of force
+
+Comment 4 (supports main topic): Drones allow for precision targeting
+
+Comment 5 (attacks main topic): Drones prevent capture
+
+Comment 6 (attacks main topic): Drones set a dangerous precedent
+
+Comment 7 (supports main topic): Drones are safer
+
+Comment 8 (attacks main topic): Drones blur the line between war and peace
+
+sample 40
+
+Comment 1 (attacks main topic): Artists should not be restricted in their expression
+
+Comment 2 (supports main topic): Artists who express socially liberal ideas are more likely to be restricted
+
+Comment 3 (supports main topic): Art has a visceral impact
+
+Comment 4 (supports main topic): Art can cause harm to individuals
+
+Comment 5 (attacks main topic): Artists should be free to express themselves
+
+Comment 6 (attacks main topic): Artists rely on shock to provoke a response
+
+sample 41
+
+Comment 1 (supports main topic): The VDP provides access to healthcare in rural areas
+
+Comment 2 (supports main topic): The VDP provides a learning tool for healthcare workers
+
+Comment 3 (attacks main topic): The VDP does not ensure health services are used
+
+Comment 4 (supports main topic): The VDP needs to be sustainable
+
+Comment 5 (supports main topic): The VDP provides a referral system
+
+Comment 6 (supports main topic): The VDP is flexible
+
+Comment 7 (supports main topic): The VDP provides a network of health advisers
+
+Comment 8 (attacks main topic): Is there a danger of relying on technology?
+
+Comment 9 (attacks main topic): Does the VDP resolve the lack of health service professionals in Zambia?
+
+sample 42
+
+Comment 1 (supports main topic): Animals are like us
+
+Comment 2 (supports main topic): Animal research causes suffering
+
+Comment 3 (attacks main topic): Animal research is being refined
+
+Comment 4 (attacks main topic): Humans are different to animals
+
+Comment 5 (supports main topic): People can suffer
+
+Comment 6 (supports main topic): Animal research is unnecessary
+
+Comment 7 (attacks main topic): Animals are treated well
+
+Comment 8 (supports main topic): Animal testing is illegal
+
+Comment 9 (attacks main topic): Animal testing is used to make new drugs
+
+Comment 10 (attacks main topic): Animal testing is necessary
+
+sample 43
+
+Comment 1 (supports main topic): Voting is a civic duty
+
+Comment 2 (supports main topic): Compulsory voting would increase political participation
+
+Comment 3 (attacks main topic): Compulsory voting will not increase political participation
+
+Comment 4 (supports main topic): Compulsory voting would increase the quality of democracy
+
+Comment 5 (supports main topic): Compulsory voting would reduce the influence of special interest groups
+
+Comment 6 (attacks main topic): Compulsory voting would not increase political participation
+
+Comment 7 (supports main topic): Compulsory voting has worked in Australia
+
+Comment 8 (attacks main topic): Compulsory voting is unenforceable
+
+sample 44
+
+Comment 1 (supports main topic): Slaughter without stunning is painful
+
+Comment 2 (supports main topic): We should treat animals with kindness
+
+Comment 3 (attacks main topic): The animal welfare movement should be tackling more important things
+
+Comment 4 (attacks main topic): The evidence is flawed
+
+Comment 5 (supports main topic): The ban would affect everyone
+
+Comment 6 (supports main topic): Animal rights should be represented in political discourse
+
+Comment 7 (attacks main topic): Animal rights are not universal rights
+
+Comment 8 (attacks main topic): Banning religious slaughter would be perceived as an attack on religious people
+
+Comment 9 (attacks main topic): Stunning methods are not reliable
+
+sample 45
+
+Comment 1 (supports main topic): Unanimity requirement is undemocratic
+
+Comment 2 (supports main topic): Qualified majority voting is harmful to smaller states
+
+Comment 3 (supports main topic): Unanimity requirement is harmful to the EU
+
+Comment 4 (supports main topic): Unanimity requirement is harmful to the EU
+
+Comment 5 (attacks main topic): Unanimity requirement is needed for common foreign and security policy
+
+Comment 6 (attacks main topic): Unanimity requirement is needed for the EU to survive
+
+sample 46
+
+Comment 1 (supports main topic): People have a right to choose their own fate
+
+Comment 2 (attacks main topic): Allowing access to experimental drugs will reduce the incentive for companies to complete trials
+
+Comment 3 (supports main topic): Patients are currently used as mere means to an end
+
+Comment 4 (supports main topic): People are aware of experimental drugs, and want access to them
+
+Comment 5 (attacks main topic): People will be given false hope
+
+Comment 6 (attacks main topic): Trials will be less effective
+
+Comment 7 (attacks main topic): Allowing access to experimental drugs will increase the influence of drug reps
+
+sample 47
+
+Comment 1 (supports main topic): Local food is better for the local economy
+
+Comment 2 (supports main topic): Local food is better for the environment
+
+Comment 3 (attacks main topic): Local food is bad for developing countries
+
+Comment 4 (supports main topic): Local food is better for local producers
+
+Comment 5 (attacks main topic): Local food is too expensive
+
+Comment 6 (attacks main topic): Local food is not environmentally friendly
+
+Comment 7 (supports main topic): Local food is fresher and healthier
+
+Comment 8 (attacks main topic): Supermarkets provide what consumers want
+
+sample 48
+
+Comment 1 (supports main topic): It is unfair that some countries get large numbers of migrants while others get none
+
+Comment 2 (attacks main topic): It is not a sustainable policy
+
+Comment 3 (supports main topic): Migrants can bring benefits to developing countries
+
+Comment 4 (supports main topic): Migrants in developed countries are often not well treated
+
+Comment 5 (attacks main topic): Migrants are often blamed for problems in the countries they move to
+
+Comment 6 (supports main topic): Developed countries have a responsibility to take in large numbers of migrants
+
+sample 49
+
+Comment 1 (supports main topic): Western universities should only place satellites in states that respect free speech
+
+Comment 2 (supports main topic): Western universities are beacons of free speech
+
+Comment 3 (supports main topic): Western universities are the gold standard for academic freedom
+
+Comment 4 (attacks main topic): Western universities are service providers to the state
+
+Comment 5 (attacks main topic): Western universities should be allowed to expand their influence
+
+sample 50
+
+Comment 1 (supports main topic): The state has a duty to ensure that the products of its funding are available to all
+
+Comment 2 (attacks main topic): Universities need to retain ownership of their research in order to engage in research
+
+Comment 3 (supports main topic): The state should throw open the doors to more academic research
+
+Comment 4 (supports main topic): The state should not be allowed to profit from the work of others
+
+Comment 5 (attacks main topic): Universities should be allowed to use their profits to fund all areas of academic research
+
+Comment 6 (attacks main topic): Academics deserve to profit from their work
+
+sample 51
+
+Comment 1 (supports main topic): Public figures have a duty to be held to account
+
+Comment 2 (attacks main topic): Private lives of public figures can be dangerous
+
+Comment 3 (supports main topic): There is no clear dividing line between public and private life
+
+Comment 4 (supports main topic): The public want to read stories into the private lives of public figures
+
+Comment 5 (attacks main topic): Press intrusion harms democracy
+
+Comment 6 (attacks main topic): Many public figures are celebrities by mistake
+
+sample 52
+
+Comment 1 (supports main topic): The presumption of innocence will be maintained
+
+Comment 2 (supports main topic): The rule of law will be maintained
+
+Comment 3 (supports main topic): The rule of law should be maintained
+
+Comment 4 (supports main topic): Guilty people should be punished
+
+Comment 5 (attacks main topic): The rule of law will be maintained
+
+Comment 6 (supports main topic): Justice will be maintained
+
+Comment 7 (attacks main topic): The rule of law will be maintained
+
+sample 53
+
+Comment 1 (supports main topic): Guns are lethal and should be removed from society
+
+Comment 2 (supports main topic): Legal guns are stolen and end up in the hands of criminals
+
+Comment 3 (attacks main topic): Guns are necessary for the defence of the state
+
+Comment 4 (supports main topic): Gun culture glamorises unnecessary gun ownership
+
+Comment 5 (attacks main topic): Guns are necessary for self-defence
+
+Comment 6 (supports main topic): It is impossible to restrict the use of guns that are already widely owned
+
+Comment 7 (supports main topic): Guns are a means of suicide
+
+Comment 8 (attacks main topic): Guns are a sport enjoyed by many law-abiding people
+
+sample 54
+
+Comment 1 (supports main topic): Divided Government ensures that the best possible policy is enacted
+
+Comment 2 (supports main topic): The Constitution requires divided government
+
+Comment 3 (attacks main topic): Single-Party Government is not as dangerous as is often thought
+
+Comment 4 (supports main topic): Divided Government encourages compromise
+
+Comment 5 (attacks main topic): Divided Government undermines the democratic will of the people
+
+Comment 6 (supports main topic): Divided Government encourages the development of a coherent policy platform
+
+Comment 7 (supports main topic): Divided Government encourages compromise
+
+Comment 8 (attacks main topic): The current political climate makes divided government difficult
+
+sample 55
+
+Comment 1 (supports main topic): Hamas is a terrorist organisation
+
+Comment 2 (attacks main topic): Engaging with terrorist groups
+
+Comment 3 (supports main topic): We should not reward terrorism
+
+Comment 4 (supports main topic): Hamas must make a commitment to peace
+
+Comment 5 (attacks main topic): Cutting off aid would destabilise the Palestinian National Authority
+
+Comment 6 (attacks main topic): Cutting off aid would force the Palestinians to turn to other sources
+
+Comment 7 (attacks main topic): Hamas is a better government than Fatah
+
+sample 56
+
+Comment 1 (supports main topic): The Gulf states are a natural choice for refugees
+
+Comment 2 (attacks main topic): The Gulf states are a security risk
+
+Comment 3 (supports main topic): The Gulf states have not taken in refugees
+
+Comment 4 (supports main topic): It is a moral responsibility
+
+Comment 5 (attacks main topic): Syrians are unlikely to want to move to a non-democracy
+
+Comment 6 (supports main topic): The Gulf states can benefit from refugees
+
+Comment 7 (attacks main topic): The Gulf states are trying to fix the problem politically
+
+sample 57
+
+Comment 1 (supports main topic): Women should be allowed to compete in men’s events
+
+Comment 2 (attacks main topic): Women competing against men will be a bad visual representation of sport
+
+Comment 3 (supports main topic): Women competing in men’s events will increase the popularity of women’s sports
+
+Comment 4 (supports main topic): Women should be allowed to compete in men’s events
+
+Comment 5 (supports main topic): Women competing in men’s events will help women’s sporting leagues
+
+Comment 6 (attacks main topic): Women competing in men’s events will be a bad message for gender equality
+
+Comment 7 (attacks main topic): Men should be allowed to compete in women’s events
+
+sample 58
+
+Comment 1 (supports main topic): Cyberbullying is a serious crime
+
+Comment 2 (attacks main topic): Jail is an extreme response to a problem that can be solved by other measures
+
+Comment 3 (supports main topic): There needs to be punishment
+
+Comment 4 (supports main topic): Jail prevents reoffending
+
+Comment 5 (attacks main topic): Jail does not work
+
+Comment 6 (attacks main topic): Children should not be sent to jail
+
+sample 59
+
+Comment 1 (supports main topic): We are biologically programmed to want to preserve our species
+
+Comment 2 (supports main topic): It is not fair to ask of a parent to live with the guilt of having been able to save their child and not doing so
+
+Comment 3 (attacks main topic): It is not in line with the purpose of medical professionals to kill a healthy person
+
+Comment 4 (attacks main topic): Death is something that must be affected, not something that must be caused
+
+Comment 5 (supports main topic): It is rational to sacrifice one’s life to save another
+
+Comment 6 (supports main topic): Every human is born autonomous
+
+Comment 7 (attacks main topic): It is not fair to ask doctors who have committed their lives to preserving health to act as an instrument of killing a person
+
+Comment 8 (supports main topic): There is a clear need around the world for more donors of organs
+
+Comment 9 (attacks main topic): Society becomes vulnerable to abuse of this system
+
+Comment 10 (attacks main topic): The recipient is not in position to consent to the donation
+
+sample 60
 
 Comment 1 (supports main topic): Riots are a form of free speech that should not be tolerated
 
-Comment 2 (supports main topic): Blocking social media will prevent the rioters from organising
+Comment 2 (supports main topic): Blocking social media will prevent rioters from organising
 
-Comment 3 (attacks main topic): Social media can be used by the police to track the rioters
+Comment 3 (attacks main topic): Social media can be used by the police to track rioters
 
 Comment 4 (attacks main topic): The state should not be the arbiter of legitimate protest
 
-Comment 5 (supports main topic): Social media is a catalyst for violence
+Comment 5 (supports main topic): Social media encourages rioting
 
-Comment 6 (supports main topic): Blocking social media will prevent the spread of riots
+Comment 6 (supports main topic): Blocking social media will prevent copycat riots
 
 Comment 7 (attacks main topic): How would the police block social media?
 
