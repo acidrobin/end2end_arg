@@ -7,6 +7,7 @@ from trl import SFTTrainer
 import torch
 import pandas as pd
 
+import time
 from preproc_utils import get_preprocessed_debatabase_sft
 
 from datasets import load_metric
@@ -180,6 +181,8 @@ def do_random_baseline():
     gold_texts = []
     generated_texts = []
 
+    counter = 0
+    starttime = time.time()
 
     for sample in test_dataset:
         gold_texts.append(sample["output"])
@@ -199,6 +202,13 @@ def do_random_baseline():
                 output_text += new_line
      
         generated_texts.append(output_text)
+        counter += 1
+
+
+        avg_time = (time.time() - starttime) / counter
+        print(f"avg time: {avg_time}")
+        total_est_time = avg_time * len(test_dataset)
+        print(f"total est time: {total_est_time}")
 
     metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
     print("metrics:")
