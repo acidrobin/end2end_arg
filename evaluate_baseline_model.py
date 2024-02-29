@@ -7,7 +7,7 @@ from trl import SFTTrainer
 import torch
 import pandas as pd
 
-from preproc_utils import get_preprocessed_debatabase_summ
+from preproc_utils import get_preprocessed_debatabase_class
 
 from datasets import load_metric
 
@@ -29,11 +29,15 @@ args = parser.parse_args()
 dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
 TEST = False
+MULTILEVEL=False
 
 if TEST == True:
     dir_name = "TEST_" + dir_name
 
-scores_dir = op.join("scores_summ", dir_name)
+if MULTILEVEL==True:
+    scores_dir = op.join("scores_class_multilevel", dir_name)
+else:
+    scores_dir = op.join("/content/drive/MyDrive/repos/end2end_arg/scores_class", dir_name)
 
 if not op.exists(scores_dir):
     os.mkdir(scores_dir)
@@ -45,17 +49,22 @@ rouge = load_metric('rouge')
 
 def compute_metrics(predictions, references):
 
-    print(predictions)
-    print(references)
     meteor_output = meteor.compute(predictions=predictions, references=references)
     rouge_output = rouge.compute(
          predictions=predictions, references=references, rouge_types=['rouge2'])['rouge2'].mid
-    print(rouge_output)
+
+    len_diff, node_acc, node_f1, ged, confusion_matrix = compute_node_stance_acc_f1_ged(predictions=predictions, references=references)
+
     return {
+        "length_difference": round(len_diff, 4),
         'meteor_score': round(meteor_output['meteor'], 4),
         'rouge2_precision': round(rouge_output.precision, 4),
         'rouge2_recall': round(rouge_output.recall, 4),
         'rouge2_f_measure': round(rouge_output.fmeasure, 4),
+        'node stance f1': round(node_f1, 4),
+        'node stance acc': round(node_acc, 4),
+        "graph edit distance": round(ged, 4),
+        "confusion matrix": confusion_matrix
     }
 
 
@@ -79,27 +88,65 @@ class EvalCallback(TrainerCallback):
 
         generation_config=GenerationConfig(
             do_sample=False,
-            max_new_tokens=50,        
+            max_new_tokens=512,     
+            output_scores = True
+
         )
 
-        for i, sample in enumerate(val_dataset):
-
-            print(f"evaluating sample {i} of {len(val_dataset)}")
+        for sample in val_dataset:
             gold_texts.append(sample["output"])
             input_text = sample["input"]
             # import pdb; pdb.set_trace()
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
-            output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
-            output_text = tokenizer.decode(output_tok[0][len(input_tok[0]):])
-            generated_texts.append(output_text)
+            output_tok = model.generate(input_ids=input_tok, generation_config=generation_config, return_dict_in_generate=True, output_scores=True)
+            
+            print(output_tok)
+            
+            print(type(output_tok))
+            print(output_tok.keys())
+            output_scores = output_tok["scores"]
+            new_tokens_scores = output_scores[input_tok.shape[0]:]
+            print(new_tokens_scores)
+            new_token_id = torch.argmax(new_tokens_scores[0])
+            print("*"*20)
+            print(tokenizer.decode(new_token_id))
+            
+            # exit(1)
+        
+            # for token in output_tok:
+            #     print(tokenizer.decode(token))
+                
+            
+
+            print(output_tok)
+            
+            print("#"*20)
+            
+            print(tokenizer.encode("attack"))
+            print(tokenizer.encode("support"))
+            
+            print(tokenizer.decode(5337))
+            print(tokenizer.decode(2304))
+            exit(1)
+            
+            generated_text = tokenizer.decode(output_tok[0]).split("[/INST]",1)[1]
+            
+
+            import pdb; pdb.set_trace()
+            generated_texts.append(generated_text)
         
         # del(model2)
 
-        metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
-  
-        if metrics["rouge2_f_measure"] > self.best_rouge:
-            trainer.model.save_pretrained("saved_model")
+        print("*"*40)
+        print(gold_texts)
+        print(generated_texts)
+        
+        accuracy = len([i for i,j in zip(gold_texts,generated_texts) if i.strip().lower()==j.strip().lower()])/ len(gold_texts)
+        print(accuracy)
+        metrics = {"accuracy":accuracy}
+
+
         metrics["epoch"] = len(self.scores) +1
         self.scores.append(metrics)
         scores_df = pd.DataFrame(self.scores)
@@ -124,10 +171,10 @@ class EvalCallback(TrainerCallback):
 eval_callback = EvalCallback()
 
 
-train_dataset = get_preprocessed_debatabase_summ("train")
-val_dataset = get_preprocessed_debatabase_summ("val")
+train_dataset = get_preprocessed_debatabase_class("train")
+val_dataset = get_preprocessed_debatabase_class("val")
 if TEST:
-    val_dataset = get_preprocessed_debatabase_summ("test")
+    val_dataset = get_preprocessed_debatabase_class("test")
  
 # train_dataset = train_dataset.select(range(2))
 # val_dataset = val_dataset.select(range(1))
@@ -184,8 +231,8 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=7,
-    per_device_train_batch_size=4,
+    num_train_epochs=4,
+    per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
     evaluation_strategy='epoch',
@@ -214,7 +261,7 @@ trainer = SFTTrainer(
     eval_dataset=val_dataset,
     peft_config=peft_config,
     dataset_text_field='text',
-    max_seq_length=1500,
+    max_seq_length=7000,
     tokenizer=tokenizer,
     args=training_arguments,
     packing=False,
@@ -223,5 +270,5 @@ trainer = SFTTrainer(
 
 
 trainer.train()
-#trainer.model.save_pretrained('llama-2-7b-nmt')
+trainer.model.save_pretrained('llama-2-7b-nmt')
 

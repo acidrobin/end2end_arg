@@ -138,8 +138,8 @@ def compute_node_stance_acc_f1_ged(references, predictions):
     node_accs = []
     node_f1s = []
     geds = []
-    len_diffs = []
-    confusion_matrix = np.zeros((3,3))
+    # len_diffs = []
+    # confusion_matrix = np.zeros((3,3))
     for lab, pred in list(zip(references, predictions)):
 
         gold_graph = parse_text_to_networkx(lab)
@@ -153,15 +153,14 @@ def compute_node_stance_acc_f1_ged(references, predictions):
         node_f1s.append(node_stance_f1(gold=gold_graph, predicted=pred_graph))
         # print(gold_graph())
         ged = nx.graph_edit_distance(gold_graph, pred_graph, node_match=node_match)
-        len_diffs.append(len(gold_graph) - len(pred_graph))
+        # len_diffs.append(len(gold_graph) - len(pred_graph))
         geds.append(ged)
-        confusion_matrix += node_confusion_matrix(gold=gold_graph, predicted=pred_graph)
+        # confusion_matrix += node_confusion_matrix(gold=gold_graph, predicted=pred_graph)
 
-    llr = pd.DataFrame({"node_f1":node_f1s, "ged":geds,"len_diff":len_diffs})
-    llr.to_csv("low_level_results.csv")
+    # llr = pd.DataFrame({"node_f1":node_f1s, "ged":geds})
+    # llr.to_csv("low_level_results.csv")
     
-    return np.mean(len_diffs),np.mean(node_accs), np.mean(node_f1s), np.mean(geds), confusion_matrix
-
+    return np.mean(node_accs), np.mean(node_f1s), np.mean(geds)
 
 
 if __name__ == "__main__":

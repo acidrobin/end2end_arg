@@ -1,8 +1,8 @@
 sample 1
-support
+attack
 
 sample 2
-support
+1
 
 sample 3
 attack
@@ -14,7 +14,7 @@ sample 5
 attack
 
 sample 6
-support
+1
 
 sample 7
 attack
@@ -23,13 +23,13 @@ sample 8
 support
 
 sample 9
-support
+1
 
 sample 10
 attack
 
 sample 11
-support
+attack
 
 sample 12
 attack
@@ -68,49 +68,49 @@ sample 23
 support
 
 sample 24
-1
+support
 
 sample 25
 attack
 
 sample 26
-support
+attack
 
 sample 27
 attack
 
 sample 28
-support
+1
 
 sample 29
-support
+1
 
 sample 30
 attack
 
 sample 31
-support
+attack
 
 sample 32
-support
+attack
 
 sample 33
-support
+1
 
 sample 34
-support
+attack
 
 sample 35
-support
+1
 
 sample 36
-support
+attack
 
 sample 37
 attack
 
 sample 38
-support
+attack
 
 sample 39
 support
@@ -119,13 +119,13 @@ sample 40
 attack
 
 sample 41
-support
+attack
 
 sample 42
-attack
+1
 
 sample 43
-attack
+1
 
 sample 44
 support
@@ -134,19 +134,19 @@ sample 45
 attack
 
 sample 46
-support
-
-sample 47
 attack
 
-sample 48
+sample 47
 support
+
+sample 48
+attack
 
 sample 49
-support
+attack
 
 sample 50
-support
+attack
 
 sample 51
 attack
@@ -155,10 +155,10 @@ sample 52
 attack
 
 sample 53
-support
+1
 
 sample 54
-support
+1
 
 sample 55
 attack
@@ -167,13 +167,13 @@ sample 56
 attack
 
 sample 57
-support
+1
 
 sample 58
-support
+1
 
 sample 59
-support
+1
 
 sample 60
 attack
@@ -182,25 +182,25 @@ sample 61
 attack
 
 sample 62
-support
+attack
 
 sample 63
 attack
 
 sample 64
-support
+attack
 
 sample 65
-support
+1
 
 sample 66
 attack
 
 sample 67
-support
+5
 
 sample 68
-support
+attack
 
 sample 69
 attack
@@ -218,7 +218,7 @@ sample 73
 attack
 
 sample 74
-support
+1
 
 sample 75
 attack
@@ -227,13 +227,13 @@ sample 76
 support
 
 sample 77
-support
+1
 
 sample 78
 attack
 
 sample 79
-support
+1
 
 sample 80
 attack
@@ -263,7 +263,7 @@ sample 88
 support
 
 sample 89
-attack
+support
 
 sample 90
 support
@@ -287,19 +287,19 @@ sample 96
 attack
 
 sample 97
-attack
+1
 
 sample 98
 support
 
 sample 99
-support
+1
 
 sample 100
 attack
 
 sample 101
-support
+1
 
 sample 102
 attack
@@ -314,13 +314,13 @@ sample 105
 attack
 
 sample 106
-1
+support
 
 sample 107
-1
+attack
 
 sample 108
-support
+attack
 
 sample 109
 attack
@@ -329,13 +329,13 @@ sample 110
 support
 
 sample 111
-support
+1
 
 sample 112
 attack
 
 sample 113
-support
+1
 
 sample 114
 attack
@@ -371,16 +371,16 @@ sample 124
 attack
 
 sample 125
-support
+1
 
 sample 126
 attack
 
 sample 127
-support
+attack
 
 sample 128
-support
+1
 
 sample 129
 attack
@@ -389,25 +389,25 @@ sample 130
 attack
 
 sample 131
-support
+1
 
 sample 132
 attack
 
 sample 133
-support
+1
 
 sample 134
-support
+1
 
 sample 135
-attack
+support
 
 sample 136
 attack
 
 sample 137
-support
+attack
 
 sample 138
 support
@@ -422,7 +422,7 @@ sample 141
 support
 
 sample 142
-support
+attack
 
 sample 143
 support
@@ -434,16 +434,16 @@ sample 145
 attack
 
 sample 146
-support
+1
 
 sample 147
 attack
 
 sample 148
-support
+attack
 
 sample 149
-support
+attack
 
 sample 150
 attack
@@ -452,13 +452,13 @@ sample 151
 attack
 
 sample 152
-support
+1
 
 sample 153
 attack
 
 sample 154
-support
+1
 
 sample 155
 attack
@@ -479,7 +479,7 @@ sample 160
 attack
 
 sample 161
-1
+support
 
 sample 162
 attack
@@ -488,19 +488,19 @@ sample 163
 attack
 
 sample 164
-1
+support
 
 sample 165
 attack
 
 sample 166
-support
+1
 
 sample 167
 attack
 
 sample 168
-support
+attack
 
 sample 169
 support
@@ -509,10 +509,10 @@ sample 170
 attack
 
 sample 171
-attack
+support
 
 sample 172
-attack
+support
 
 sample 173
 attack
@@ -524,7 +524,7 @@ sample 175
 attack
 
 sample 176
-support
+attack
 
 sample 177
 attack
@@ -533,22 +533,22 @@ sample 178
 attack
 
 sample 179
-support
+attack
 
 sample 180
-support
+attack
 
 sample 181
 support
 
 sample 182
-support
+attack
 
 sample 183
 1
 
 sample 184
-support
+1
 
 sample 185
 attack
@@ -557,7 +557,7 @@ sample 186
 attack
 
 sample 187
-support
+1
 
 sample 188
 support
@@ -566,7 +566,7 @@ sample 189
 attack
 
 sample 190
-support
+1
 
 sample 191
 attack
@@ -581,22 +581,22 @@ sample 194
 attack
 
 sample 195
-support
+attack
 
 sample 196
-support
+attack
 
 sample 197
-support
+attack
 
 sample 198
-support
+attack
 
 sample 199
 attack
 
 sample 200
-support
+attack
 
 sample 201
 attack
@@ -608,7 +608,7 @@ sample 203
 support
 
 sample 204
-support
+1
 
 sample 205
 support
@@ -650,10 +650,10 @@ sample 217
 attack
 
 sample 218
-support
+attack
 
 sample 219
-support
+attack
 
 sample 220
 attack
@@ -662,22 +662,22 @@ sample 221
 attack
 
 sample 222
-support
+attack
 
 sample 223
-support
+1
 
 sample 224
-support
+attack
 
 sample 225
-support
+attack
 
 sample 226
 support
 
 sample 227
-support
+attack
 
 sample 228
 attack
@@ -692,7 +692,7 @@ sample 231
 attack
 
 sample 232
-1
+support
 
 sample 233
 1
@@ -713,7 +713,7 @@ sample 238
 attack
 
 sample 239
-support
+1
 
 sample 240
 attack
@@ -725,7 +725,7 @@ sample 242
 support
 
 sample 243
-support
+1
 
 sample 244
 attack
@@ -734,10 +734,10 @@ sample 245
 attack
 
 sample 246
-support
+1
 
 sample 247
-support
+1
 
 sample 248
 attack
@@ -752,22 +752,22 @@ sample 251
 attack
 
 sample 252
-support
+attack
 
 sample 253
 support
 
 sample 254
-support
+attack
 
 sample 255
-support
+attack
 
 sample 256
 attack
 
 sample 257
-support
+attack
 
 sample 258
 support
@@ -779,10 +779,10 @@ sample 260
 support
 
 sample 261
-support
+1
 
 sample 262
-support
+attack
 
 sample 263
 attack
@@ -800,7 +800,7 @@ sample 267
 support
 
 sample 268
-support
+1
 
 sample 269
 attack
@@ -809,16 +809,16 @@ sample 270
 attack
 
 sample 271
-support
+attack
 
 sample 272
-support
+attack
 
 sample 273
 attack
 
 sample 274
-support
+attack
 
 sample 275
 attack
@@ -833,43 +833,43 @@ sample 278
 attack
 
 sample 279
-support
+1
 
 sample 280
 attack
 
 sample 281
-support
+1
 
 sample 282
-support
+1
 
 sample 283
 attack
 
 sample 284
-attack
+3
 
 sample 285
-support
+attack
 
 sample 286
-support
+attack
 
 sample 287
 attack
 
 sample 288
-attack
+1
 
 sample 289
-support
+attack
 
 sample 290
-support
+attack
 
 sample 291
-support
+attack
 
 sample 292
 attack
@@ -878,7 +878,7 @@ sample 293
 attack
 
 sample 294
-support
+1
 
 sample 295
 attack
@@ -887,7 +887,7 @@ sample 296
 support
 
 sample 297
-support
+1
 
 sample 298
 attack
@@ -905,7 +905,7 @@ sample 302
 support
 
 sample 303
-support
+1
 
 sample 304
 attack
@@ -917,7 +917,7 @@ sample 306
 attack
 
 sample 307
-support
+1
 
 sample 308
 attack
@@ -926,7 +926,7 @@ sample 309
 support
 
 sample 310
-support
+1
 
 sample 311
 attack
@@ -959,28 +959,28 @@ sample 320
 attack
 
 sample 321
-support
+1
 
 sample 322
 attack
 
 sample 323
-support
+1
 
 sample 324
-support
+1
 
 sample 325
 attack
 
 sample 326
-support
+attack
 
 sample 327
 attack
 
 sample 328
-support
+1
 
 sample 329
 attack
@@ -989,22 +989,22 @@ sample 330
 support
 
 sample 331
-support
+1
 
 sample 332
 attack
 
 sample 333
-support
+1
 
 sample 334
-attack
+1
 
 sample 335
 attack
 
 sample 336
-support
+1
 
 sample 337
 attack
@@ -1016,7 +1016,7 @@ sample 339
 attack
 
 sample 340
-support
+attack
 
 sample 341
 support
@@ -1031,7 +1031,7 @@ sample 344
 attack
 
 sample 345
-support
+1
 
 sample 346
 support
@@ -1040,19 +1040,19 @@ sample 347
 attack
 
 sample 348
-support
+1
 
 sample 349
 attack
 
 sample 350
-support
+attack
 
 sample 351
-support
+1
 
 sample 352
-support
+1
 
 sample 353
 attack
@@ -1061,16 +1061,16 @@ sample 354
 attack
 
 sample 355
-support
+1
 
 sample 356
-support
+1
 
 sample 357
-support
+1
 
 sample 358
-attack
+1
 
 sample 359
 attack
@@ -1085,7 +1085,7 @@ sample 362
 1
 
 sample 363
-support
+attack
 
 sample 364
 attack
@@ -1094,10 +1094,10 @@ sample 365
 attack
 
 sample 366
-support
+1
 
 sample 367
-support
+attack
 
 sample 368
 attack
@@ -1106,7 +1106,7 @@ sample 369
 attack
 
 sample 370
-support
+attack
 
 sample 371
 1
@@ -1124,25 +1124,25 @@ sample 375
 1
 
 sample 376
-support
+1
 
 sample 377
 attack
 
 sample 378
-support
+2
 
 sample 379
-support
+attack
 
 sample 380
 attack
 
 sample 381
-1
+attack
 
 sample 382
-support
+attack
 
 sample 383
 attack
@@ -1163,7 +1163,7 @@ sample 388
 support
 
 sample 389
-support
+1
 
 sample 390
 attack
@@ -1199,13 +1199,13 @@ sample 400
 support
 
 sample 401
-attack
+support
 
 sample 402
 support
 
 sample 403
-support
+1
 
 sample 404
 attack
@@ -1220,7 +1220,7 @@ sample 407
 attack
 
 sample 408
-support
+1
 
 sample 409
 support
@@ -1232,10 +1232,10 @@ sample 411
 attack
 
 sample 412
-support
+1
 
 sample 413
-support
+1
 
 sample 414
 attack
@@ -1256,7 +1256,7 @@ sample 419
 attack
 
 sample 420
-support
+1
 
 sample 421
 support

@@ -80,33 +80,46 @@ class EvalCallback(TrainerCallback):
 
     def on_epoch_begin(self, *args, **kwargs):
 
-
+        print("statement1")
         model.eval()
-
+        print("statement2")
         gold_texts = []
         generated_texts = []
 
         generation_config=GenerationConfig(
             do_sample=False,
-            max_new_tokens=512,        
+            max_new_tokens=8,        
         )
 
-        for sample in val_dataset:
+        print("HELLLOOOOOOOO")
+
+        for i, sample in enumerate(val_dataset):
+
+            print(f"evaluating sample {i} of {len(val_dataset)}")
             gold_texts.append(sample["output"])
             input_text = sample["input"]
             # import pdb; pdb.set_trace()
             input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
             output_tok = model.generate(input_ids=input_tok, generation_config=generation_config)
-            generated_text = tokenizer.decode(output_tok[0]).split("[/INST]",1)[1]
+            output_tokens = output_tok[0][len(input_tok[0])]
+            generated_text = tokenizer.decode(output_tokens)#.split("[/INST]",1)[1]
             generated_texts.append(generated_text)
+            print(generated_text)
+            print()
+
+
         
         # del(model2)
+        # for g, gen in zip(gold_texts, generated_texts):
+        #     print(g)
+        #     print(gen)
+        #     print()
 
-        print("*"*40)
-        print(gold_texts)
-        print(generated_texts)
-        
+
+        # print("*"*40)
+        # print(gold_texts)
+        # print(generated_texts)
         accuracy = len([i for i,j in zip(gold_texts,generated_texts) if i.strip().lower()==j.strip().lower()])/ len(gold_texts)
         print(accuracy)
         metrics = {"accuracy":accuracy}
@@ -141,7 +154,7 @@ val_dataset = get_preprocessed_debatabase_class("val")
 if TEST:
     val_dataset = get_preprocessed_debatabase_class("test")
  
-# train_dataset = train_dataset.select(range(2))
+# train_dataset = train_dataset.select(range(1))
 # val_dataset = val_dataset.select(range(1))
 
 
@@ -196,8 +209,8 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=4,
-    per_device_train_batch_size=1,
+    num_train_epochs=7,
+    per_device_train_batch_size=3,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
     evaluation_strategy='epoch',
@@ -226,7 +239,7 @@ trainer = SFTTrainer(
     eval_dataset=val_dataset,
     peft_config=peft_config,
     dataset_text_field='text',
-    max_seq_length=7000,
+    max_seq_length=1500,
     tokenizer=tokenizer,
     args=training_arguments,
     packing=False,
@@ -235,5 +248,5 @@ trainer = SFTTrainer(
 
 
 trainer.train()
-trainer.model.save_pretrained('llama-2-7b-nmt')
+# trainer.model.save_pretrained('llama-2-7b-nmt')
 

@@ -89,11 +89,11 @@ def get_preprocessed_debatabase_class(split):
     dataset = datasets.Dataset.from_pandas(idebate_df)
 
     prompt = (
-        f"<s>[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}\n[/INST]"
+        f"[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: "
         )
 
     full_text = (
-        f"<s>[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}\n[/INST]{{stance}}</s>"
+        f"[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: {{stance}}</s>"
     )
 
     def apply_prompt_template(sample):
@@ -114,10 +114,10 @@ def get_preprocessed_debatabase_summ(split):
     dataset = datasets.Dataset.from_pandas(idebate_df)
 
     prompt = (
-        f"<s>[INST]Summarise the following comment:\n{{comment}}\n[/INST]")
+        f"<s>[INST]Summarise the following comment in a single sentence/phrase:\n{{comment}}[/INST]\nSummary: ")
 
     full_text = (
-        f"<s>[INST]Summarise the following comment:\n{{comment}}\n[/INST]{{summary}}</s>")
+        f"<s>[INST]Summarise the following comment in a single sentence/phrase:\n{{comment}}[/INST]\nSummary: {{summary}}</s>")
     def apply_prompt_template(sample):
         return {
             "text": full_text.format(comment=sample["comment"], summary=sample["summary"]),
