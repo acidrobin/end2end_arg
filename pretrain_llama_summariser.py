@@ -184,7 +184,7 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=7,
+    num_train_epochs=5,
     per_device_train_batch_size=4,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
@@ -223,5 +223,5 @@ trainer = SFTTrainer(
 
 
 trainer.train()
-#trainer.model.save_pretrained('llama-2-7b-nmt')
+trainer.model.save_pretrained('llama-2-7b-textsumm')
 

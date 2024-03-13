@@ -83,7 +83,7 @@ test_dataset_multilevel = get_preprocessed_debatabase_sft("test",multilevel=True
 
 
 
-def load_llama_model():
+def load_llama_model(model_dir):
 
     # bitsandbytes
     bnb_config = BitsAndBytesConfig(
@@ -116,7 +116,7 @@ def load_llama_model():
     # Llama 2
 
     model = AutoModelForCausalLM.from_pretrained(
-        'meta-llama/Llama-2-7b-hf',
+        model_dir,
         quantization_config=bnb_config,
     )
     # model.cuda()
@@ -132,6 +132,10 @@ def load_llama_model():
 
 def generate_summary(model, tokenizer, input_text):
 
+    prompt = (
+        f"<s>[INST]Summarise the following comment in a single sentence/phrase:\n{{comment}}[/INST]\nSummary: ")
+
+    input_text = prompt.format(input_text)
 
     model.eval()
 
@@ -150,7 +154,13 @@ def generate_summary(model, tokenizer, input_text):
 
     return output_text    
 
-def classify(model, tokenizer, input_text):
+def classify(model, tokenizer, parent, child):
+
+    prompt = (
+        f"[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: "
+        )
+
+    input_text = prompt.format(parent=parent, child=child)
 
     model.eval()
 
@@ -174,9 +184,11 @@ def classify(model, tokenizer, input_text):
 
 def do_random_baseline():
 
-    summary_model, tokenizer = load_llama_model()
-    class_model, _ = load_llama_model()
+    summary_model, tokenizer = load_llama_model("llama-2-7b-textsumm")
+    class_model, _ = load_llama_model("llama-2-7b-stance")
 
+    # import copy
+    # class_model = copy.deepcopy(class_model)
 
     gold_texts = []
     generated_texts = []
@@ -191,19 +203,22 @@ def do_random_baseline():
         output_string = ""
         output_text = ""
 
+        main_topic= input_lines[0].split(":",1).strip()
 
         for line in input_lines:
             # print(line)
             if line.startswith("Comment"):
-                comment_name, text = line.split(":", 1)
+                comment_name, text = line.split(":", 1).strip()
                 summary = generate_summary(summary_model, tokenizer,text)
-                stance = classify(class_model,tokenizer,text)
+                stance = classify(class_model,tokenizer,parent=main_topic, child=text)
                 new_line = f"{comment_name} ({stance} main topic): {summary.strip()}\n\n"
                 output_text += new_line
      
         generated_texts.append(output_text)
         counter += 1
-
+        print("*"*200)
+        print(output_text)
+        print(sample["output"])
 
         avg_time = (time.time() - starttime) / counter
         print(f"avg time: {avg_time}")

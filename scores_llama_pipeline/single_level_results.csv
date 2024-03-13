@@ -1,2 +1,2 @@
 ,meteor_score,rouge2_precision,rouge2_recall,rouge2_f_measure,node stance f1,node stance acc,graph edit distance
-0,0.517,0.0925,0.2172,0.1265,0.102,0.139,10.0333
+0,0.5387,0.0912,0.2378,0.1299,0.2227,0.3665,3.4333
