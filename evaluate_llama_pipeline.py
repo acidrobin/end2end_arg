@@ -135,7 +135,7 @@ def generate_summary(model, tokenizer, input_text):
     prompt = (
         f"<s>[INST]Summarise the following comment in a single sentence/phrase:\n{{comment}}[/INST]\nSummary: ")
 
-    input_text = prompt.format(input_text)
+    input_text = prompt.format(comment=input_text)
 
     model.eval()
 
@@ -180,9 +180,44 @@ def classify(model, tokenizer, parent, child):
     return output_text.lower()    
 
 
+def classify_with_score(model, tokenizer, parent, child):
+
+    prompt = (
+        f"[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: "
+        )
+
+    input_text = prompt.format(parent=parent, child=child)
+
+    model.eval()
+
+    gold_texts = []
+    generated_texts = []
+
+    generation_config=GenerationConfig(
+        do_sample=False,
+        max_new_tokens=8,        
+    )
+    # import pdb; pdb.set_trace()
+    input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
+
+    output_tok = model.generate(input_ids=input_tok, generation_config=generation_config, return_dict_in_generate=True, output_scores=True)
+    scores = output_tok["scores"][len(input_tok[0])]
+    
+    output_score = torch.max(scores).detach().item()
+    output_text = tokenizer.decode(torch.argmax(scores))
+
+    return output_text.lower(), output_score
 
 
-def do_random_baseline():
+
+
+
+
+
+
+
+
+def evaluate_pipeline():
 
     summary_model, tokenizer = load_llama_model("llama-2-7b-textsumm")
     class_model, _ = load_llama_model("llama-2-7b-stance")
@@ -203,15 +238,15 @@ def do_random_baseline():
         output_string = ""
         output_text = ""
 
-        main_topic= input_lines[0].split(":",1).strip()
+        main_topic= input_lines[0].split(":",1)[1].strip()
 
         for line in input_lines:
             # print(line)
             if line.startswith("Comment"):
-                comment_name, text = line.split(":", 1).strip()
-                summary = generate_summary(summary_model, tokenizer,text)
+                comment_name, text = line.split(":", 1)
+                summary = first_sent_summarize(generate_summary(summary_model, tokenizer,text.strip()))
                 stance = classify(class_model,tokenizer,parent=main_topic, child=text)
-                new_line = f"{comment_name} ({stance} main topic): {summary.strip()}\n\n"
+                new_line = f"{comment_name.strip()} ({stance}s main topic): {summary.strip()}\n\n"
                 output_text += new_line
      
         generated_texts.append(output_text)
@@ -231,6 +266,88 @@ def do_random_baseline():
     print()
     scores_df = pd.DataFrame([metrics])
     scores_df.to_csv("scores_llama_pipeline/single_level_results.csv")
+
+
+def evaluate_pipeline_mulitlevel():
+
+    summary_model, tokenizer = load_llama_model("llama-2-7b-textsumm")
+    class_model, _ = load_llama_model("llama-2-7b-stance")
+
+    # import copy
+    # class_model = copy.deepcopy(class_model)
+
+    gold_texts = []
+    generated_texts = []
+
+    counter = 0
+    starttime = time.time()
+
+    for sample in test_dataset:
+        gold_texts.append(sample["output"])
+        input_text = sample["input"]
+        input_lines = re.split(r"\n+", input_text)
+        output_string = ""
+        output_text = ""
+
+        main_topic= input_lines[0].split(":",1)[1].strip()
+
+        #How to do it: 
+
+        # Step 1: get all summaries, put every node in graph.
+        G = nx.DiGraph(rankdir="TB")
+        G.add_node("main topic", node_name="main topic", text=main_topic)
+        colon_trans = str.maketrans("","",":")
+
+        summaries_list = [("main topic",main_topic)]
+
+        for line in input_lines:
+            # print(line)
+            if line.startswith("Comment"):
+                comment_name, text = line.split(":", 1)
+                summary = first_sent_summarize(generate_summary(summary_model, tokenizer,text.strip()))
+                summaries_list.append((comment_name, summary))
+                G.add_node(comment_name, node_name=comment_name.translate(colon_trans), text=comment.translate(colon_trans))
+
+
+        for child_name, child_summ in summaries_list[1:]
+            for parent_name, parent_summ in summaries_list:
+                if child_name != parent_name:
+                    stance, score = classify_with_score(class_model,tokenizer,parent=main_topic, child=text)
+                    if stance != "none":
+                        G.add_edge(child_name, parent_name, label=stance + "s", weight=score)
+
+
+
+                # G.add_edge(node_name, parent, label=relation.translate(colon_trans))
+        edmonds = Edmonds(G)
+        arb = Edmonds.find_optimum(preserve_attrs=True)
+
+        output_text = ""
+        for node in list(arb.nodes())[1:]:
+            summary = arb.nodes[node]["text"]
+            parent = next(iter(arb.successors(node)))
+            stance = arb.get_edge_data(node, parent)["label"]
+            new_line = f"{node.strip()} ({stance.strip()}s {parent.strip()}): {summary.strip()}\n\n"
+            output_text += new_line
+     
+        generated_texts.append(output_text)
+        counter += 1
+        print("*"*200)
+        print(output_text)
+        print(sample["output"])
+
+        avg_time = (time.time() - starttime) / counter
+        print(f"avg time: {avg_time}")
+        total_est_time = avg_time * len(test_dataset)
+        print(f"total est time: {total_est_time}")
+
+    metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
+    print("metrics:")
+    print(metrics)
+    print()
+    scores_df = pd.DataFrame([metrics])
+    scores_df.to_csv("scores_llama_pipeline/single_level_results.csv")
+
 
 
 

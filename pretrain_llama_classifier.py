@@ -29,7 +29,7 @@ args = parser.parse_args()
 dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
 TEST = False
-MULTILEVEL=False
+MULTILEVEL=True
 
 if TEST == True:
     dir_name = "TEST_" + dir_name
@@ -149,10 +149,10 @@ class EvalCallback(TrainerCallback):
 eval_callback = EvalCallback()
 
 
-train_dataset = get_preprocessed_debatabase_class("train")
-val_dataset = get_preprocessed_debatabase_class("val")
+train_dataset = get_preprocessed_debatabase_class("train",multilevel=MULTILEVEL)
+val_dataset = get_preprocessed_debatabase_class("val",multilevel=MULTILEVEL)
 if TEST:
-    val_dataset = get_preprocessed_debatabase_class("test")
+    val_dataset = get_preprocessed_debatabase_class("test",multilevel=MULTILEVEL)
  
 # train_dataset = train_dataset.select(range(1))
 # val_dataset = val_dataset.select(range(1))
@@ -209,8 +209,8 @@ tokenizer.padding_side = 'right'
 
 training_arguments = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=3,
-    per_device_train_batch_size=3,
+    num_train_epochs=8,
+    per_device_train_batch_size=6,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
     evaluation_strategy='epoch',
@@ -248,5 +248,8 @@ trainer = SFTTrainer(
 
 
 trainer.train()
-trainer.model.save_pretrained('llama-2-7b-stance')
+if MULTILEVEL==True:
+    trainer.model.save_pretrained('llama-2-7b-stance-multilevel')
+else:
+    trainer.model.save_pretrained('llama-2-7b-stance')
 

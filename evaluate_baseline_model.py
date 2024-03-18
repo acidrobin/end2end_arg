@@ -37,7 +37,7 @@ if TEST == True:
 if MULTILEVEL==True:
     scores_dir = op.join("scores_class_multilevel", dir_name)
 else:
-    scores_dir = op.join("/content/drive/MyDrive/repos/end2end_arg/scores_class", dir_name)
+    scores_dir = op.join("scores_class", dir_name)
 
 if not op.exists(scores_dir):
     os.mkdir(scores_dir)
@@ -109,10 +109,12 @@ class EvalCallback(TrainerCallback):
             new_tokens_scores = output_scores[input_tok.shape[0]:]
             print(new_tokens_scores)
             new_token_id = torch.argmax(new_tokens_scores[0])
+            max_score = torch.max(new_tokens_scores[0])
             print("*"*20)
             print(tokenizer.decode(new_token_id))
-            
-            # exit(1)
+            print(max_score.detach().item())
+            print(type(max_score.detach().item()))
+            exit()
         
             # for token in output_tok:
             #     print(tokenizer.decode(token))

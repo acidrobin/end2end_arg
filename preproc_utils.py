@@ -82,17 +82,29 @@ def get_preprocessed_debatabase_sft(split, multilevel=False):
     return dataset
 
 
-def get_preprocessed_debatabase_class(split):
+def get_preprocessed_debatabase_class(split, multilevel=False):
 
-    idebate_df = pd.read_csv(f"debatabase_data/classification_{split}.csv")
+    if multilevel:
+        idebate_df = pd.read_csv(f"debatabase_data/classification_{split}_multilevel.csv")
+    else:
+        idebate_df = pd.read_csv(f"debatabase_data/classification_{split}.csv")
 
     dataset = datasets.Dataset.from_pandas(idebate_df)
 
-    prompt = (
+    if multilevel:
+        prompt = (
+        f"[INST]What is the stance of the child comment towards the parent, support, attack or none?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: "
+        )
+
+        full_text = (
+        f"[INST]What is the stance of the child comment towards the parent, support, attack or none?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: {{stance}}</s>"
+    ) 
+    else:
+        prompt = (
         f"[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: "
         )
 
-    full_text = (
+        full_text = (
         f"[INST]What is the stance of the child comment towards the parent, support or attack?\nParent comment:{{parent}}\nChild comment:{{child}}[/INST]\nStance: {{stance}}</s>"
     )
 
