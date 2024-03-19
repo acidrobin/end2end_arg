@@ -154,6 +154,8 @@ val_dataset = get_preprocessed_debatabase_class("val",multilevel=MULTILEVEL)
 if TEST:
     val_dataset = get_preprocessed_debatabase_class("test",multilevel=MULTILEVEL)
  
+val_dataset = val_dataset.select(range(250))
+
 # train_dataset = train_dataset.select(range(1))
 # val_dataset = val_dataset.select(range(1))
 
@@ -210,7 +212,7 @@ tokenizer.padding_side = 'right'
 training_arguments = TrainingArguments(
     output_dir='./results',
     num_train_epochs=8,
-    per_device_train_batch_size=6,
+    per_device_train_batch_size=16,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=1,
     evaluation_strategy='epoch',

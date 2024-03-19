@@ -19,6 +19,9 @@ import os
 import os.path as op
 import numpy as np
 
+import networkx as nx
+from networkx.algorithms.tree.branchings import Edmonds
+
 from argparse import ArgumentParser
 from nltk import sent_tokenize
 
@@ -38,12 +41,8 @@ dir_name = "_".join([str(k) + "_" + str(v) for k,v in vars(args).items()])
 
 
 
-MULTILEVEL=False
 
-if MULTILEVEL==True:
-    scores_dir = op.join("scores_llama_pipeline_multilevel", dir_name)
-else:
-    scores_dir = op.join("scores_llama_pipeline", dir_name)
+scores_dir = op.join("scores_llama_pipeline", dir_name)
 
 if not op.exists(scores_dir):
     os.mkdir(scores_dir)
@@ -197,14 +196,24 @@ def classify_with_score(model, tokenizer, parent, child):
         do_sample=False,
         max_new_tokens=8,        
     )
-    # import pdb; pdb.set_trace()
+
+    classes = ["support","attack"]
+
+    sup_tok = tokenizer.decode("support")
+    att_tok = tokenizer.decode("attack")
+
     input_tok = tokenizer.encode(input_text, return_tensors="pt").cuda()
 
     output_tok = model.generate(input_ids=input_tok, generation_config=generation_config, return_dict_in_generate=True, output_scores=True)
-    scores = output_tok["scores"][len(input_tok[0])]
-    
-    output_score = torch.max(scores).detach().item()
-    output_text = tokenizer.decode(torch.argmax(scores))
+    scores = output_tok["scores"][0]
+
+    relevant_scores = scores[supp_tok,att_tok]
+
+    output_score = torch.max(relevant_scores).detach().item()
+    output_text = classes[torch.argmax(relevant_scores)]
+
+    print(f"output score {output_score}")
+    print(f"output text {output_text}")
 
     return output_text.lower(), output_score
 
@@ -282,7 +291,7 @@ def evaluate_pipeline_mulitlevel():
     counter = 0
     starttime = time.time()
 
-    for sample in test_dataset:
+    for sample in test_dataset_multilevel:
         gold_texts.append(sample["output"])
         input_text = sample["input"]
         input_lines = re.split(r"\n+", input_text)
@@ -306,27 +315,34 @@ def evaluate_pipeline_mulitlevel():
                 comment_name, text = line.split(":", 1)
                 summary = first_sent_summarize(generate_summary(summary_model, tokenizer,text.strip()))
                 summaries_list.append((comment_name, summary))
-                G.add_node(comment_name, node_name=comment_name.translate(colon_trans), text=comment.translate(colon_trans))
+                G.add_node(comment_name, node_name=comment_name.translate(colon_trans), text=text.translate(colon_trans))
 
 
-        for child_name, child_summ in summaries_list[1:]
+        for child_name, child_summ in summaries_list[1:]:
             for parent_name, parent_summ in summaries_list:
                 if child_name != parent_name:
-                    stance, score = classify_with_score(class_model,tokenizer,parent=main_topic, child=text)
+                    stance, score = classify_with_score(class_model,tokenizer,parent=parent_summ, child=child_summ)
                     if stance != "none":
-                        G.add_edge(child_name, parent_name, label=stance + "s", weight=score)
+                        G.add_edge(parent_name, child_name, label=stance + "s", weight=score)
 
 
 
                 # G.add_edge(node_name, parent, label=relation.translate(colon_trans))
         edmonds = Edmonds(G)
-        arb = Edmonds.find_optimum(preserve_attrs=True)
+        arb = edmonds.find_optimum(preserve_attrs=True)
 
         output_text = ""
         for node in list(arb.nodes())[1:]:
-            summary = arb.nodes[node]["text"]
-            parent = next(iter(arb.successors(node)))
-            stance = arb.get_edge_data(node, parent)["label"]
+            # print([n for n in list(arb.nodes())])
+            # print(arb.nodes[node])
+            # print(G.nodes[node])
+            summary = G.nodes[node]["text"]
+            print("predecessors:")
+            print([x for x in arb.predecessors(node)])
+            print("successors:")
+            print([x for x in arb.successors(node)])
+            parent = next(iter(arb.predecessors(node)))
+            stance = arb.get_edge_data(parent, node)["label"]
             new_line = f"{node.strip()} ({stance.strip()}s {parent.strip()}): {summary.strip()}\n\n"
             output_text += new_line
      
@@ -338,7 +354,7 @@ def evaluate_pipeline_mulitlevel():
 
         avg_time = (time.time() - starttime) / counter
         print(f"avg time: {avg_time}")
-        total_est_time = avg_time * len(test_dataset)
+        total_est_time = avg_time * len(test_dataset_multilevel)
         print(f"total est time: {total_est_time}")
 
     metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
@@ -346,46 +362,10 @@ def evaluate_pipeline_mulitlevel():
     print(metrics)
     print()
     scores_df = pd.DataFrame([metrics])
-    scores_df.to_csv("scores_llama_pipeline/single_level_results.csv")
+    scores_df.to_csv("scores_llama_pipeline/multi_level_results.csv")
 
 
 
 
-
-
-# def do_random_baseline_multilevel():
-
-#     gold_texts = []
-#     generated_texts = []
-
-#     for sample in test_dataset:
-#         gold_texts.append(sample["output"])
-#         input_text = sample["input"]
-#         input_lines = re.split(r"\n+", input_text)
-#         output_string = ""
-#         output_text = ""
-
-#         for line in input_lines:
-#             # print(line)
-#             if line.startswith("Comment"):
-#                 comment_name, text = line.split(":", 1)
-#                 comment_number = int(line.split()[1][:-1])
-
-#                 potential_parents = ["main topic"] + [f"Comment {n}" for n in list(range(1,comment_number))]
-#                 parent = np.random.choice(potential_parents)
-#                 summary = first_sent_summarize(text)
-
-#                 stance = np.random.choice(["supports","attacks"])
-#                 new_line = f"{comment_name} ({stance} {parent}): {summary.strip()}\n\n"
-#                 output_text += new_line
-     
-#         print(output_text)
-#         generated_texts.append(output_text)
-
-#     metrics = compute_metrics(predictions=generated_texts, references=gold_texts)
-#     scores_df = pd.DataFrame([metrics])
-#     scores_df.to_csv("scores_random_baseline/multi_level_results.csv")
-
-
-do_random_baseline()
-# do_random_baseline_multilevel()
+#evaluate_pipeline()
+evaluate_pipeline_mulitlevel()

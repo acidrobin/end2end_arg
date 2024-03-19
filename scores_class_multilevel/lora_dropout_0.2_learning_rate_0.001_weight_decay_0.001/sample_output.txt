@@ -1,750 +1,750 @@
 sample 1
-none
+1
 
 sample 2
-none
+1
 
 sample 3
-none
+1
 
 sample 4
-none
+1
 
 sample 5
-none
+1
 
 sample 6
-none
+1
 
 sample 7
-none
+1
 
 sample 8
-3
+1
 
 sample 9
-3
+1
 
 sample 10
-3
+1
 
 sample 11
-3
+1
 
 sample 12
-3
+1
 
 sample 13
-none
+1
 
 sample 14
-none
+1
 
 sample 15
-none
+1
 
 sample 16
-none
+1
 
 sample 17
-none
+1
 
 sample 18
-none
+1
 
 sample 19
-none
+1
 
 sample 20
-none
+1
 
 sample 21
-none
+1
 
 sample 22
-none
+1
 
 sample 23
-none
+1
 
 sample 24
-none
+1
 
 sample 25
-support
+1
 
 sample 26
-3
+1
 
 sample 27
-3
+1
 
 sample 28
-3
+1
 
 sample 29
-3
+1
 
 sample 30
-3
+1
 
 sample 31
-none
+1
 
 sample 32
-3
+1
 
 sample 33
-3
+1
 
 sample 34
-3
+1
 
 sample 35
-3
+1
 
 sample 36
-3
+1
 
 sample 37
-none
+1
 
 sample 38
-3
+1
 
 sample 39
-3
+1
 
 sample 40
-3
+1
 
 sample 41
-3
+1
 
 sample 42
-3
+1
 
 sample 43
-support
+1
 
 sample 44
-3
+1
 
 sample 45
-3
+1
 
 sample 46
-3
+1
 
 sample 47
-3
+1
 
 sample 48
-3
+1
 
 sample 49
-none
+1
 
 sample 50
-3
+1
 
 sample 51
-3
+1
 
 sample 52
-3
+1
 
 sample 53
-3
+1
 
 sample 54
-3
+1
 
 sample 55
-none
+1
 
 sample 56
-3
+1
 
 sample 57
-3
+1
 
 sample 58
-3
+1
 
 sample 59
-3
+1
 
 sample 60
-3
+1
 
 sample 61
-3
+1
 
 sample 62
-3
+1
 
 sample 63
-3
+1
 
 sample 64
-3
+1
 
 sample 65
-3
+1
 
 sample 66
-3
+1
 
 sample 67
-none
+1
 
 sample 68
-none
+1
 
 sample 69
-3
+1
 
 sample 70
-3
+1
 
 sample 71
-3
+1
 
 sample 72
-3
+1
 
 sample 73
-none
+1
 
 sample 74
-3
+1
 
 sample 75
-3
+1
 
 sample 76
-3
+1
 
 sample 77
-3
+1
 
 sample 78
-3
+1
 
 sample 79
-none
+1
 
 sample 80
-none
+1
 
 sample 81
-none
+1
 
 sample 82
-none
+1
 
 sample 83
-none
+1
 
 sample 84
-none
+1
 
 sample 85
-none
+1
 
 sample 86
-3
+1
 
 sample 87
-3
+1
 
 sample 88
-3
+1
 
 sample 89
-3
+1
 
 sample 90
-3
+1
 
 sample 91
-support
+1
 
 sample 92
-3
+1
 
 sample 93
-3
+1
 
 sample 94
-3
+1
 
 sample 95
-3
+1
 
 sample 96
-3
+1
 
 sample 97
-none
+1
 
 sample 98
-3
+1
 
 sample 99
-3
+1
 
 sample 100
-3
+1
 
 sample 101
-3
+1
 
 sample 102
-3
+1
 
 sample 103
-none
+1
 
 sample 104
-3
+1
 
 sample 105
-3
+1
 
 sample 106
-3
+1
 
 sample 107
-3
+1
 
 sample 108
-3
+1
 
 sample 109
-none
+1
 
 sample 110
-3
+1
 
 sample 111
-3
+1
 
 sample 112
-3
+1
 
 sample 113
-3
+1
 
 sample 114
-3
+1
 
 sample 115
-support
+1
 
 sample 116
-3
+1
 
 sample 117
-3
+1
 
 sample 118
-3
+1
 
 sample 119
-3
+1
 
 sample 120
-3
+1
 
 sample 121
-none
+1
 
 sample 122
-3
+1
 
 sample 123
-3
+1
 
 sample 124
-3
+1
 
 sample 125
-3
+1
 
 sample 126
-3
+1
 
 sample 127
-none
+1
 
 sample 128
-3
+1
 
 sample 129
-3
+1
 
 sample 130
-3
+1
 
 sample 131
-3
+1
 
 sample 132
-3
+1
 
 sample 133
-3
+1
 
 sample 134
-3
+1
 
 sample 135
-3
+1
 
 sample 136
-3
+1
 
 sample 137
-3
+1
 
 sample 138
-3
+1
 
 sample 139
-3
+1
 
 sample 140
-3
+1
 
 sample 141
-3
+1
 
 sample 142
-3
+1
 
 sample 143
-3
+1
 
 sample 144
-3
+1
 
 sample 145
-none
+1
 
 sample 146
-3
+1
 
 sample 147
-3
+1
 
 sample 148
-3
+1
 
 sample 149
-none
+1
 
 sample 150
-3
+1
 
 sample 151
-support
+1
 
 sample 152
-3
+1
 
 sample 153
-3
+1
 
 sample 154
-3
+1
 
 sample 155
-3
+1
 
 sample 156
-3
+1
 
 sample 157
-none
+1
 
 sample 158
-3
+1
 
 sample 159
-3
+1
 
 sample 160
-3
+1
 
 sample 161
-3
+1
 
 sample 162
-3
+1
 
 sample 163
-none
+1
 
 sample 164
-3
+1
 
 sample 165
-3
+1
 
 sample 166
-none
+1
 
 sample 167
-3
+1
 
 sample 168
-3
+1
 
 sample 169
-none
+1
 
 sample 170
-none
+1
 
 sample 171
-none
+1
 
 sample 172
-none
+1
 
 sample 173
-none
+1
 
 sample 174
-none
+1
 
 sample 175
-none
+1
 
 sample 176
-3
+1
 
 sample 177
-none
+1
 
 sample 178
-none
+1
 
 sample 179
-none
+1
 
 sample 180
-none
+1
 
 sample 181
-none
+1
 
 sample 182
-3
+1
 
 sample 183
-3
+1
 
 sample 184
-3
+1
 
 sample 185
-3
+1
 
 sample 186
-3
+1
 
 sample 187
-none
+1
 
 sample 188
-3
+1
 
 sample 189
-3
+1
 
 sample 190
-none
+1
 
 sample 191
-3
+1
 
 sample 192
-3
+1
 
 sample 193
-none
+1
 
 sample 194
-3
+1
 
 sample 195
-3
+1
 
 sample 196
-3
+1
 
 sample 197
-3
+1
 
 sample 198
-3
+1
 
 sample 199
-none
+1
 
 sample 200
-3
+1
 
 sample 201
-3
+1
 
 sample 202
-3
+1
 
 sample 203
-3
+1
 
 sample 204
-3
+1
 
 sample 205
-3
+1
 
 sample 206
-3
+1
 
 sample 207
-3
+1
 
 sample 208
-3
+1
 
 sample 209
-3
+1
 
 sample 210
-3
+1
 
 sample 211
-none
+1
 
 sample 212
-3
+1
 
 sample 213
-3
+1
 
 sample 214
-3
+1
 
 sample 215
-3
+1
 
 sample 216
-3
+1
 
 sample 217
-none
+1
 
 sample 218
-3
+1
 
 sample 219
-3
+1
 
 sample 220
-3
+1
 
 sample 221
-3
+1
 
 sample 222
-3
+1
 
 sample 223
-none
+1
 
 sample 224
-3
+1
 
 sample 225
-3
+1
 
 sample 226
-3
+1
 
 sample 227
-3
+1
 
 sample 228
-3
+1
 
 sample 229
-none
+1
 
 sample 230
-3
+1
 
 sample 231
-3
+1
 
 sample 232
-3
+1
 
 sample 233
-3
+1
 
 sample 234
-3
+1
 
 sample 235
-none
+1
 
 sample 236
-3
+1
 
 sample 237
-3
+1
 
 sample 238
-3
+1
 
 sample 239
-3
+1
 
 sample 240
-3
+1
 
 sample 241
-none
+1
 
 sample 242
-3
+1
 
 sample 243
-3
+1
 
 sample 244
-3
+1
 
 sample 245
-none
+1
 
 sample 246
-3
+1
 
 sample 247
-none
+1
 
 sample 248
-3
+1
 
 sample 249
-3
+1
 
 sample 250
-3
+1
 
